@@ -82,6 +82,43 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/permutations/description/
+        #region 46. 全排列
+        public static IList<IList<int>> Permute(int[] nums)
+        {
+            IList<IList<int>> res = new List<IList<int>>();
+
+            P(nums, 0, nums.Length - 1, res);
+
+            return res;
+        }
+        private static void P(int[] nums, int start, int end, IList<IList<int>> res)
+        {
+            if(start != end)
+            {
+                for(int i = start; i <= end; i++)
+                {
+                    Swap(nums, i, start);
+                    P(nums, start + 1, end, res);
+                    Swap(nums, i, start);
+                }
+            }
+            else
+            {
+                IList<int> l = new List<int>();
+                for(int i = 0; i <= end; i++)
+                    l.Add(nums[i]);
+                res.Add(l);
+            }
+        }
+        private static void Swap(int[] nums, int i, int j)
+        {
+            int t = nums[i];
+            nums[i] = nums[j];
+            nums[j] = t;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/rotate-image/description/
         #region 48. 旋转图像
         public static void RotateImage(int[,] matrix)
@@ -148,6 +185,92 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/sort-colors/description/
+        #region 75. 分类颜色
+        public static void SortColors(int[] nums)
+        {
+            QuickSort(nums);
+        }
+
+        public static void QuickSort(int[] nums)
+        {
+            Sort(nums, 0, nums.Length - 1);
+        }
+        private static void Sort(int[] nums, int left, int right)
+        {
+            if(left >= right)
+                return;
+
+            int index = Partition(nums, left, right);
+            Sort(nums, left, index - 1);
+            Sort(nums, index + 1, right);
+        }
+        private static int Partition(int[] nums, int left, int right)
+        {
+            int center = left;
+            int pivot = nums[right];
+
+            for(int i = left; i < right; i++)
+            {
+                if(nums[i] <= pivot)
+                {
+                    Swap(nums, i, center++);
+                }
+            }
+            Swap(nums, center, right);
+
+            return center;
+        }
+        //private static void Swap(int[] nums, int i, int j)
+        //{
+        //    if(i == j)
+        //        return;
+
+        //    int t = nums[i];
+        //    nums[i] = nums[j];
+        //    nums[j] = t;
+        //}
+        #endregion
+
+        //https://leetcode-cn.com/problems/linked-list-cycle-ii/description/
+        #region 142. 环形链表 II
+        public static ListNode DetectCycle(ListNode head)
+        {
+            if(head == null)
+                return null;
+
+            var walker = head;
+            var runner = head;
+
+            ListNode point = null;
+            while(runner.next != null && runner.next.next != null)
+            {
+                walker = walker.next;
+                runner = runner.next.next;
+                if(walker == runner)
+                {
+                    point = walker;
+                    break;
+                }
+            }
+
+            if(point != null)
+            {
+                ListNode entrance = head;
+                while(point.next != null)
+                {
+                    if(point == entrance)
+                        return entrance;
+
+                    point = point.next;
+                    entrance = entrance.next;
+                }
+
+            }
+            return null;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/number-of-islands/description/
         #region TODO: 200. 岛屿的个数
         public static int NumIslands(char[,] grid)
@@ -161,6 +284,127 @@ namespace LeetCode
             }
 
 
+            return 0;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/counting-bits/description/
+        #region 338. Bit位计数
+        public static int[] CountBits(int num)
+        {
+            int[] res = new int[num + 1];
+
+            for(int i = 1; i <= num; i++)
+                res[i] = CountBit(i);
+
+            return res;
+        }
+        private static int CountBit(int n)
+        {
+            int i = 0;
+            while(n > 0)
+            {
+                n &= n - 1;
+                i++;
+            }
+            return i;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/decode-string/description/
+        #region 394. 字符串解码
+        public static string DecodeString(string s)
+        {
+            int k = 0;
+            StringBuilder sb = new StringBuilder();
+            for(int i = 0; i < s.Length; i++)
+            {
+                if(s[i] >= '0' && s[i] <= '9')
+                {
+                    k = k * 10 + (s[i] - '0');
+                    continue;
+                }
+                else if(s[i] == '[')
+                {
+                    int c = 1;
+                    int j = i + 1;
+                    while(c > 0)
+                    {
+                        if(s[j] == '[')
+                            c++;
+                        else if(s[j] == ']')
+                            c--;
+                        j++;
+                    }
+                    string str = DecodeString(s.Substring(i + 1, j - i - 2));
+                    for(int m = 0; m < k; m++)
+                    {
+                        sb.Append(str);
+                    }
+                    i = j - 1;
+                    k = 0;
+                }
+                else
+                    sb.Append(s[i]);
+            }
+
+            return sb.ToString();
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/find-all-duplicates-in-an-array/description/
+        #region 442. 数组中重复的数据
+        public static IList<int> FindDuplicates(int[] nums)
+        {
+            List<int> res = new List<int>();
+            for(int i = 0; i < nums.Length; i++)
+            {
+                int index = Math.Abs(nums[i]) - 1;
+                if(nums[index] < 0)
+                    res.Add(Math.Abs(index + 1));
+                nums[index] *= -1;
+            }
+            return res;
+        }
+        #endregion
+
+        //https://leetcode.com/problems/132-pattern/description/
+        #region 456. 132 Pattern
+        public static bool Find132pattern(int[] nums)
+        {
+            int p3 = int.MinValue;
+            Stack<int> stack = new Stack<int>();
+            for(int i = nums.Length - 1; i >= 0; i--)
+            {
+                if(nums[i] < p3)
+                {
+                    return true;
+                }
+                else
+                {
+                    while(stack.Count > 0 && nums[i] > stack.Peek())
+                    {
+                        p3 = stack.Pop();
+                    }
+                }
+                stack.Push(nums[i]);
+            }
+
+            return false;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/single-element-in-a-sorted-array/description/
+        #region 540. 有序数组中的单一元素
+        public static int SingleNonDuplicate(int[] nums)
+        {
+            for(int i = 0; i < nums.Length; i += 2)
+            {
+                if(i + 1 >= nums.Length)
+                    return nums[i];
+                if(nums[i] != nums[i + 1])
+                    return nums[i];
+            }
             return 0;
         }
         #endregion

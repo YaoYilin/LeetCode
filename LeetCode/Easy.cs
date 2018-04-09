@@ -50,6 +50,28 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/merge-two-sorted-lists/description/
+        #region 21. 合并两个有序链表
+        public static ListNode MergeTwoLists(ListNode l1, ListNode l2)
+        {
+            if(l1 == null)
+                return l2;
+            if(l2 == null)
+                return l1;
+
+            if(l1.val < l2.val)
+            {
+                l1.next = MergeTwoLists(l1.next, l2);
+                return l1;
+            }
+            else
+            {
+                l2.next = MergeTwoLists(l2.next, l1);
+                return l2;
+            }
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/remove-element/description/
         #region 27. 移除元素
         public static int RemoveElement(int[] nums, int val)
@@ -70,6 +92,26 @@ namespace LeetCode
             }
 
             return len;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/length-of-last-word/description/
+        #region 58. 最后一个单词的长度
+        public static int LengthOfLastWord(string s)
+        {
+            if(string.IsNullOrWhiteSpace(s))
+                return 0;
+
+            string str = s.TrimEnd();
+            int i = str.Length - 1;
+            int l = 0;
+            while(i >= 0)
+            {
+                if(s[i--] == ' ')
+                    break;
+                l++;
+            }
+            return l;
         }
         #endregion
 
@@ -103,6 +145,18 @@ namespace LeetCode
                     left = middle + 1;
                 }
             }
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/description/
+        #region 111. 二叉树的最小深度
+        public static int MinDepth(TreeNode root)
+        {
+            if(root == null)
+                return 0;
+
+            int L = MinDepth(root.left), R = MinDepth(root.right);
+            return L < R && L > 0 || R < 1 ? 1 + L : 1 + R;
         }
         #endregion
 
@@ -180,6 +234,74 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/reverse-linked-list/description/
+        #region 206. 反转链表
+        public static ListNode ReverseList(ListNode head)
+        {
+            ListNode list = null;
+            while(head != null)
+            {
+                var next = head.next;
+                head.next = list;
+                list = head;
+                head = next;
+            }
+
+            return list;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/invert-binary-tree/description/
+        #region 226. 翻转二叉树
+        public static TreeNode InvertTree(TreeNode root)
+        {
+            if(root == null)
+                return null;
+            var tree = root.left;
+            root.left = root.right;
+            root.right = tree;
+            InvertTree(root.left);
+            InvertTree(root.right);
+            return root;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/power-of-two/description/
+        #region 231. 2的幂
+        public static bool IsPowerOfTwo(int n)
+        {
+            int c = 0;
+            while(n > 0)
+            {
+                if((n & 1) == 1 && (++c > 1))
+                    return false;
+                n >>= 1;
+            }
+            return c > 0;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/delete-node-in-a-linked-list/description/
+        #region 237. 删除链表的结点
+        public static void DeleteNode(ListNode node)
+        {
+            node.val = node.next.val;
+            node.next = node.next.next;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/missing-number/description/
+        #region 268. 缺失数字
+        public static int MissingNumber(int[] nums)
+        {
+            int sum = 0;
+            for(int i = 0; i < nums.Length; i++)
+                sum += nums[i];
+
+            return (nums.Length * (nums.Length + 1)) / 2 - sum;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/move-zeroes/description/
         #region 283. 移动零
         public static void MoveZeroes(int[] nums)
@@ -212,6 +334,14 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/power-of-four/description/
+        #region 342. 4的幂
+        public static bool IsPowerOfFour(int num)
+        {
+            return (((num - 1) & num) == 0) && ((num & 0x55555555) != 0);
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/reverse-string/description/
         #region 344. 反转字符串
         public static string ReverseString(string s)
@@ -241,6 +371,34 @@ namespace LeetCode
             sum = a ^ b;
             carry = (a & b) << 1;
             return GetSum(sum, carry);
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/first-unique-character-in-a-string/description/
+        #region 387. 字符串中的第一个唯一字符
+        public static int FirstUniqChar(string s)
+        {
+            int[] asicii = new int['z' + 1];
+            int[] chars = new int[s.Length];
+            for(int i = 0; i < s.Length; i++)
+            {
+                char c = s[i];
+                if(asicii[c] == 0)
+                {
+                    chars[i] = c;
+                    asicii[c] = i + 1;
+                }
+                else
+                {
+                    chars[asicii[c] - 1] = -1;
+                }
+            }
+
+            for(int i = 0; i < chars.Length; i++)
+                if(chars[i] > 0)
+                    return i;
+
+            return -1;
         }
         #endregion
 
@@ -287,6 +445,77 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/fizz-buzz/description/
+        #region 412. Fizz Buzz
+        public static IList<string> FizzBuzz(int n)
+        {
+            List<string> strs = new List<string>();
+
+            for(int i = 1; i <= n; i++)
+            {
+                if(i % 3 == 0)
+                {
+                    if(i % 5 == 0)
+                    {
+                        strs.Add("FizzBuzz");
+                    }
+                    else
+                    {
+                        strs.Add("Fizz");
+                    }
+                }
+                else if(i % 5 == 0)
+                {
+                    if(i % 3 == 0)
+                    {
+                        strs.Add("FizzBuzz");
+                    }
+                    else
+                    {
+                        strs.Add("Buzz");
+                    }
+                }
+                else
+                {
+                    strs.Add(i.ToString());
+                }
+            }
+
+            return strs;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/add-strings/description/
+        #region 415. 字符串相加
+        public static string AddStrings(string num1, string num2)
+        {
+            List<char> res = new List<char>();
+            int carry = 0, sum = 0;
+            int n1 = 0, n2 = 0;
+
+            int i = 1;
+            while((num1.Length - i >= 0 || num2.Length - i >= 0) || carry > 0)
+            {
+                if(num1.Length - i >= 0)
+                    n1 = num1[num1.Length - i] - '0';
+                else
+                    n1 = 0;
+
+                if(num2.Length - i >= 0)
+                    n2 = num2[num2.Length - i] - '0';
+                else
+                    n2 = 0;
+                sum = n1 + n2 + carry;
+                carry = sum / 10;
+                sum %= 10;
+                res.Insert(0, (char)(sum + '0'));
+                i++;
+            }
+
+            return new string(res.ToArray());
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/find-all-numbers-disappeared-in-an-array/description/
         #region 448. 找到所有数组中消失的数字
         public static IList<int> FindDisappearedNumbers(int[] nums)
@@ -299,6 +528,34 @@ namespace LeetCode
             for(int i = 1; i < arr.Length; i++)
                 if(arr[i] == 0)
                     res.Add(i);
+
+            return res;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/island-perimeter/description/
+        #region 463. 岛屿的周长
+        public static int IslandPerimeter(int[,] grid)
+        {
+            int res = 0;
+            int maxRow = grid.GetUpperBound(0);
+            int maxCol = grid.GetUpperBound(1);
+            int b, r;
+            for(int row = -1; row <= maxRow; row++)
+            {
+                for(int col = -1; col <= maxCol; col++)
+                {
+                    int v = row < 0 || col < 0 ? 0 : grid[row, col];
+
+                    b = col < 0 || row == maxRow ? 0 : grid[row + 1, col];
+                    r = row < 0 || col == maxCol ? 0 : grid[row, col + 1];
+
+                    if(v != b)
+                        res++;
+                    if(v != r)
+                        res++;
+                }
+            }
 
             return res;
         }
@@ -409,6 +666,38 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/reverse-string-ii/description/
+        #region 541. 反转字符串 II
+        public static string ReverseStr(string s, int k)
+        {
+            char[] str = s.ToArray();
+            int l = s.Length;
+            if(l == 0)
+                return string.Empty;
+
+            if(k > l)
+                Swap(str, 0, l);
+            else
+                for(int i = 0; i < l;)
+                {
+                    int j = Math.Min(i + k, l);
+                    Swap(str, i, j);
+                    i += 2 * k;
+                }
+
+            return new string(str);
+        }
+        private static void Swap(char[] chars, int start, int end)
+        {
+            while(start < end)
+            {
+                char c = chars[start];
+                chars[start++] = chars[--end];
+                chars[end] = c;
+            }
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/description/
         #region 557. 反转字符串中的单词 III
         public static string ReverseWords(string s)
@@ -443,6 +732,26 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/merge-two-binary-trees/description/
+        #region 617. 合并二叉树
+        public static TreeNode MergeTrees(TreeNode t1, TreeNode t2)
+        {
+            if(t1 == null && t2 == null)
+                return null;
 
+            int v = 0;
+            if(t1 != null)
+                v += t1.val;
+            if(t2 != null)
+                v += t2.val;
+
+            var res = new TreeNode(v);
+
+            res.left = MergeTrees(t1 != null ? t1.left : null, t2 != null ? t2.left : null);
+            res.right = MergeTrees(t1 != null ? t1.right : null, t2 != null ? t2.right : null);
+
+            return res;
+        }
+        #endregion
     }
 }
