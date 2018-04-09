@@ -1,0 +1,6 @@
+D:\Local work\leetcode\LeetCode\LeetCode\bin\Debug\LeetCode.exe.config
+D:\Local work\leetcode\LeetCode\LeetCode\bin\Debug\LeetCode.exe
+D:\Local work\leetcode\LeetCode\LeetCode\bin\Debug\LeetCode.pdb
+D:\Local work\leetcode\LeetCode\LeetCode\obj\Debug\LeetCode.csprojResolveAssemblyReference.cache
+D:\Local work\leetcode\LeetCode\LeetCode\obj\Debug\LeetCode.exe
+D:\Local work\leetcode\LeetCode\LeetCode\obj\Debug\LeetCode.pdb
