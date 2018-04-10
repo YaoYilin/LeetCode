@@ -173,6 +173,58 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/description/
+        #region 167. 两数之和 II - 输入有序数组
+        public static int[] TwoSum167(int[] numbers, int target)
+        {
+            int[] res = new int[2];
+
+            if(numbers == null || numbers.Length < 2)
+                return res;
+
+            int l = 0, r = numbers.Length - 1;
+
+            while(l < r)
+            {
+                int lv = numbers[l];
+                int rv = numbers[r];
+                int sum = lv + rv;
+                if(sum == target)
+                {
+                    res[0] = l + 1;
+                    res[1] = r + 1;
+                    break;
+                }
+                else if(sum > target)
+                    r--;
+                else
+                    l++;
+            }
+
+            return res;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/excel-sheet-column-number/description/
+        #region 171. Excel表列序号
+        public static int TitleToNumber(string s)
+        {
+            int res = 0;
+            for(int i = 0; i < s.Length; i++)
+                res += (ParseExcelTitleChar(s[i]) * (int)Math.Pow(26, s.Length - i - 1));
+
+            return res;
+        }
+        private static int ParseExcelTitleChar(char c)
+        {
+            if(c >= 'A' && c <= 'Z')
+            {
+                return c - 'A' + 1;
+            }
+            return 0;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/rotate-array/description/
         #region 189. 旋转数组
         public static void Rotate(int[] nums, int k)
@@ -231,6 +283,33 @@ namespace LeetCode
                 c++;
             }
             return c;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/isomorphic-strings/description/
+        #region 205. 同构字符串
+        public static bool IsIsomorphic(string s, string t)
+        {
+            char[] m = new char[256];
+            char[] n = new char[256];
+            for(int i = 0; i < s.Length; i++)
+            {
+                var si = s[i];
+                var ti = t[i];
+
+                if(m[si] == 0 && n[ti] == 0)
+                {
+                    m[si] = ti;
+                    n[ti] = si;
+                }
+                else
+                {
+                    if(m[si] != ti && n[ti] != si)
+                        return false;
+                }
+            }
+
+            return true;
         }
         #endregion
 
@@ -751,6 +830,118 @@ namespace LeetCode
             res.right = MergeTrees(t1 != null ? t1.right : null, t2 != null ? t2.right : null);
 
             return res;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/judge-route-circle/description/
+        #region 657. 判断路线成圈
+        public static bool JudgeCircle(string moves)
+        {
+            int res = 0;
+            for(int i = 0; i < moves.Length; i++)
+            {
+                char c = moves[i];
+                if(c == 'U')
+                    res++;
+                else if(c == 'D')
+                    res--;
+                else if(c == 'L')
+                    res += 2;
+                else if(c == 'R')
+                    res -= 2;
+            }
+            return res == 0;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/binary-number-with-alternating-bits/description/
+        #region 693. 交替位二进制数
+        public static bool HasAlternatingBits(int n)
+        {
+            return (((long)n + (n >> 1) + 1) & ((long)n + (n >> 1))) == 0;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/prime-number-of-set-bits-in-binary-representation/description/
+        #region 762. 二进制表示中质数个计算置位
+        public static int CountPrimeSetBits(int L, int R)
+        {
+            int c = 0;
+            for(int i = L; i <= R; i++)
+                if(IsPrime(CountBit(i)))
+                    c++;
+            return c;
+        }
+        private static bool[] primeArray = new bool[] { false, false, true, true, false, true,
+                             false, true, false, false, false, true,
+                             false, true, false, false, false, true,
+                             false, true, false, false, false, true };
+        private static bool IsPrime(int num)
+        {
+            return primeArray[num];
+        }
+        private static int CountBit(int num)
+        {
+            int res = 0;
+            while(num > 0)
+            {
+                num &= (num - 1);
+                res++;
+            }
+            return res;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/jewels-and-stones/description/
+        #region 771. 宝石与石头
+        public static int NumJewelsInStones(string J, string S)
+        {
+            int[] stones = new int['z' + 1];
+            for(int i = 0; i < S.Length; i++)
+                stones[S[i]]++;
+
+            int count = 0;
+            for(int i = 0; i < J.Length; i++)
+                count += stones[J[i]];
+
+            return count;
+        }
+    
+    #endregion
+
+        //https://leetcode-cn.com/problems/rotate-string/description/
+        #region 796. 旋转字符串
+        public static bool RotateString(string A, string B)
+        {
+            if(A.Length != B.Length)
+                return false;
+            return (B + B).Contains(A);
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/unique-morse-code-words/description/
+        #region 804. 唯一摩尔斯密码词
+        public static int UniqueMorseRepresentations(string[] words)
+        {
+            HashSet<string> morses = new HashSet<string>();
+            foreach(var word in words)
+            {
+                var m = WordToMorse(word);
+                if(!morses.Contains(m))
+                    morses.Add(m);
+            }
+            return morses.Count;
+        }
+        private static string[] morse = new string[] { ".-", "-...", "-.-.", "-..", ".",
+            "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---",
+            ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.." };
+        private static string WordToMorse(string word)
+        {
+            StringBuilder sb = new StringBuilder();
+            for(int i = 0; i < word.Length; i++)
+                sb.Append(morse[word[i] - 'a']);
+
+            return sb.ToString();
         }
         #endregion
     }

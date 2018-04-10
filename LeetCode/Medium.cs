@@ -288,6 +288,29 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/find-the-duplicate-number/description/
+        #region 287. 寻找重复数
+        public static int FindDuplicate(int[] nums)
+        {
+            int[] arr = new int[nums.Length];
+            for(int i = 0; i < nums.Length; i++)
+            {
+                int t = nums[i];
+                if(arr[t] == 0)
+                    arr[t] = nums[i];
+                else
+                    arr[t] = -1;
+            }
+
+            for(int i = 0; i < arr.Length; i++)
+            {
+                if(arr[i] == -1)
+                    return i;
+            }
+            return 0;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/counting-bits/description/
         #region 338. Bit位计数
         public static int[] CountBits(int num)
