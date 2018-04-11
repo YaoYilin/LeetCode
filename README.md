@@ -59,6 +59,7 @@
 * [442. 数组中重复的数据](https://leetcode-cn.com/problems/find-all-duplicates-in-an-array/description/)
 * [456. 132 Pattern](https://leetcode-cn.com/problems/132-pattern/description/)
 * [540. 有序数组中的单一元素](https://leetcode-cn.com/problems/single-element-in-a-sorted-array/description/)
+* [791. 自定义字符串排序](https://leetcode-cn.com/problems/custom-sort-string/description/)
 ###  Hard
 * [4. 两个排序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/description/)
 

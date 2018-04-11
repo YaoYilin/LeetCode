@@ -431,5 +431,32 @@ namespace LeetCode
             return 0;
         }
         #endregion
+
+        //https://leetcode-cn.com/problems/custom-sort-string/description/
+        #region 791. 自定义字符串排序
+        public static string CustomSortString(string S, string T)
+        {
+            int[] priority = new int['z' + 1];
+            for(int i = 0; i < S.Length; i++)
+                priority[S[i]] = i + 1;
+
+            char[] res = T.ToCharArray();
+
+            for(int i = 0; i < res.Length; i++)
+            {
+                for(int j = i; j < res.Length; j++)
+                {
+                    if(priority[res[j]] < priority[res[i]])
+                    {
+                        char t = res[i];
+                        res[i] = res[j];
+                        res[j] = t;
+                    }
+                }
+            }
+
+            return new string(res);
+        }
+        #endregion
     }
 }
