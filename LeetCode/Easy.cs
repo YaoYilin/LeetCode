@@ -831,11 +831,33 @@ namespace LeetCode
 
             return res;
         }
-        #endregion
+		#endregion
 
-        //https://leetcode-cn.com/problems/judge-route-circle/description/
-        #region 657. 判断路线成圈
-        public static bool JudgeCircle(string moves)
+		//https://leetcode-cn.com/problems/sum-of-square-numbers/description/
+		#region 633. 平方数之和
+		public static bool JudgeSquareSum(int c)
+		{
+			int left = 0;
+			int right = (int)Math.Sqrt(c);
+			
+			while (left <= right)
+			{
+				int r = left * left + right * right;
+				if (r > c)
+					right--;
+				else if (r < c)
+					left++;
+				else
+					return true;
+			}
+
+			return false;
+		}
+		#endregion
+
+		//https://leetcode-cn.com/problems/judge-route-circle/description/
+		#region 657. 判断路线成圈
+		public static bool JudgeCircle(string moves)
         {
             int res = 0;
             for(int i = 0; i < moves.Length; i++)

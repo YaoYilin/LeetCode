@@ -39,6 +39,7 @@
 * [541. 反转字符串 II](https://leetcode-cn.com/problems/reverse-string-ii/description/)
 * [557. 反转字符串中的单词 III](https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/description/)
 * [617. 合并二叉树](https://leetcode-cn.com/problems/merge-two-binary-trees/description/)
+* [633. 平方数之和](https://leetcode-cn.com/problems/sum-of-square-numbers/description/)
 * [657. 判断路线成圈](https://leetcode-cn.com/problems/judge-route-circle/description/)
 * [693. 交替位二进制数](https://leetcode-cn.com/problems/binary-number-with-alternating-bits/description/)
 * [762. 二进制表示中质数个计算置位](https://leetcode-cn.com/problems/prime-number-of-set-bits-in-binary-representation/description/)
