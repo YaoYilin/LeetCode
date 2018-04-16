@@ -53,6 +53,7 @@
 * [48. 旋转图像](https://leetcode-cn.com/problems/rotate-image/description/)
 * [54. 螺旋矩阵](https://leetcode-cn.com/problems/spiral-matrix/description/)
 * [75. 分类颜色](https://leetcode-cn.com/problems/sort-colors/description/)
+* [92. Reverse Linked List II](https://leetcode-cn.com/problems/reverse-linked-list-ii/description/)
 * [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/description/)
 * [287. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/description/)
 * [338. Bit位计数](https://leetcode-cn.com/problems/counting-bits/description/)

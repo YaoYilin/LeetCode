@@ -232,6 +232,33 @@ namespace LeetCode
         //}
         #endregion
 
+        //https://leetcode-cn.com/problems/reverse-linked-list-ii/description/
+        #region 92. 反转链表 II
+        public static ListNode ReverseBetween(ListNode head, int m, int n)
+        {
+            if(m == n)
+                return head;
+
+            n -= m;
+            ListNode dummy = new ListNode(0);
+            dummy.next = head;
+
+            ListNode p1 = dummy;
+            while(--m > 0)
+                p1 = p1.next;
+            ListNode p2 = p1.next;
+            while(n-- > 0)
+            {
+                ListNode p = p2.next;
+                p2.next = p.next;
+                p.next = p1.next;
+                p1.next = p;
+            }
+
+            return dummy.next;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/linked-list-cycle-ii/description/
         #region 142. 环形链表 II
         public static ListNode DetectCycle(ListNode head)
