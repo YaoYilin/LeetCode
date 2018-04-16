@@ -369,6 +369,15 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/add-digits/description/
+        #region 258. 各位相加
+        // 这个题放到Easy里，有点说不过去。
+        public static int AddDigits(int num)
+        {
+            return 1 + (num - 1) % 9;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/missing-number/description/
         #region 268. 缺失数字
         public static int MissingNumber(int[] nums)
@@ -831,33 +840,33 @@ namespace LeetCode
 
             return res;
         }
-		#endregion
+        #endregion
 
-		//https://leetcode-cn.com/problems/sum-of-square-numbers/description/
-		#region 633. 平方数之和
-		public static bool JudgeSquareSum(int c)
-		{
-			int left = 0;
-			int right = (int)Math.Sqrt(c);
-			
-			while (left <= right)
-			{
-				int r = left * left + right * right;
-				if (r > c)
-					right--;
-				else if (r < c)
-					left++;
-				else
-					return true;
-			}
+        //https://leetcode-cn.com/problems/sum-of-square-numbers/description/
+        #region 633. 平方数之和
+        public static bool JudgeSquareSum(int c)
+        {
+            int left = 0;
+            int right = (int)Math.Sqrt(c);
 
-			return false;
-		}
-		#endregion
+            while(left <= right)
+            {
+                int r = left * left + right * right;
+                if(r > c)
+                    right--;
+                else if(r < c)
+                    left++;
+                else
+                    return true;
+            }
 
-		//https://leetcode-cn.com/problems/judge-route-circle/description/
-		#region 657. 判断路线成圈
-		public static bool JudgeCircle(string moves)
+            return false;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/judge-route-circle/description/
+        #region 657. 判断路线成圈
+        public static bool JudgeCircle(string moves)
         {
             int res = 0;
             for(int i = 0; i < moves.Length; i++)
@@ -928,8 +937,8 @@ namespace LeetCode
 
             return count;
         }
-    
-    #endregion
+
+        #endregion
 
         //https://leetcode-cn.com/problems/rotate-string/description/
         #region 796. 旋转字符串
