@@ -372,9 +372,30 @@ namespace LeetCode
         //https://leetcode-cn.com/problems/add-digits/description/
         #region 258. 各位相加
         // 这个题放到Easy里，有点说不过去。
+        // 参考这个：https://en.wikipedia.org/wiki/Digital_root#Congruence_formula
         public static int AddDigits(int num)
         {
             return 1 + (num - 1) % 9;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/ugly-number/description/
+        #region 263. 丑数
+        public static bool IsUgly(int num)
+        {
+            if(num <= 0)
+                return false;
+
+            while(num % 2 == 0)
+                num /= 2;
+
+            while(num % 3 == 0)
+                num /= 3;
+
+            while(num % 5 == 0)
+                num /= 5;
+
+            return num == 1;
         }
         #endregion
 
