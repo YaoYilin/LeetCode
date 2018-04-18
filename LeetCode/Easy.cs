@@ -118,6 +118,21 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/search-insert-position/description/
+        #region 35. 搜索插入位置
+        public static int SearchInsert(int[] nums, int target)
+        {
+            for (int i = 0; i < nums.Length; i++)
+            {
+                int v = nums[i];
+                if(v >= target)
+                    return i;
+            }
+
+            return nums.Length;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/length-of-last-word/description/
         #region 58. 最后一个单词的长度
         public static int LengthOfLastWord(string s)
