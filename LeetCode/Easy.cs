@@ -72,6 +72,29 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/description/
+        #region 26. 删除排序数组中的重复项
+        public static int RemoveDuplicates(int[] nums)
+        {
+            if(nums.Length < 2)
+                return nums.Length;
+
+            int index = 0;
+            int v = nums[0];
+            for(int i = 1; i < nums.Length; i++)
+            {
+                if(nums[i] != v)
+                {
+                    index++;
+                    v = nums[i];
+                    nums[index] = v;
+                }
+            }
+
+            return index + 1;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/remove-element/description/
         #region 27. 移除元素
         public static int RemoveElement(int[] nums, int val)

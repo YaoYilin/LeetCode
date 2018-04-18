@@ -6,6 +6,7 @@
 * [1. 两数之和](https://leetcode-cn.com/problems/two-sum/description/)
 * [7. 颠倒整数](https://leetcode-cn.com/problems/reverse-integer/description/)
 * [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/description/)
+* [26. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/description/)
 * [27. 移除元素](https://leetcode-cn.com/problems/remove-element/description/)
 * [58. 最后一个单词的长度](https://leetcode-cn.com/problems/length-of-last-word/description/)
 * [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/description/)
