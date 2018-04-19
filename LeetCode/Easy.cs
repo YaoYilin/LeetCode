@@ -198,6 +198,18 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/pascals-triangle/description/
+        #region 118. 帕斯卡三角形（杨辉三角）
+        public static IList<IList<int>> Generate(int numRows)
+        {
+            IList<IList<int>> res = new List<IList<int>>();
+            for (int i = 0; i < numRows; i++)
+                res.Add(GetRow(i)); // No. 119
+
+            return res;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/pascals-triangle-ii/description/
         #region 119. 帕斯卡三角形（杨辉三角）II
         /// <summary>
@@ -500,6 +512,17 @@ namespace LeetCode
                     i++;
                 }
             }
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/power-of-three/description/
+        #region 326. 3的幂
+        /// <summary>
+        /// 1162261467 is the biggest int number of power 3
+        /// </summary>
+        public static bool IsPowerOfThree(int n)
+        {
+            return (n > 0 && 1162261467 % n == 0);
         }
         #endregion
 
