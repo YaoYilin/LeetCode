@@ -122,7 +122,7 @@ namespace LeetCode
         #region 35. 搜索插入位置
         public static int SearchInsert(int[] nums, int target)
         {
-            for (int i = 0; i < nums.Length; i++)
+            for(int i = 0; i < nums.Length; i++)
             {
                 int v = nums[i];
                 if(v >= target)
@@ -195,6 +195,28 @@ namespace LeetCode
 
             int L = MinDepth(root.left), R = MinDepth(root.right);
             return L < R && L > 0 || R < 1 ? 1 + L : 1 + R;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/pascals-triangle-ii/description/
+        #region 119. 帕斯卡三角形（杨辉三角）II
+        /// <summary>
+        /// https://en.wikipedia.org/wiki/Pascal%27s_triangle
+        /// ∵ C[n, m] = n! / (m! * (n - m)!)
+        /// ∴ C[n, m - 1] = n！ / ((m - 1)! * (n - m - 1)!)
+        /// ∴ C[n, m] = C[n, m - 1] / (m * ( n - (m - 1)))
+        /// thus C[n, m] = C[n, m - 1] * (n - m + 1) / m
+        /// ∵ C[n, 0] = 1
+        /// thus for index = 1 to row, we can get the result
+        /// </summary>
+        public static IList<int> GetRow(int rowIndex)
+        {
+            int[] row = new int[rowIndex + 1];
+            row[0] = 1;
+            for(int i = 1; i <= rowIndex; i++)
+                row[i] = (int)((long)row[i - 1] * (rowIndex - (i - 1)) / (i));
+
+            return new List<int>(row);
         }
         #endregion
 

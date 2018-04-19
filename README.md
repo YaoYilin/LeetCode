@@ -12,6 +12,7 @@
 * [58. 最后一个单词的长度](https://leetcode-cn.com/problems/length-of-last-word/description/)
 * [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/description/)
 * [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/description/)
+* [119. 帕斯卡三角形（杨辉三角）II](https://leetcode-cn.com/problems/pascals-triangle-ii/description/)
 * [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number/description/)
 * [167. 两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/description/)
 * [171. Excel表列序号](https://leetcode-cn.com/problems/excel-sheet-column-number/description/)
