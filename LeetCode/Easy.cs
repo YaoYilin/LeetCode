@@ -552,6 +552,44 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/reverse-vowels-of-a-string/description/
+        #region 345. 反转字符串中的元音字母
+        public static string ReverseVowels(string s)
+        {
+            char[] str = s.ToCharArray();
+
+            int l = 0, r = str.Length - 1;
+            bool lIsVowel = false, rIsVowel = false;
+            while(l < r)
+            {
+                lIsVowel = IsVowel(str[l]);
+                rIsVowel = IsVowel(str[r]);
+
+                if(!lIsVowel)
+                    l++;
+
+                if(!rIsVowel)
+                    r--;
+
+                if(lIsVowel && rIsVowel)
+                {
+                    char t = str[l];
+                    str[l] = str[r];
+                    str[r] = t;
+                    l++;
+                    r--;
+                }
+            }
+
+            return new string(str);
+        }
+
+        private static bool IsVowel(char c)
+        {
+            return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/sum-of-two-integers/description/
         #region 371. 两整数之和
         public static int GetSum(int a, int b)
