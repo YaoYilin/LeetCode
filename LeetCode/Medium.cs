@@ -315,6 +315,30 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/product-of-array-except-self/description/
+        #region 238. 除自身以外数组的乘积
+        public static int[] ProductExceptSelf(int[] nums)
+        {
+            int[] result = new int[nums.Length];
+            // t is one step slower than i, first loop t's purpose is calculate [0,i-1]'s product, and cache in result
+            int t = 1;
+            for(int i = 0; i < nums.Length; i++)
+            {
+                result[i] = t;
+                t *= nums[i];
+            }
+            // second loop, reverse sequence cycle nums, t's purpose is calculate [nums.Length,i-1]'s product, and product the cache in result[i]
+            t = 1;
+            for(int i = nums.Length - 1; i >= 0; i--)
+            {
+                result[i] *= t;
+                t *= nums[i];
+            }
+            // this two loop, t is all one step slower than index i, so never product self.
+            return result;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/find-the-duplicate-number/description/
         #region 287. 寻找重复数
         public static int FindDuplicate(int[] nums)
