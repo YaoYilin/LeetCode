@@ -43,6 +43,7 @@
 * [463. 岛屿的周长](https://leetcode-cn.com/problems/island-perimeter/description/)
 * [476. 数字的补数](https://leetcode-cn.com/problems/number-complement/description/)
 * [500. 键盘行](https://leetcode-cn.com/problems/keyboard-row/description/)
+* [504. 七进制数](https://leetcode-cn.com/problems/base-7/description/)
 * [520. 检测大写字母](https://leetcode-cn.com/problems/detect-capital/description/)
 * [541. 反转字符串 II](https://leetcode-cn.com/problems/reverse-string-ii/description/)
 * [557. 反转字符串中的单词 III](https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/description/)

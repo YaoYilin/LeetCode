@@ -853,6 +853,33 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/base-7/description/
+        #region 504. 七进制数
+        public static string ConvertToBase7(int num)
+        {
+            if(num == 0)
+                return "0";
+
+            Stack<char> res = new Stack<char>();
+            bool addSymble = false;
+            if(num < 0)
+            {
+                addSymble = true;
+                num = -num;
+            }
+
+            while(num > 0)
+            {
+                res.Push((char)(num % 7 + '0'));
+                num /= 7;
+            }
+
+            if(addSymble)
+                res.Push('-');
+            return new string(res.ToArray());
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/detect-capital/description/
         #region 520. 检测大写字母
         public static bool DetectCapitalUse(string word)
