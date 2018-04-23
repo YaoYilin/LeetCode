@@ -421,14 +421,15 @@ namespace LeetCode
         #region 231. 2的幂
         public static bool IsPowerOfTwo(int n)
         {
-            int c = 0;
-            while(n > 0)
-            {
-                if((n & 1) == 1 && (++c > 1))
-                    return false;
-                n >>= 1;
-            }
-            return c > 0;
+            //int c = 0;
+            //while(n > 0)
+            //{
+            //    if((n & 1) == 1 && (++c > 1))
+            //        return false;
+            //    n >>= 1;
+            //}
+            //return c > 0;
+            return n > 0 && (n & (n - 1)) == 0;
         }
         #endregion
 
