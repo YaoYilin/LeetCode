@@ -516,6 +516,37 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/range-sum-query-immutable/description/
+        #region 303. 区域和检索 - 不可变
+        public class NumArray
+        {
+            public int[] Nums { private set; get; }
+            private int[] nums;
+            public NumArray(int[] nums)
+            {
+                Nums = new int[nums.Length];
+                this.nums = nums;
+                if(nums.Length <= 0)
+                    return;
+
+                Nums[0] = nums[0];
+                for(int i = 1; i < nums.Length; i++)
+                {
+                    Nums[i] = nums[i];
+                    this.nums[i] += nums[i - 1];
+                }
+            }
+
+            public int SumRange(int i, int j)
+            {
+                if(i == 0)
+                    return nums[j];
+
+                return nums[j] - nums[i - 1];
+            }
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/power-of-three/description/
         #region 326. 3的幂
         /// <summary>
