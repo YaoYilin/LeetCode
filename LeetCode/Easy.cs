@@ -203,7 +203,7 @@ namespace LeetCode
         public static IList<IList<int>> Generate(int numRows)
         {
             IList<IList<int>> res = new List<IList<int>>();
-            for (int i = 0; i < numRows; i++)
+            for(int i = 0; i < numRows; i++)
                 res.Add(GetRow(i)); // No. 119
 
             return res;
@@ -642,6 +642,40 @@ namespace LeetCode
         private static bool IsVowel(char c)
         {
             return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/valid-perfect-square/description/
+        #region 367. 有效的完全平方数
+        /// <summary>
+        /// Sn = (1+ 2n - 1）* n)/2 = n²
+        /// </summary>
+        public static bool IsPerfectSquare(int num)
+        {
+            int i = 1;
+            // a1 = 2*1 - 1;
+            // an = 2n - 1;
+            // Sn = (1+ 2n - 1）* n)/2 = n²
+            while(num > 0)
+            {
+                num -= i;
+                i += 2;
+            }
+            return num == 0;
+
+            //int left = 1, right = num;
+            //while(left < right)
+            //{
+            //    int middle = left + (right - left) / 2;
+            //    long res = middle * middle;
+            //    if(res == num)
+            //        return true;
+            //    else if(res > num)
+            //        right = middle -1;
+            //    else
+            //        left = middle + 1;
+            //}
+            //return false;
         }
         #endregion
 
