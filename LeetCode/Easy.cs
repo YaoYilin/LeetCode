@@ -484,6 +484,29 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/first-bad-version/description/
+        #region 278. 第一个错误的版本
+        /* The isBadVersion API is defined in the parent class VersionControl.
+            bool IsBadVersion(int version); */
+        public static int FirstBadVersion(int n)
+        {
+            int left = 1, right = n;
+            while(left < right)
+            {
+                int middle = left + (right - left) / 2;
+                if(!IsBadVersion(middle))
+                    left = middle + 1;
+                else
+                    right = middle;
+            }
+            return left;
+        }
+        private static bool IsBadVersion(int version)
+        {
+            return true;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/move-zeroes/description/
         #region 283. 移动零
         public static void MoveZeroes(int[] nums)

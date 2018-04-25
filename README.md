@@ -28,6 +28,7 @@
 * [258. 各位相加](https://leetcode-cn.com/problems/add-digits/description/)
 * [263. 丑数](https://leetcode-cn.com/problems/ugly-number/description/)
 * [268. 缺失数字](https://leetcode-cn.com/problems/missing-number/description/)
+* [278. 第一个错误的版本](https://leetcode-cn.com/problems/first-bad-version/description/)
 * [283. 移动零](https://leetcode-cn.com/problems/move-zeroes/description/)
 * [303. 区域和检索 - 不可变](https://leetcode-cn.com/problems/range-sum-query-immutable/description/)
 * [326. 3的幂](https://leetcode-cn.com/problems/power-of-three/description/)
