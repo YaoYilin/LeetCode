@@ -34,5 +34,16 @@ namespace LeetCode
             }
             return sb.ToString();
         }
+
+        public static string Print(this string[] l)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach(var item in l)
+            {
+                sb.AppendFormat("{0} ", item);
+            }
+
+            return sb.ToString();
+        }
     }
 }
