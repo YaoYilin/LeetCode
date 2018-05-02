@@ -358,6 +358,27 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/remove-linked-list-elements/description/
+        #region 203. 删除链表中的节点
+        public static ListNode RemoveElements(ListNode head, int val)
+        {
+            ListNode dummy = head;
+            while(dummy != null)
+            {
+                ListNode next = dummy.next;
+                if(next != null && next.val == val)
+                    dummy.next = next.next;
+                else
+                    dummy = dummy.next;
+            }
+
+            if(head != null && head.val == val)
+                head = head.next;
+
+            return head;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/isomorphic-strings/description/
         #region 205. 同构字符串
         public static bool IsIsomorphic(string s, string t)
