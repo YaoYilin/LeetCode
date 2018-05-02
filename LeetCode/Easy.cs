@@ -693,6 +693,22 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/ransom-note/description/
+        #region 383. 赎金信
+        public static bool CanConstruct(string ransomNote, string magazine)
+        {
+            int[] arr = new int['z' + 1];
+            for(int i = 0; i < magazine.Length; i++)
+                arr[magazine[i]]++;
+
+            for(int i = 0; i < ransomNote.Length; i++)
+                if(arr[ransomNote[i]]-- <= 0)
+                    return false;
+
+            return true;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/first-unique-character-in-a-string/description/
         #region 387. 字符串中的第一个唯一字符
         public static int FirstUniqChar(string s)
