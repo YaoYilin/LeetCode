@@ -837,7 +837,6 @@ namespace LeetCode
         //https://leetcode-cn.com/problems/convert-a-number-to-hexadecimal/description/
         #region 405. 数字转换为十六进制数
         private static char[] hexs = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
-
         public static string ToHex(int num)
         {
             if(num == 0)
@@ -940,6 +939,22 @@ namespace LeetCode
                     res.Add(i);
 
             return res;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/hamming-distance/description/
+        #region 461. 汉明距离
+        public static int HammingDistance(int x, int y)
+        {
+            int counter = 0;
+            int r = x ^ y;
+            while(r > 0)
+            {
+                r = r & (r - 1);
+                counter++;
+            }
+
+            return counter;
         }
         #endregion
 

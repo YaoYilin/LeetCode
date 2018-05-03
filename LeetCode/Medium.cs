@@ -468,6 +468,22 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/total-hamming-distance/description/
+        #region 477. 汉明距离总和
+        public static int TotalHammingDistance(int[] nums)
+        {
+            int total = 0, length = nums.Length;
+            for(int j = 0; j < 32; j++)
+            {
+                int bitCount = 0;
+                for(int i = 0; i < length; i++)
+                    bitCount += (nums[i] >> j) & 1;
+                total += bitCount * (length - bitCount);
+            }
+            return total;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/single-element-in-a-sorted-array/description/
         #region 540. 有序数组中的单一元素
         public static int SingleNonDuplicate(int[] nums)
