@@ -153,6 +153,39 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/add-binary/description/
+        #region 67. 二进制求和
+        public static string AddBinary(string a, string b)
+        {
+            int i = a.Length - 1;
+            int j = b.Length - 1;
+            char carry = '0';
+            LinkedList<char> list = new LinkedList<char>();
+            while(i >= 0 || j >= 0)
+            {
+                char res = carry;
+                char ca = i >= 0 ? a[i] : '0';
+                char cb = j >= 0 ? b[j] : '0';
+                res ^= ca;
+                res ^= cb;
+
+                if(ca == cb)
+                    carry = ca;
+                else
+                    carry = res == '0' ? '1' : '0';
+
+                list.AddFirst(res);
+                i--;
+                j--;
+            }
+
+            if(carry == '1')
+                list.AddFirst(carry);
+
+            return new string(list.ToArray());
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/sqrtx/description/
         #region 69. x 的平方根
         public static int MySqrt(int x)

@@ -10,6 +10,7 @@
 * [27. 移除元素](https://leetcode-cn.com/problems/remove-element/description/)
 * [35. 搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/description/)
 * [58. 最后一个单词的长度](https://leetcode-cn.com/problems/length-of-last-word/description/)
+* [67. 二进制求和](https://leetcode-cn.com/problems/add-binary/description/)
 * [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/description/)
 * [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/description/)
 * [118. 帕斯卡三角形（杨辉三角）](https://leetcode-cn.com/problems/pascals-triangle/description/)
