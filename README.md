@@ -43,6 +43,7 @@
 * [387. 字符串中的第一个唯一字符](https://leetcode-cn.com/problems/first-unique-character-in-a-string/description/)
 * [389. 找不同](https://leetcode-cn.com/problems/find-the-difference/description/)
 * [404. 左叶子之和](https://leetcode-cn.com/problems/sum-of-left-leaves/description/)
+* [405. 数字转换为十六进制数](https://leetcode-cn.com/problems/convert-a-number-to-hexadecimal/description/)
 * [412. Fizz Buzz](https://leetcode-cn.com/problems/fizz-buzz/description/)
 * [415. 字符串相加](https://leetcode-cn.com/problems/add-strings/description/)
 * [448. 找到所有数组中消失的数字](https://leetcode-cn.com/problems/find-all-numbers-disappeared-in-an-array/description/)

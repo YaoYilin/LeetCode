@@ -834,6 +834,26 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/convert-a-number-to-hexadecimal/description/
+        #region 405. 数字转换为十六进制数
+        private static char[] hexs = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+        public static string ToHex(int num)
+        {
+            if(num == 0)
+                return "0";
+
+            LinkedList<char> res = new LinkedList<char>();
+            long n =  num & 0xFFFFFFFF;
+            while(n != 0)
+            {
+                long low4 = n & 0xf;
+                res.AddFirst(hexs[low4]);
+                n >>= 4;
+            }
+            return new string(res.ToArray());
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/fizz-buzz/description/
         #region 412. Fizz Buzz
         public static IList<string> FizzBuzz(int n)
