@@ -15,10 +15,8 @@ namespace LeetCode
             for (int i = 0; i < m.GetLength(0); i++)
             {
             	for (int j = 0; j < m.GetLength(1); j++)
-            	{
-                    sb.Append((m[i, j]).ToString().PadLeft(3));
-                    sb.Append(" ");
-            	}
+                    sb.Append((m[i, j]).ToString().PadLeft(4));
+
                 sb.AppendLine();
             }
 
@@ -41,6 +39,19 @@ namespace LeetCode
             foreach(var item in l)
             {
                 sb.AppendFormat("{0} ", item);
+            }
+
+            return sb.ToString();
+        }
+        public static string Print(this int[][] arr)
+        {
+            StringBuilder sb = new StringBuilder();
+            
+            for (int i = 0; i < arr.Length; i++)
+            {
+            	for (int j = 0; j < arr[i].Length; j++)
+                    sb.Append(arr[i][j].ToString().PadLeft(4));
+                sb.AppendLine();
             }
 
             return sb.ToString();

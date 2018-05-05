@@ -185,6 +185,40 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/spiral-matrix-ii/description/
+        #region 59. 螺旋矩阵 II
+        public static int[,] GenerateMatrix(int n)
+        {
+            int[,] arr = new int[n, n];
+
+            int index = 1;
+
+            int lt = 0, rt = n - 1, lb = 0, rb = n - 1;
+
+            while(index <= n * n)
+            {
+                for(int i = lb; i <= rt; i++)
+                    arr[lt, i] = index++;
+
+                lt++;
+                for(int i = lt; i <= rb; i++)
+                    arr[i, rt] = index++;
+
+                rb--;
+                for(int i = rb; i >= lb; i--)
+                    arr[rt, i] = index++;
+
+                rt--;
+                for(int i = rt; i >= lt; i--)
+                    arr[i, lb] = index++;
+
+                lb++;
+            }
+
+            return arr;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/sort-colors/description/
         #region 75. 分类颜色
         public static void SortColors(int[] nums)
