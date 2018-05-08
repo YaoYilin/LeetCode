@@ -8,6 +8,20 @@ namespace LeetCode
 {
     public static class Tools
     {
+        public static char ToUpper(char c)
+        {
+            if('a' <= c && c <= 'z')
+                c = (char)(c & ~0x20);
+            return c;
+        }
+
+        public static char ToLower(char c)
+        {
+            if('A' <= c && c <= 'Z')
+                c = (char)(c | 0x20);
+            return c;
+        }
+
         public static string Print(this int[,] m)
         {
             StringBuilder sb = new StringBuilder();

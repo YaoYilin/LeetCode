@@ -265,6 +265,61 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/valid-palindrome/description/
+        #region 125. 验证回文串
+        public static bool IsPalindrome(string s)
+        {
+            int l = 0, r = s.Length - 1;
+            while(l < r)
+            {
+                char c1 = default(char);
+                while(l < s.Length)
+                {
+                    if(char.IsLetterOrDigit(s[l]))
+                    {
+                        c1 = Tools.ToUpper(s[l]);
+                        break;
+                    }
+                    l++;
+                }
+                char c2 = default(char);
+                while(r >= 0)
+                {
+                    if(char.IsLetterOrDigit(s[r]))
+                    {
+                        c2 = Tools.ToUpper(s[r]);
+                        break;
+                    }
+                    r--;
+                }
+                if(c1 != c2)
+                    return false;
+
+                l++;r--;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// C# source code is an array of ascii type enum, so is faster than below.
+        /// char.IsLetterOrDigit(char c)
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        [Obsolete("Use char.IsLetterOrDigit(char c) instead")]
+        private static bool IsLetterOrDigit(char c)
+        {
+            if(c >= '0' && c <= '9')
+                return true;
+            if(c >= 'A' && c <= 'Z')
+                return true;
+            if(c >= 'a' && c <= 'z')
+                return true;
+            return false;
+        }
+
+        #endregion
+
         //https://leetcode-cn.com/problems/single-number/description/
         #region 136. 只出现一次的数字
         public static int SingleNumber(int[] nums)
@@ -843,7 +898,7 @@ namespace LeetCode
                 return "0";
 
             LinkedList<char> res = new LinkedList<char>();
-            long n =  num & 0xFFFFFFFF;
+            long n = num & 0xFFFFFFFF;
             while(n != 0)
             {
                 long low4 = n & 0xf;

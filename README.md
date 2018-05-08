@@ -15,6 +15,7 @@
 * [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/description/)
 * [118. 帕斯卡三角形（杨辉三角）](https://leetcode-cn.com/problems/pascals-triangle/description/)
 * [119. 帕斯卡三角形（杨辉三角）II](https://leetcode-cn.com/problems/pascals-triangle-ii/description/)
+* [125. 验证回文串](https://leetcode-cn.com/problems/valid-palindrome/description/)
 * [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number/description/)
 * [167. 两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/description/)
 * [171. Excel表列序号](https://leetcode-cn.com/problems/excel-sheet-column-number/description/)
