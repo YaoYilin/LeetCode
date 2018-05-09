@@ -295,7 +295,8 @@ namespace LeetCode
                 if(c1 != c2)
                     return false;
 
-                l++;r--;
+                l++;
+                r--;
             }
             return true;
         }
@@ -362,6 +363,22 @@ namespace LeetCode
             }
 
             return res;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/excel-sheet-column-title/description/
+        #region 168. Excel表列名称
+        public static string ConvertToTitle(int n)
+        {
+            LinkedList<char> chars = new LinkedList<char>();
+            while(true)
+            {
+                chars.AddFirst((char)(--n % 26 + 'A'));
+                n /= 26;
+                if(n <= 0)
+                    break;
+            }
+            return new string(chars.ToArray());
         }
         #endregion
 

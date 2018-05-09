@@ -18,6 +18,7 @@
 * [125. 验证回文串](https://leetcode-cn.com/problems/valid-palindrome/description/)
 * [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number/description/)
 * [167. 两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/description/)
+* [168. Excel表列名称](https://leetcode-cn.com/problems/excel-sheet-column-title/description/)
 * [171. Excel表列序号](https://leetcode-cn.com/problems/excel-sheet-column-number/description/)
 * [189. 旋转数组](https://leetcode-cn.com/problems/rotate-array/description/)
 * [190. 颠倒二进制位](https://leetcode-cn.com/problems/reverse-bits/description/)
