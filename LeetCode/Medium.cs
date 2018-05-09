@@ -332,6 +332,56 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/compare-version-numbers/description/
+        #region 165. 比较版本号
+        public static int CompareVersion(string version1, string version2)
+        {
+            var v1 = Split(version1);
+            var v2 = Split(version2);
+
+            int i = 0, j = 0;
+            while(i < v1.Count || j < v2.Count)
+            {
+                int m = i < v1.Count ? v1[i] : 0;
+                int n = j < v2.Count ? v2[j] : 0;
+                if(m > n)
+                    return 1;
+                else if(m < n)
+                    return -1;
+
+                i++;
+                j++;
+            }
+
+            return 0;
+        }
+
+        private static IList<int> Split(string s)
+        {
+            IList<int> res = new List<int>();
+            int i = 0;
+            while(i < s.Length)
+            {
+                char c = s[i];
+                if(c != '.')
+                {
+                    int n = 0;
+                    while(c != '.')
+                    {
+                        n = (c - '0') + n * 10;
+                        i++;
+                        if(i >= s.Length)
+                            break;
+                        c = s[i];
+                    }
+                    res.Add(n);
+                }
+                i++;
+            }
+            return res;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/number-of-islands/description/
         #region TODO: 200. 岛屿的个数
         public static int NumIslands(char[,] grid)
