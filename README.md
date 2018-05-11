@@ -20,6 +20,7 @@
 * [167. 两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/description/)
 * [168. Excel表列名称](https://leetcode-cn.com/problems/excel-sheet-column-title/description/)
 * [171. Excel表列序号](https://leetcode-cn.com/problems/excel-sheet-column-number/description/)
+* [172. 阶乘后的零](https://leetcode-cn.com/problems/factorial-trailing-zeroes/description/)
 * [189. 旋转数组](https://leetcode-cn.com/problems/rotate-array/description/)
 * [190. 颠倒二进制位](https://leetcode-cn.com/problems/reverse-bits/description/)
 * [191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/description/)

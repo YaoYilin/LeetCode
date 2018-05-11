@@ -402,6 +402,22 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/factorial-trailing-zeroes/description/
+        #region 172. 阶乘后的零
+        /// <summary>
+        ///  while 0 < n < 5 , f(n!) = 0;
+        ///  while n >= 5，f(n!) = k + f(k!), there k = n / 5
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static int TrailingZeroes(int n)
+        {
+            if(n < 5)
+                return 0;
+            return n / 5 + TrailingZeroes(n / 5);
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/rotate-array/description/
         #region 189. 旋转数组
         public static void Rotate(int[] nums, int k)
