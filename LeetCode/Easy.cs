@@ -334,6 +334,24 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/intersection-of-two-linked-lists/description/
+        #region 160. 相交链表
+        public static ListNode GetIntersectionNode(ListNode headA, ListNode headB)
+        {
+            if(headA == null || headB == null)
+                return null;
+
+            ListNode a = headA, b = headB;
+
+            while(a != b)
+            {
+                a = a == null ? headB : a.next;
+                b = b == null ? headA : b.next;
+            }
+            return a;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/description/
         #region 167. 两数之和 II - 输入有序数组
         public static int[] TwoSum167(int[] numbers, int target)
