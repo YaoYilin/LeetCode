@@ -190,32 +190,45 @@ namespace LeetCode
         #region 69. x 的平方根
         public static int MySqrt(int x)
         {
-            if(x == 0)
-                return 0;
-
-            int left = 0;
-            int right = x;
-            while(true)
+            int m = 0x40000000, y = 0, b;
+            while(m != 0)
             {
-                int middle = (right + left) / 2;
-                if(middle == x / middle)
+                b = y | m;
+                y >>= 1;
+                if(x >= b)
                 {
-                    return middle;
+                    x = x - b;
+                    y |= m;
                 }
-
-                if(middle > x / middle)
-                {
-                    right = middle - 1;
-                }
-                else
-                {
-                    if(middle + 1 > x / (middle + 1))
-                    {
-                        return middle;
-                    }
-                    left = middle + 1;
-                }
+                m >>= 2;
             }
+            return y;
+            //if(x == 0)
+            //    return 0;
+
+            //int left = 0;
+            //int right = x;
+            //while(true)
+            //{
+            //    int middle = (right + left) / 2;
+            //    if(middle == x / middle)
+            //    {
+            //        return middle;
+            //    }
+
+            //    if(middle > x / middle)
+            //    {
+            //        right = middle - 1;
+            //    }
+            //    else
+            //    {
+            //        if(middle + 1 > x / (middle + 1))
+            //        {
+            //            return middle;
+            //        }
+            //        left = middle + 1;
+            //    }
+            //}
         }
         #endregion
 
