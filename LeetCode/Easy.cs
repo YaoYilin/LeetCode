@@ -597,6 +597,18 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/contains-duplicate/description/
+        #region 217. 存在重复元素
+        public static bool ContainsDuplicate(int[] nums)
+        {
+            HashSet<int> hash = new HashSet<int>();
+            foreach(var n in nums)
+                if(!hash.Add(n))
+                    return true;
+            return false;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/contains-duplicate-ii/description/
         #region 219. 存在重复元素 II
         public static bool ContainsNearbyDuplicate(int[] nums, int k)
