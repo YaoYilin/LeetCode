@@ -232,6 +232,28 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/symmetric-tree/description/
+        #region 101. 对称二叉树
+        public static bool IsSymmetric(TreeNode root)
+        {
+            if(root != null)
+                return IsEqual(root.left, root.right);
+
+            return true;
+        }
+        private static bool IsEqual(TreeNode n1, TreeNode n2)
+        {
+            if(n1 == null && n2 == null)
+                return true;
+
+            if(n1 != null && n2 != null)
+                return n1.val == n2.val && IsEqual(n1.left, n2.right) && IsEqual(n1.right, n2.left);
+
+            return false;
+        }
+
+        #endregion
+
         //https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/description/
         #region 111. 二叉树的最小深度
         public static int MinDepth(TreeNode root)
