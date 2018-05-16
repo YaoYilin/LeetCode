@@ -597,6 +597,29 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/contains-duplicate-ii/description/
+        #region 219. 存在重复元素 II
+        public static bool ContainsNearbyDuplicate(int[] nums, int k)
+        {
+            Dictionary<int, int> map = new Dictionary<int, int>();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                int key = nums[i];
+            	if(map.ContainsKey(key))
+                {
+                    if(Math.Abs(map[key] - i) <= k)
+                        return true;
+                    else
+                        map[key] = i;
+                }
+                else
+                    map.Add(key, i);
+            }
+
+            return false;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/invert-binary-tree/description/
         #region 226. 翻转二叉树
         public static TreeNode InvertTree(TreeNode root)
