@@ -532,6 +532,34 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/happy-number
+        #region 202. 快乐数
+        public static bool IsHappy(int n)
+        {
+            return IsHappy(n, new HashSet<int>());
+        }
+        private static bool IsHappy(int n, HashSet<int> set)
+        {
+            if(n == 1)
+                return true;
+
+            if(set.Contains(n))
+                return false;
+            else
+                set.Add(n);
+
+            int sum = 0;
+            while(n > 0)
+            {
+                int r = n % 10;
+                sum += (r * r);
+                n /= 10;
+            }
+
+            return IsHappy(sum, set);
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/remove-linked-list-elements/description/
         #region 203. 删除链表中的节点
         public static ListNode RemoveElements(ListNode head, int val)
