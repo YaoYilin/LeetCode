@@ -423,6 +423,28 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/search-a-2d-matrix-ii/description/
+        #region 240. 搜索二维矩阵 II
+        public static bool SearchMatrix(int[,] matrix, int target)
+        {
+            int i = 0, j = matrix.GetLength(1) - 1;
+            int row = matrix.GetLength(0);
+            while(i < row && j >= 0)
+            {
+                int n = matrix[i, j];
+                if(n == target)
+                    return true;
+
+                if(n > target)
+                    j--;
+                else
+                    i++;
+            }
+
+            return false;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/find-the-duplicate-number/description/
         #region 287. 寻找重复数
         public static int FindDuplicate(int[] nums)
