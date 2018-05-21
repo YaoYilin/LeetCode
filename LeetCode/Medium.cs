@@ -219,6 +219,73 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/search-a-2d-matrix/description/
+        #region 74. 搜索二维矩阵
+        /// <summary>
+        /// ╔════════════════════════════════╗
+        /// ║    MORE CLEANER CODE TO SEE NO.240    ║
+        /// ║         Medium.SearchMatrixII         ║
+        /// ╚════════════════════════════════╝
+        /// the core of this code is binary search. 
+        /// </summary>
+        /// <param name="matrix"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public static bool SearchMatrix(int[,] matrix, int target)
+        {
+            int row = matrix.GetLength(0);
+            int column = matrix.GetLength(1);
+
+            int i = -1;
+            int l = 0, r = row - 1;
+            if(column > 0)
+            {
+                while(l <= r)
+                {
+                    i = (r + l) / 2;
+                    int n = matrix[i, 0];
+                    if(n > target)
+                    {
+                        if(i == 0 || matrix[i - 1, 0] < target)
+                        {
+                            i--;
+                            break;
+                        }
+                        else
+                            r = i - 1;
+                    }
+                    else
+                    {
+                        if(i == row - 1 || matrix[i + 1, 0] > target)
+                            break;
+                        else
+                            l = i + 1;
+                    }
+                }
+            }
+            int j = -1;
+            l = 0;
+            r = column - 1;
+            if(i >= 0)
+            {
+                while(l <= r)
+                {
+                    j = (r + l) / 2;
+                    int n = matrix[i, j];
+                    if(n == target)
+                        return true;
+
+                    if(n > target)
+                        r = j - 1;
+                    else
+                        l = j + 1;
+                }
+            }
+
+            return i > 0 && j > 0 && matrix[i, j] == target;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/sort-colors/description/
         #region 75. 分类颜色
         public static void SortColors(int[] nums)
@@ -425,7 +492,7 @@ namespace LeetCode
 
         //https://leetcode-cn.com/problems/search-a-2d-matrix-ii/description/
         #region 240. 搜索二维矩阵 II
-        public static bool SearchMatrix(int[,] matrix, int target)
+        public static bool SearchMatrixII(int[,] matrix, int target)
         {
             int i = 0, j = matrix.GetLength(1) - 1;
             int row = matrix.GetLength(0);

@@ -79,6 +79,7 @@
 * [48. 旋转图像](https://leetcode-cn.com/problems/rotate-image/description/)
 * [54. 螺旋矩阵](https://leetcode-cn.com/problems/spiral-matrix/description/)
 * [59. 螺旋矩阵 II](https://leetcode-cn.com/problems/spiral-matrix-ii/description/)
+* [74. 搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix/description/)
 * [75. 分类颜色](https://leetcode-cn.com/problems/sort-colors/description/)
 * [92. 反转链表 II](https://leetcode-cn.com/problems/reverse-linked-list-ii/description/)
 * [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/description/)
