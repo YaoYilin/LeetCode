@@ -244,6 +244,9 @@ namespace LeetCode
                 {
                     i = (r + l) / 2;
                     int n = matrix[i, 0];
+                    if(n == target)
+                        return true;
+
                     if(n > target)
                     {
                         if(i == 0 || matrix[i - 1, 0] < target)
@@ -466,6 +469,49 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/basic-calculator-ii/description/
+        #region 227. 基本计算器II
+        public static int Calculate(string s)
+        {
+            if(string.IsNullOrWhiteSpace(s))
+                return 0;
+
+            s += "+0";
+            Stack<int> nums = new Stack<int>();
+            
+            int n = 0;
+            char symbol = '+';
+            for(int i = 0; i < s.Length; i++)
+            {
+                char c = s[i];
+                if(c == ' ')
+                    continue;
+
+                if(char.IsDigit(c))
+                    n = (c - '0') + n * 10;
+                else
+                {
+                    if(symbol == '+')
+                        nums.Push(n);
+                    else if(symbol == '-')
+                        nums.Push(-n);
+                    else if(symbol == '*')
+                        nums.Push(nums.Pop() * n);
+                    else if(symbol == '/')
+                        nums.Push(nums.Pop() / n);
+                    n = 0;
+                    symbol = c;
+                }
+            }
+
+            int res = 0;
+            foreach(var num in nums)
+                res += num;
+
+            return res;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/product-of-array-except-self/description/
         #region 238. 除自身以外数组的乘积
         public static int[] ProductExceptSelf(int[] nums)
@@ -670,6 +716,49 @@ namespace LeetCode
             }
             return 0;
         }
+        #endregion
+
+        //https://leetcode-cn.com/problems/reorganize-string/description/
+        #region TODO: 767. 重构字符串
+        public static string ReorganizeString(string S)
+        {
+            var arr = S.ToArray();
+            int i = 0, j = 1;
+            while(j < arr.Length)
+            {
+                if(arr[i] != arr[j])
+                {
+                    i++;
+                    j++;
+                }
+                else
+                {
+                    int k = j + 1;
+                    while(true)
+                    {
+                        if(k == arr.Length)
+                            return string.Empty;
+
+                        if(arr[k] != arr[i])
+                        {
+                            var t = arr[k];
+                            arr[k] = arr[j];
+                            arr[j] = t;
+                            i++;
+                            j++;
+                            break;
+                        }
+                        k++;
+                    }
+                }
+            }
+
+            if(i == j - 1)
+                return new string(arr);
+            else
+                return string.Empty;
+        }
+
         #endregion
 
         //https://leetcode-cn.com/problems/custom-sort-string/description/
