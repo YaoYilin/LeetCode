@@ -642,10 +642,10 @@ namespace LeetCode
         public static bool ContainsNearbyDuplicate(int[] nums, int k)
         {
             Dictionary<int, int> map = new Dictionary<int, int>();
-            for (int i = 0; i < nums.Length; i++)
+            for(int i = 0; i < nums.Length; i++)
             {
                 int key = nums[i];
-            	if(map.ContainsKey(key))
+                if(map.ContainsKey(key))
                 {
                     if(Math.Abs(map[key] - i) <= k)
                         return true;
@@ -1450,6 +1450,41 @@ namespace LeetCode
                     res -= 2;
             }
             return res == 0;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/non-decreasing-array/description/
+        #region 665. 非递减数列
+        /// <summary>
+        /// for more effective, can do not copy array
+        /// there copy, because function name is CheckXXX, so it's better don't change original data
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public static bool CheckPossibility(int[] nums)
+        {
+            int[] arr = new int[nums.Length];
+            Array.Copy(nums, arr, nums.Length);
+            bool isMabeyInvalid = false;
+            int i = 1;
+            while(i < arr.Length)
+            {
+                if(arr[i - 1] > arr[i])
+                {
+                    if(isMabeyInvalid)
+                        return false;
+
+                    if(i < 2 || arr[i - 2] < arr[i])
+                        arr[i - 1] = arr[i];
+                    else
+                        arr[i] = arr[i - 1];
+                    isMabeyInvalid = true;
+                }
+                else
+                    i++;
+            }
+
+            return true;
         }
         #endregion
 
