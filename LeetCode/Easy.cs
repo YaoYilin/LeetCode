@@ -1543,6 +1543,22 @@ namespace LeetCode
 
         #endregion
 
+        //https://leetcode-cn.com/problems/letter-case-permutation/description/
+        #region TODO:784. 字母大小写全排列
+        public static IList<string> LetterCasePermutation(string S)
+        {
+            List<string> res = new List<string>();
+
+
+            return res;
+        }
+
+        private static void Permutation(string S, int index, IList<string> res)
+        {
+
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/rotate-string/description/
         #region 796. 旋转字符串
         public static bool RotateString(string A, string B)
@@ -1576,6 +1592,14 @@ namespace LeetCode
                 sb.Append(morse[word[i] - 'a']);
 
             return sb.ToString();
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/rectangle-overlap/description/
+        #region 836. 矩形重叠
+        public static bool IsRectangleOverlap(int[] rec1, int[] rec2)
+        {
+            return !(rec2[0] >= rec1[2] || rec2[1] >= rec1[3] || rec1[0] >= rec2[2] || rec1[1] >= rec2[3]);
         }
         #endregion
     }
