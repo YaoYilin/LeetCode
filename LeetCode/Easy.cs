@@ -1595,6 +1595,50 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/goat-latin/description/
+        #region 824. 山羊拉丁文
+        public static string ToGoatLatin(string S)
+        {
+            var arr = S.Split(' ');
+            StringBuilder sb = new StringBuilder();
+            for(int i = 0; i < arr.Length; i++)
+            {
+                sb.Append(Transform(arr[i], i + 1));
+                if(i != arr.Length - 1)
+                    sb.Append(" ");
+            }
+            return sb.ToString();
+        }
+        private static string Transform(string s, int index)
+        {
+            if(s[0] == 'A' || s[0] == 'a'
+                || s[0] == 'E' || s[0] == 'e'
+                || s[0] == 'I' || s[0] == 'i'
+                || s[0] == 'O' || s[0] == 'o'
+                || s[0] == 'U' || s[0] == 'u')
+            {
+                char[] r = new char[2 + index];
+                r[0] = 'm';
+                r[1] = 'a';
+                for(int i = 2; i < r.Length; i++)
+                    r[i] = 'a';
+
+                return s + new string(r);
+            }
+            else
+            {
+                char[] r = new char[s.Length + 2 + index];
+                for(int i = 0; i < s.Length; i++)
+                    r[i] = s[(i + 1) % s.Length];
+                r[r.Length - 1 - index] = 'a';
+                r[r.Length - 2 - index] = 'm';
+                for(int i = s.Length + 2; i < s.Length + 2 + index; i++)
+                    r[i] = 'a';
+                return new string(r);
+            }
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/rectangle-overlap/description/
         #region 836. 矩形重叠
         public static bool IsRectangleOverlap(int[] rec1, int[] rec2)
