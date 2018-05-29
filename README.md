@@ -73,6 +73,7 @@
 * [796. 旋转字符串](https://leetcode-cn.com/problems/rotate-string/description/)
 * [804. 唯一摩尔斯密码词](https://leetcode-cn.com/problems/unique-morse-code-words/description/)
 * [824. 山羊拉丁文](https://leetcode-cn.com/problems/goat-latin/description/)
+* [832. 翻转图像](https://leetcode-cn.com/problems/flipping-an-image/description/)
 * [836. 矩形重叠](https://leetcode-cn.com/problems/rectangle-overlap/description/)
 ---
 ###  Medium

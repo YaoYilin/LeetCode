@@ -1639,6 +1639,26 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/flipping-an-image/description/
+        #region 832. 翻转图像
+        public static int[][] FlipAndInvertImage(int[][] A)
+        {
+            for (int i = 0; i < A.Length; i++)
+            {
+                int l = 0, r = A[i].Length - 1;
+                while (l <= r)
+                {
+                    int t = A[i][l];
+                    A[i][l] = A[i][r] ^ 1;
+                    A[i][r] = t ^ 1;
+                    l++;r--;
+                }
+            }
+
+            return A;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/rectangle-overlap/description/
         #region 836. 矩形重叠
         public static bool IsRectangleOverlap(int[] rec1, int[] rec2)
