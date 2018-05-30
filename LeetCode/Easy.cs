@@ -1526,6 +1526,19 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/toeplitz-matrix/description/
+        #region 766. 托普利茨矩阵
+        public static bool IsToeplitzMatrix(int[,] matrix)
+        {
+            for(int i = 1; i < matrix.GetLength(0); i++)
+                for(int j = 1; j < matrix.GetLength(1); j++)
+                    if(matrix[i, j] != matrix[i - 1, j - 1])
+                        return false;
+
+            return true;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/jewels-and-stones/description/
         #region 771. 宝石与石头
         public static int NumJewelsInStones(string J, string S)
@@ -1643,15 +1656,16 @@ namespace LeetCode
         #region 832. 翻转图像
         public static int[][] FlipAndInvertImage(int[][] A)
         {
-            for (int i = 0; i < A.Length; i++)
+            for(int i = 0; i < A.Length; i++)
             {
                 int l = 0, r = A[i].Length - 1;
-                while (l <= r)
+                while(l <= r)
                 {
                     int t = A[i][l];
                     A[i][l] = A[i][r] ^ 1;
                     A[i][r] = t ^ 1;
-                    l++;r--;
+                    l++;
+                    r--;
                 }
             }
 
