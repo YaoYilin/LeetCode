@@ -29,6 +29,7 @@
 * [191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/description/)
 * [202. 快乐数](https://leetcode-cn.com/problems/happy-number)
 * [203. 删除链表中的节点](https://leetcode-cn.com/problems/remove-linked-list-elements/description/)
+* [204. 计数质数](https://leetcode-cn.com/problems/count-primes/description/)
 * [205. 同构字符串](https://leetcode-cn.com/problems/isomorphic-strings/description/)
 * [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list/description/)
 * [217. 存在重复元素](https://leetcode-cn.com/problems/contains-duplicate/description/)

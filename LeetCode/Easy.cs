@@ -602,6 +602,32 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/count-primes/description/
+        #region 204. 计数质数
+        /// <summary>
+        /// idea copy from https://leetcode.com/problems/count-primes/discuss/57588/My-simple-Java-solution
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static int CountPrimes(int n)
+        {
+            bool[] notPrime = new bool[n];
+            int count = 0;
+            for(int i = 2; i < n; i++)
+            {
+                if(notPrime[i] == false)
+                {
+                    count++;
+                    for(int j = 2; i * j < n; j++)
+                        notPrime[i * j] = true;
+                }
+            }
+
+            return count;
+        }
+
+        #endregion
+
         //https://leetcode-cn.com/problems/isomorphic-strings/description/
         #region 205. 同构字符串
         public static bool IsIsomorphic(string s, string t)
