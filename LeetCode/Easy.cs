@@ -153,6 +153,27 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/plus-one/description/
+        #region 66. 加一
+        public static int[] PlusOne(int[] digits)
+        {
+            int carry = 1;
+            LinkedList<int> res = new LinkedList<int>();
+
+            for(int i = digits.Length - 1; i >= 0; i--)
+            {
+                int sum = digits[i] + carry;
+                res.AddFirst(sum % 10);
+                carry = sum / 10;
+            }
+
+            if(carry > 0)
+                res.AddFirst(carry);
+
+            return res.ToArray();
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/add-binary/description/
         #region 67. 二进制求和
         public static string AddBinary(string a, string b)
