@@ -645,6 +645,50 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/rotate-function/description/
+        #region 396. 旋转函数
+        /// <summary>
+        /// idea copy from https://leetcode.com/problems/rotate-function/discuss/87853/Java-O(n)-solution-with-explanation
+        /// </summary>
+        /// <param name="A"></param>
+        /// <returns></returns>
+        public static int MaxRotateFunction(int[] A)
+        {
+            //if(A.Length <= 0)
+            //    return 0;
+
+            //int res = int.MinValue;
+            //for (int i = 0; i < A.Length; i++)
+            //{
+            //    int r = 0;
+            //    int k = 0;
+            //	while (k < A.Length)
+            //	{
+            //        r += A[(i + k) % A.Length] * k;
+            //        k++;
+            //	}
+            //    res = Math.Max(r, res);
+            //}
+
+            //return res;
+            int allSum = 0;
+            int len = A.Length;
+            int F = 0;
+            for(int i = 0; i < len; i++)
+            {
+                F += i * A[i];
+                allSum += A[i];
+            }
+            int max = F;
+            for(int i = len - 1; i >= 1; i--)
+            {
+                F = F + allSum - len * A[i];
+                max = Math.Max(F, max);
+            }
+            return max;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/find-all-duplicates-in-an-array/description/
         #region 442. 数组中重复的数据
         public static IList<int> FindDuplicates(int[] nums)

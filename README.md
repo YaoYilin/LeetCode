@@ -52,6 +52,7 @@
 * [383. 赎金信](https://leetcode-cn.com/problems/ransom-note/description/)
 * [387. 字符串中的第一个唯一字符](https://leetcode-cn.com/problems/first-unique-character-in-a-string/description/)
 * [389. 找不同](https://leetcode-cn.com/problems/find-the-difference/description/)
+* [396. 旋转函数](https://leetcode-cn.com/problems/rotate-function/description/)
 * [404. 左叶子之和](https://leetcode-cn.com/problems/sum-of-left-leaves/description/)
 * [405. 数字转换为十六进制数](https://leetcode-cn.com/problems/convert-a-number-to-hexadecimal/description/)
 * [412. Fizz Buzz](https://leetcode-cn.com/problems/fizz-buzz/description/)
