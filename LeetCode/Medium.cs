@@ -581,6 +581,14 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/bulb-switcher/description/
+        #region 319. 灯泡开关
+        public static int BulbSwitch(int n)
+        {
+            return (int)Math.Sqrt(n);
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/counting-bits/description/
         #region 338. Bit位计数
         public static int[] CountBits(int num)
