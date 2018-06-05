@@ -478,7 +478,7 @@ namespace LeetCode
 
             s += "+0";
             Stack<int> nums = new Stack<int>();
-            
+
             int n = 0;
             char symbol = '+';
             for(int i = 0; i < s.Length; i++)
@@ -609,6 +609,37 @@ namespace LeetCode
                 i++;
             }
             return i;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/utf-8-validation/description/
+        #region 393. UTF-8 编码验证
+        public static bool ValidUtf8(int[] data)
+        {
+            int count = 0;
+            foreach(var d in data)
+            {
+                if(count == 0)
+                {
+                    if(d >> 5 == 6)
+                        count = 1;
+                    else if(d >> 4 == 14)
+                        count = 2;
+                    else if(d >> 3 == 30)
+                        count = 3;
+                    else if(d >> 7 != 0)
+                        return false;
+                }
+                else
+                {
+                    if(d >> 6 == 2)
+                        count--;
+                    else
+                        return false;
+                }
+            }
+
+            return count == 0;
         }
         #endregion
 
