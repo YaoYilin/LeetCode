@@ -728,6 +728,40 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/integer-replacement/description/
+        #region 397. 整数替换
+        /// <summary>
+        /// obviously, even number is more likeable than odd number, because even number we can divide 2 direct
+        /// but odd number we need turn it to even number(plus 1 or subtract 1).
+        /// so we need to decide whether to add 1 or subtract 1 when is an odd number.
+        /// in binary, 
+        /// * 1011 -> 1100 is effective than 1011 -> 1010, 
+        /// because 1100 >> 1 (equal to divide 2) we can get an even number again,
+        /// but 1010 >> 1 we get an odd number and need turn it to even number again.
+        /// * 1101 -> 1100 is efectie than 1101 -> 1110, same reason as above.
+        /// so we can see the pattern, if penultimate bit is 1 then plus 1 else minus 1 (if x & 0B10 = 0 => x-- else m++).
+        /// it should be noted that, 3(0B11) is a speciall number, because 11 -> 10 -> 1 ,but 11 -> 100 -> 10 -> 1.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static int IntegerReplacement(int n)
+        {
+            int c = 0;
+            ulong m = (ulong)n;
+            while(m != 1)
+            {
+                if((m & 1) == 0)
+                    m >>= 1;
+                else if(m == 3 || (m & 2) == 0)
+                    m--;
+                else
+                    m++;
+                c++;
+            }
+            return c;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/find-all-duplicates-in-an-array/description/
         #region 442. 数组中重复的数据
         public static IList<int> FindDuplicates(int[] nums)
