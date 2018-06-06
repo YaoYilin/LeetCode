@@ -1727,5 +1727,32 @@ namespace LeetCode
             return !(rec2[0] >= rec1[2] || rec2[1] >= rec1[3] || rec1[0] >= rec2[2] || rec1[1] >= rec2[3]);
         }
         #endregion
+
+        //https://leetcode-cn.com/problems/backspace-string-compare/description/
+        #region 844. 比较含退格的字符串
+        public static bool BackspaceCompare(string S, string T)
+        {
+            return Trim(S).Equals(Trim(T));
+        }
+        private static string Trim(string s)
+        {
+            int i = 0;
+            Stack<char> res = new Stack<char>();
+            while(i < s.Length)
+            {
+                if(s[i] == '#')
+                {
+                    if(res.Count > 0)
+                        res.Pop();
+                }
+                else
+                {
+                    res.Push(s[i]);
+                }
+                i++;
+            }
+            return new string(res.ToArray());
+        }
+        #endregion
     }
 }
