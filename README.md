@@ -74,6 +74,7 @@
 * [762. 二进制表示中质数个计算置位](https://leetcode-cn.com/problems/prime-number-of-set-bits-in-binary-representation/description/)
 * [766. 托普利茨矩阵](https://leetcode-cn.com/problems/toeplitz-matrix/description/)
 * [771. 宝石与石头](https://leetcode-cn.com/problems/jewels-and-stones/description/)
+* [784. 字母大小写全排列](https://leetcode-cn.com/problems/letter-case-permutation/description/)
 * [796. 旋转字符串](https://leetcode-cn.com/problems/rotate-string/description/)
 * [804. 唯一摩尔斯密码词](https://leetcode-cn.com/problems/unique-morse-code-words/description/)
 * [824. 山羊拉丁文](https://leetcode-cn.com/problems/goat-latin/description/)

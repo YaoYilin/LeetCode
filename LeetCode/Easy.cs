@@ -1604,18 +1604,33 @@ namespace LeetCode
         #endregion
 
         //https://leetcode-cn.com/problems/letter-case-permutation/description/
-        #region TODO:784. 字母大小写全排列
+        #region 784. 字母大小写全排列
         public static IList<string> LetterCasePermutation(string S)
         {
-            List<string> res = new List<string>();
-
-
-            return res;
+            HashSet<string> res = new HashSet<string>();
+            S = S.ToLower();
+            res.Add(S);
+            Permutation(S, 0, res);
+            return res.ToList();
         }
 
-        private static void Permutation(string S, int index, IList<string> res)
+        private static void Permutation(string S, int index, HashSet<string> res)
         {
-
+            for (int i = index; i < S.Length; i++)
+            {
+                char c = S[i];
+            	if(char.IsLetter(c))
+                {
+                    var s = S.ToCharArray();
+                    if(char.IsLower(c))
+                    {
+                        s[i] = char.ToUpper(c);
+                        string _s = new string(s);
+                        res.Add(_s);
+                        Permutation(_s, index + 1, res);
+                    }
+                }
+            }
         }
         #endregion
 
