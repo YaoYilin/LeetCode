@@ -71,6 +71,7 @@
 * [657. 判断路线成圈](https://leetcode-cn.com/problems/judge-route-circle/description/)
 * [665. 非递减数列](https://leetcode-cn.com/problems/non-decreasing-array/description/)
 * [693. 交替位二进制数](https://leetcode-cn.com/problems/binary-number-with-alternating-bits/description/)
+* [728. 自除数](https://leetcode-cn.com/problems/self-dividing-numbers/description/)
 * [762. 二进制表示中质数个计算置位](https://leetcode-cn.com/problems/prime-number-of-set-bits-in-binary-representation/description/)
 * [766. 托普利茨矩阵](https://leetcode-cn.com/problems/toeplitz-matrix/description/)
 * [771. 宝石与石头](https://leetcode-cn.com/problems/jewels-and-stones/description/)

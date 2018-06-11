@@ -1543,6 +1543,31 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/self-dividing-numbers/description/
+        #region 728. 自除数
+        public static IList<int> SelfDividingNumbers(int left, int right)
+        {
+            IList<int> res = new List<int>();
+            for(int i = left; i <= right; i++)
+            {
+                int j = i;
+                for(; j > 0; j /= 10)
+                {
+                    int a = j % 10;
+                    if(a == 0)
+                        break;
+
+                    if(i % a != 0)
+                        break;
+                }
+                if(j == 0)
+                    res.Add(i);
+            }
+
+            return res;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/prime-number-of-set-bits-in-binary-representation/description/
         #region 762. 二进制表示中质数个计算置位
         public static int CountPrimeSetBits(int L, int R)
@@ -1616,10 +1641,10 @@ namespace LeetCode
 
         private static void Permutation(string S, int index, HashSet<string> res)
         {
-            for (int i = index; i < S.Length; i++)
+            for(int i = index; i < S.Length; i++)
             {
                 char c = S[i];
-            	if(char.IsLetter(c))
+                if(char.IsLetter(c))
                 {
                     var s = S.ToCharArray();
                     if(char.IsLower(c))
