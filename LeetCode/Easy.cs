@@ -275,6 +275,23 @@ namespace LeetCode
 
         #endregion
 
+        //https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/description/
+        #region 104. 二叉树的最大深度
+        public static int MaxDepth(TreeNode root)
+        {
+            return MaxDepth(root, 0);
+        }
+        private static int MaxDepth(TreeNode root, int level)
+        {
+            if(root == null)
+                return level;
+            int l = Math.Max(MaxDepth(root.left, level + 1), level);
+            int r = Math.Max(MaxDepth(root.right, level + 1), level);
+            return Math.Max(l, r);
+        }
+
+        #endregion
+
         //https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/description/
         #region 111. 二叉树的最小深度
         public static int MinDepth(TreeNode root)
