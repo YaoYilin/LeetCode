@@ -62,6 +62,7 @@
 * [461. 汉明距离](https://leetcode-cn.com/problems/hamming-distance/description/)
 * [463. 岛屿的周长](https://leetcode-cn.com/problems/island-perimeter/description/)
 * [476. 数字的补数](https://leetcode-cn.com/problems/number-complement/description/)
+* [485. 最大连续1的个数](https://leetcode-cn.com/problems/max-consecutive-ones/description/)
 * [500. 键盘行](https://leetcode-cn.com/problems/keyboard-row/description/)
 * [504. 七进制数](https://leetcode-cn.com/problems/base-7/description/)
 * [520. 检测大写字母](https://leetcode-cn.com/problems/detect-capital/description/)

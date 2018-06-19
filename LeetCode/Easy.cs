@@ -1267,6 +1267,29 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/max-consecutive-ones/description/
+        #region 485. 最大连续1的个数
+        public static int FindMaxConsecutiveOnes(int[] nums)
+        {
+            int max = 0;
+            int c = 0;
+            foreach(var n in nums)
+            {
+                if(n == 0)
+                {
+                    max = Math.Max(c, max);
+                    c = 0;
+                }
+                else
+                {
+                    c++;
+                }
+            }
+
+            return Math.Max(c, max);
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/keyboard-row/description/
         #region 500. 键盘行
         public static string[] FindWords(string[] words)
