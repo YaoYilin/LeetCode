@@ -911,6 +911,26 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/complex-number-multiplication/description/
+        #region 537. 复数乘法
+        public static string ComplexNumberMultiply(string a, string b)
+        {
+            int i, j;
+            int m, n;
+            Parse(a, out i, out j);
+            Parse(b, out m, out n);
+            int real = i * m - j * n;
+            int imaginary = j * m + i * n;
+            return $"{real}+{imaginary}i";
+        }
+        private static void Parse(string input, out int a, out int b)
+        {
+            var arr = input.Split('+');
+            a = int.Parse(arr[0]);
+            b = int.Parse(arr[1].Substring(0, arr[1].Length - 1));
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/single-element-in-a-sorted-array/description/
         #region 540. 有序数组中的单一元素
         public static int SingleNonDuplicate(int[] nums)
