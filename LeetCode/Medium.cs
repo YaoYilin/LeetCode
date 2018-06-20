@@ -820,6 +820,97 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/validate-ip-address/description/
+        #region 468. 验证IP地址
+        public static string ValidIPAddress(string IP)
+        {
+            if(IP.Length <= 0)
+                return "Neither";
+
+            if(IsIPV4(IP))
+                return "IPv4";
+
+            if(IsIPV6(IP))
+                return "IPv6";
+
+            return "Neither";
+        }
+
+        private static bool IsIPV4(string IP)
+        {
+            int v = 0;
+            bool isDot = true;
+            int counter = 0;
+            int l = 0;
+            for(int i = 0; i < IP.Length; i++)
+            {
+                char c = IP[i];
+                if(isDot)
+                {
+                    if(c == '.')
+                        return false;
+                    isDot = false;
+                }
+                if(char.IsNumber(c))
+                {
+                    if(l > 0)
+                    {
+                        if(v == 0)
+                            return false;
+                    }
+                    v = v * 10 + c - '0';
+                    l++;
+                    if(v > 255)
+                        return false;
+                }
+                else if(c == '.')
+                {
+                    l = 0;
+                    v = 0;
+                    isDot = true;
+                    counter++;
+                }
+                else
+                    return false;
+            }
+            return !isDot && counter == 3;
+        }
+
+        private static bool IsIPV6(string IP)
+        {
+            bool isColon = true;
+            int counter = 0;
+            int l = 0;
+            for(int i = 0; i < IP.Length; i++)
+            {
+                char c = IP[i];
+                if(isColon)
+                {
+                    if(c == ':')
+                        return false;
+
+                    isColon = false;
+                }
+                if(c == ':')
+                {
+                    isColon = true;
+                    counter++;
+                    l = 0;
+                }
+                else
+                {
+                    if(!((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F')))
+                        return false;
+                    if(l >= 4)
+                        return false;
+                    l++;
+                }
+            }
+
+            return !isColon && counter == 7;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/single-element-in-a-sorted-array/description/
         #region 540. 有序数组中的单一元素
         public static int SingleNonDuplicate(int[] nums)
