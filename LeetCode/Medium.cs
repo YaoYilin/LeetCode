@@ -589,6 +589,25 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/odd-even-linked-list/description/
+        #region 328. 奇偶链表
+        public static ListNode OddEvenList(ListNode head)
+        {
+            ListNode p0 = head;
+            ListNode p1 = head.next;
+            ListNode p = p1;
+            while(p1 != null && p1.next != null)
+            {
+                p0.next = p0.next.next;
+                p1.next = p1.next.next;
+                p0 = p0.next;
+                p1 = p1.next;
+            }
+            p0.next = p;
+            return head;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/counting-bits/description/
         #region 338. Bit位计数
         public static int[] CountBits(int num)
