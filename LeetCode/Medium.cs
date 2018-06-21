@@ -138,6 +138,24 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/group-anagrams/description/
+        #region 49. 字母异位词分组
+        public static IList<IList<string>> GroupAnagrams(string[] strs)
+        {
+            Dictionary<string, List<string>> map = new Dictionary<string, List<string>>();
+            foreach(var s in strs)
+            {
+                var arr = s.ToList();
+                arr.Sort();
+                string key = new string(arr.ToArray());
+                if(!map.ContainsKey(key))
+                    map[key] = new List<string>();
+                map[key].Add(s);
+            }
+            return new List<IList<string>>(map.Values);
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/spiral-matrix/description/
         #region 54. 螺旋矩阵
         public static IList<int> SpiralOrder(int[,] matrix)
@@ -593,17 +611,19 @@ namespace LeetCode
         #region 328. 奇偶链表
         public static ListNode OddEvenList(ListNode head)
         {
-            ListNode p0 = head;
-            ListNode p1 = head.next;
-            ListNode p = p1;
-            while(p1 != null && p1.next != null)
+            if(head == null)
+                return null;
+            ListNode odd = head;
+            ListNode even = head.next;
+            ListNode evenHead = even;
+            while(even != null && even.next != null)
             {
-                p0.next = p0.next.next;
-                p1.next = p1.next.next;
-                p0 = p0.next;
-                p1 = p1.next;
+                odd.next = odd.next.next;
+                even.next = even.next.next;
+                odd = odd.next;
+                even = even.next;
             }
-            p0.next = p;
+            odd.next = evenHead;
             return head;
         }
         #endregion
