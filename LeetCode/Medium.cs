@@ -237,6 +237,43 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/set-matrix-zeroes/description/
+        #region 73. 矩阵置零
+        public static void SetZeroes(int[,] matrix)
+        {
+            int r = matrix.GetLength(0);
+            int c = matrix.GetLength(1);
+            int c0 = 1;
+
+            for(int i = 0; i < r; i++)
+            {
+                if(matrix[i, 0] == 0)
+                    c0 = 0;
+                for(int j = 1; j < c; j++)
+                {
+                    if(matrix[i, j] == 0)
+                    {
+                        matrix[i, 0] = 0;
+                        matrix[0, j] = 0;
+                    }
+                }
+            }
+            for(int i = r - 1; i >= 0; i--)
+            {
+                for(int j = c - 1; j >= 1; j--)
+                {
+                    if(matrix[i, 0] == 0 || matrix[0, j] == 0)
+                    {
+                        matrix[i, j] = 0;
+                    }
+                }
+                if(c0 == 0)
+                    matrix[i, 0] = 0;
+            }
+
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/search-a-2d-matrix/description/
         #region 74. 搜索二维矩阵
         /// <summary>
