@@ -391,6 +391,34 @@ namespace LeetCode
         //}
         #endregion
 
+        //https://leetcode-cn.com/problems/partition-list/description/
+        #region 86. 分隔链表
+        public static ListNode Partition(ListNode head, int x)
+        {
+            ListNode biggerHead = new ListNode(0);
+            ListNode smallerHead = new ListNode(0);
+            ListNode smaller = smallerHead;
+            ListNode bigger = biggerHead;
+            while(head != null)
+            {
+                if(head.val < x)
+                {
+                    smaller.next = head;
+                    smaller = head;
+                }
+                else
+                {
+                    bigger.next = head;
+                    bigger = head;
+                }
+                head = head.next;
+            }
+            bigger.next = null; // avoid cycle in linked list
+            smaller.next = biggerHead.next;
+            return smallerHead.next;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/reverse-linked-list-ii/description/
         #region 92. 反转链表 II
         public static ListNode ReverseBetween(ListNode head, int m, int n)

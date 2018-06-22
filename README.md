@@ -96,6 +96,7 @@
 * [73. 矩阵置零](https://leetcode-cn.com/problems/set-matrix-zeroes/description/)
 * [74. 搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix/description/)
 * [75. 分类颜色](https://leetcode-cn.com/problems/sort-colors/description/)
+* [86. 分隔链表](https://leetcode-cn.com/problems/partition-list/description/)
 * [92. 反转链表 II](https://leetcode-cn.com/problems/reverse-linked-list-ii/description/)
 * [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/description/)
 * [165. 比较版本号](https://leetcode-cn.com/problems/compare-version-numbers/description/)
