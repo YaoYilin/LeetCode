@@ -1519,6 +1519,26 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/set-mismatch/description/
+        #region 645. 错误的集合
+        public static int[] FindErrorNums(int[] nums)
+        {
+            int[] res = new int[2];
+            int sum = 0;
+            foreach(var n in nums)
+            {
+                int i = Math.Abs(n);
+                if(nums[i - 1] < 0)
+                    res[0] = i;
+                else
+                    nums[i - 1] *= -1;
+                sum += i;
+            }
+            res[1] = (1 + nums.Length) * nums.Length / 2 - sum + res[0];
+
+            return res;
+        }
+        #endregion
         //https://leetcode-cn.com/problems/judge-route-circle/description/
         #region 657. 判断路线成圈
         public static bool JudgeCircle(string moves)
