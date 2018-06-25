@@ -1193,6 +1193,50 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/string-compression/description/
+        #region 443. 压缩字符串
+        public static int Compress(char[] chars)
+        {
+            if(chars.Length < 2)
+                return chars.Length;
+
+            char target = chars[0];
+            int len = 1;
+            int index = 0;
+            
+            for (int i = 1; i <= chars.Length; i++)
+            {
+                char v;
+                if(i < chars.Length)
+                    v = chars[i];
+                else
+                    v = (char)0;
+                if(target != v)
+                {
+                    chars[index] = target;
+                    index++;
+                    if(len > 1)
+                    {
+                        string l = len.ToString();
+                        for(int k = 0; k < l.Length; k++)
+                        {
+                            chars[index] = l[k];
+                            index++;
+                        }
+                    }
+                    target = v;
+                    len = 1;
+                }
+                else
+                {
+                    len++;
+                }
+            }
+
+            return index;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/find-all-numbers-disappeared-in-an-array/description/
         #region 448. 找到所有数组中消失的数字
         public static IList<int> FindDisappearedNumbers(int[] nums)
