@@ -1203,8 +1203,8 @@ namespace LeetCode
             char target = chars[0];
             int len = 1;
             int index = 0;
-            
-            for (int i = 1; i <= chars.Length; i++)
+
+            for(int i = 1; i <= chars.Length; i++)
             {
                 char v;
                 if(i < chars.Length)
@@ -1516,6 +1516,19 @@ namespace LeetCode
                 start++;
                 end--;
             }
+        }
+        #endregion
+
+        //https://leetcode.com/problems/array-partition-i/description/
+        #region 561. 数组拆分 I
+        public static int ArrayPairSum(int[] nums)
+        {
+            Array.Sort(nums);
+            int sum = 0;
+            for(int i = 0; i < nums.Length; i += 2)
+                sum += nums[i];
+
+            return sum;
         }
         #endregion
 

@@ -69,6 +69,7 @@
 * [520. 检测大写字母](https://leetcode-cn.com/problems/detect-capital/description/)
 * [541. 反转字符串 II](https://leetcode-cn.com/problems/reverse-string-ii/description/)
 * [557. 反转字符串中的单词 III](https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/description/)
+* [561. 数组拆分 I](https://leetcode.com/problems/array-partition-i/description/)
 * [617. 合并二叉树](https://leetcode-cn.com/problems/merge-two-binary-trees/description/)
 * [633. 平方数之和](https://leetcode-cn.com/problems/sum-of-square-numbers/description/)
 * [645. 错误的集合](https://leetcode-cn.com/problems/set-mismatch/description/)
