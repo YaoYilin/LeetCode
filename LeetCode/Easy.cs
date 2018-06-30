@@ -764,6 +764,32 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/binary-tree-paths/description/
+        #region 257. 二叉树的所有路径
+        public static IList<string> BinaryTreePaths(TreeNode root)
+        {
+            IList<string> res = new List<string>();
+            if(root != null)
+                BinaryTreePaths(root, res, "");
+            return res;
+        }
+
+        private static void BinaryTreePaths(TreeNode root, IList<string> res, string path)
+        {
+            if(root.left == null && root.right == null)
+            {
+                res.Add(path + root.val);
+                return;
+            }
+
+            if(root.left != null)
+                BinaryTreePaths(root.left, res, string.Format("{0}{1}->", path, root.val));
+
+            if(root.right != null)
+                BinaryTreePaths(root.right, res, string.Format("{0}{1}->", path, root.val));
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/add-digits/description/
         #region 258. 各位相加
         // 这个题放到Easy里，有点说不过去。
