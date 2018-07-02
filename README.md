@@ -88,6 +88,7 @@
 * [832. 翻转图像](https://leetcode-cn.com/problems/flipping-an-image/description/)
 * [836. 矩形重叠](https://leetcode-cn.com/problems/rectangle-overlap/description/)
 * [844. 比较含退格的字符串](https://leetcode-cn.com/problems/backspace-string-compare/description/)
+* [860. 柠檬水找零](https://leetcode-cn.com/contest/weekly-contest-91/problems/lemonade-change/)
 ---
 ###  Medium
 * [2. 两数相加](https://leetcode-cn.com/problems/add-two-numbers/description/)

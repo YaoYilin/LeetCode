@@ -1937,5 +1937,62 @@ namespace LeetCode
             return new string(res.ToArray());
         }
         #endregion
+
+        //https://leetcode-cn.com/contest/weekly-contest-91/problems/lemonade-change/
+        #region 860. 柠檬水找零
+        public static bool LemonadeChange(int[] bills)
+        {
+            int five = 0;
+            int ten = 0;
+            foreach(var bill in bills)
+            {
+                if(bill == 5)
+                {
+                    five++;
+                }
+                else if(bill == 10)
+                {
+                    if(five == 0)
+                        return false;
+                    else
+                        five--;
+
+                    ten++;
+                }
+                else if(bill == 20)
+                {
+                    if(five == 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        if(ten == 0)
+                        {
+                            if(five < 3)
+                                return false;
+                            else
+                                five -= 3;
+                        }
+                        else
+                        {
+                            if(five == 0)
+                            {
+                                return false;
+                            }
+                            else
+                            {
+                                ten--;
+                                five--;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return true;
+        }
+        #endregion
+
     }
 }
