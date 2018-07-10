@@ -1994,5 +1994,27 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/transpose-matrix/description/
+        #region 868. 转置矩阵
+        public static int[][] Transpose(int[][] A)
+        {
+            if(A == null || A.Length <= 0)
+                return null;
+
+            int w = A[0].Length;
+            int[][] res = new int[w][];
+            for(int i = 0; i < w; i++)
+            {
+                res[i] = new int[A.Length];
+                for(int j = 0; j < A.Length; j++)
+                {
+                    res[i][j] = A[j][i];
+                }
+            }
+
+            return res;
+        }
+        #endregion
+
     }
 }
