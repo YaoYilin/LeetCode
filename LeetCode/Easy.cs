@@ -1838,6 +1838,39 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/most-common-word/description/
+        #region 819. 最常见的单词
+        public static string MostCommonWord(string paragraph, string[] banned)
+        {
+            var words = paragraph.ToLower().Split(new char[] { '!', '?', '\'', ',', ';', '.', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            Dictionary<string, int> map = new Dictionary<string, int>();
+            HashSet<string> bannedSet = new HashSet<string>(banned);
+
+            foreach (var word in words)
+            {
+                if(!bannedSet.Contains(word))
+                {
+                    if(map.ContainsKey(word))
+                        map[word]++;
+                    else
+                        map.Add(word, 1);
+                }
+            }
+            int max = 0;
+            string w = string.Empty;
+            foreach (var kvp in map)
+            {
+                if(kvp.Value > max)
+                {
+                    w = kvp.Key;
+                    max = kvp.Value;
+                }                
+            }
+
+            return w;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/goat-latin/description/
         #region 824. 山羊拉丁文
         public static string ToGoatLatin(string S)
