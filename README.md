@@ -89,7 +89,7 @@
 * [832. 翻转图像](https://leetcode-cn.com/problems/flipping-an-image/description/)
 * [836. 矩形重叠](https://leetcode-cn.com/problems/rectangle-overlap/description/)
 * [844. 比较含退格的字符串](https://leetcode-cn.com/problems/backspace-string-compare/description/)
-* [860. 柠檬水找零](https://leetcode-cn.com/contest/weekly-contest-91/problems/lemonade-change/)
+* [860. 柠檬水找零](https://leetcode-cn.com/problems/lemonade-change/description/)
 * [868. 转置矩阵](https://leetcode-cn.com/problems/transpose-matrix/description/)
 ---
 ###  Medium
@@ -123,6 +123,7 @@
 * [477. 汉明距离总和](https://leetcode-cn.com/problems/total-hamming-distance/description/)
 * [537. 复数乘法](https://leetcode-cn.com/problems/complex-number-multiplication/description/)
 * [540. 有序数组中的单一元素](https://leetcode-cn.com/problems/single-element-in-a-sorted-array/description/)
+* [739. 每日温度](https://leetcode-cn.com/problems/daily-temperatures/description/)
 * [791. 自定义字符串排序](https://leetcode-cn.com/problems/custom-sort-string/description/)
 ---
 ###  Hard

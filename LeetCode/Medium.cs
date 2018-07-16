@@ -82,6 +82,16 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/multiply-strings/description/
+        #region TODO: 43. 字符串相乘
+        public static string Multiply(string num1, string num2)
+        {
+
+
+            return "";
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/permutations/description/
         #region 46. 全排列
         public static IList<IList<int>> Permute(int[] nums)
@@ -444,6 +454,15 @@ namespace LeetCode
 
             return dummy.next;
         }
+        #endregion
+
+        //https://leetcode-cn.com/problems/word-break/description/
+        #region 139. 单词拆分
+        public static bool WordBreak(string s, IList<string> wordDict)
+        {
+            throw new Exception("TODO:WordBreak");
+        }
+
         #endregion
 
         //https://leetcode-cn.com/problems/linked-list-cycle-ii/description/
@@ -1050,6 +1069,45 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/daily-temperatures/description/
+        #region 739. 每日温度
+        public static int[] DailyTemperatures(int[] temperatures)
+        {
+            Stack<int> stack = new Stack<int>();
+            int[] ret = new int[temperatures.Length];
+            for(int i = 0; i < temperatures.Length; i++)
+            {
+                while(stack.Count > 0 && temperatures[i] > temperatures[stack.Peek()])
+                {
+                    int index = stack.Pop();
+                    ret[index] = i - index;
+                }
+                stack.Push(i);
+            }
+            return ret;
+        }
+        //public static int[] DailyTemperatures(int[] temperatures)
+        //{
+        //    int[] res = new int[temperatures.Length];
+        //    for(int i = 0; i < temperatures.Length; i++)
+        //    {
+        //        res[i] = GetDay(temperatures, i);
+        //    }
+
+        //    return res;
+        //}
+
+        //private static int GetDay(int[] temperatures, int start)
+        //{
+        //    int v = temperatures[start];
+        //    for(int i = start + 1; i < temperatures.Length; i++)
+        //        if(temperatures[i] > v)
+        //            return i - start;
+        //    return 0;
+        //}
+
+        #endregion
+
         //https://leetcode-cn.com/problems/reorganize-string/description/
         #region TODO: 767. 重构字符串
         public static string ReorganizeString(string S)
@@ -1118,6 +1176,16 @@ namespace LeetCode
 
             return new string(res);
         }
+        #endregion
+
+        //https://leetcode-cn.com/contest/weekly-contest-91/problems/all-nodes-distance-k-in-binary-tree/
+        #region TODO: 863. 二叉树中所有距离为 K 的结点
+        public static IList<int> DistanceK(TreeNode root, TreeNode target, int K)
+        {
+
+            return null;
+        }
+
         #endregion
     }
 }
