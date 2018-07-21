@@ -1686,6 +1686,26 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/to-lower-case/description/
+        #region 709. 转换成小写字母
+        public static string ToLowerCase(string str)
+        {
+            var arr = str.ToCharArray();
+            for (int i = 0; i < str.Length; i++)
+            {
+                arr[i] = ToLower(str[i]);
+            }
+
+            return new string(arr);
+        }
+        private static char ToLower(char c)
+        {
+            if('A' <= c && c <= 'Z')
+                c = (char)(c | 0x20);
+            return c;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/self-dividing-numbers/description/
         #region 728. 自除数
         public static IList<int> SelfDividingNumbers(int left, int right)
@@ -1971,7 +1991,7 @@ namespace LeetCode
         }
         #endregion
 
-        //https://leetcode-cn.com/contest/weekly-contest-91/problems/lemonade-change/
+        //https://leetcode-cn.com/problems/lemonade-change/description/
         #region 860. 柠檬水找零
         public static bool LemonadeChange(int[] bills)
         {
