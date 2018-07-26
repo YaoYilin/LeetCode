@@ -2100,44 +2100,35 @@ namespace LeetCode
         #endregion
 
         //https://leetcode-cn.com/contest/weekly-contest-94/problems/leaf-similar-trees/
-        #region TODO: 872. 叶子相似的树
+        #region 872. 叶子相似的树
         public static bool LeafSimilar(TreeNode root1, TreeNode root2)
         {
-            Queue<int> queue1 = new Queue<int>();
-            GetLeaf(root1, queue1);
-            Queue<int> queue2 = new Queue<int>();
-            GetLeaf(root2, queue2);
+            List<int> leafs1 = new List<int>();
+            GetLeaf(root1, leafs1);
+            List<int> leafs2 = new List<int>();
+            GetLeaf(root2, leafs2);
 
-            if(queue1.Count != queue2.Count)
+            if(leafs1.Count != leafs2.Count)
                 return false;
 
-
-
-
-            for(int i = 0; i < queue1.Count; i++)
-            {
-                if(queue1.Peek() != queue2.Peek())
+            for(int i = 0; i < leafs1.Count; i++)
+                if(leafs1[i] != leafs2[i])
                     return false;
-
-                queue1.Dequeue();
-                queue2.Dequeue();
-            }
 
             return true;
         }
 
-        private static void GetLeaf(TreeNode tree, Queue<int> queue)
+        private static void GetLeaf(TreeNode tree, List<int> list)
         {
-            if(tree == null)
-                return;
-
             if(tree.left == null && tree.right == null)
             {
-                queue.Enqueue(tree.val);
+                list.Add(tree.val);
                 return;
             }
-            GetLeaf(tree.left, queue);
-            GetLeaf(tree.right, queue);
+            if(tree.left != null)
+                GetLeaf(tree.left, list);
+            if(tree.right != null)
+                GetLeaf(tree.right, list);
         }
 
         #endregion
