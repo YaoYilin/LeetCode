@@ -2103,16 +2103,16 @@ namespace LeetCode
         #region 872. 叶子相似的树
         public static bool LeafSimilar(TreeNode root1, TreeNode root2)
         {
-            List<int> leafs1 = new List<int>();
-            GetLeaf(root1, leafs1);
-            List<int> leafs2 = new List<int>();
-            GetLeaf(root2, leafs2);
+            List<int> leaves1 = new List<int>();
+            GetLeaf(root1, leaves1);
+            List<int> leaves2 = new List<int>();
+            GetLeaf(root2, leaves2);
 
-            if(leafs1.Count != leafs2.Count)
+            if(leaves1.Count != leaves2.Count)
                 return false;
 
-            for(int i = 0; i < leafs1.Count; i++)
-                if(leafs1[i] != leafs2[i])
+            for(int i = 0; i < leaves1.Count; i++)
+                if(leaves1[i] != leaves2[i])
                     return false;
 
             return true;
