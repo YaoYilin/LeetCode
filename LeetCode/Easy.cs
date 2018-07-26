@@ -1691,18 +1691,15 @@ namespace LeetCode
         public static string ToLowerCase(string str)
         {
             var arr = str.ToCharArray();
-            for (int i = 0; i < str.Length; i++)
+            for(int i = 0; i < str.Length; i++)
             {
-                arr[i] = ToLower(str[i]);
+                char c = str[i];
+                if('A' <= c && c <= 'Z')
+                    c = (char)(c | 0x20);
+                arr[i] = c;
             }
 
             return new string(arr);
-        }
-        private static char ToLower(char c)
-        {
-            if('A' <= c && c <= 'Z')
-                c = (char)(c | 0x20);
-            return c;
         }
         #endregion
 
@@ -1866,7 +1863,7 @@ namespace LeetCode
             Dictionary<string, int> map = new Dictionary<string, int>();
             HashSet<string> bannedSet = new HashSet<string>(banned);
 
-            foreach (var word in words)
+            foreach(var word in words)
             {
                 if(!bannedSet.Contains(word))
                 {
@@ -1878,13 +1875,13 @@ namespace LeetCode
             }
             int max = 0;
             string w = string.Empty;
-            foreach (var kvp in map)
+            foreach(var kvp in map)
             {
                 if(kvp.Value > max)
                 {
                     w = kvp.Key;
                     max = kvp.Value;
-                }                
+                }
             }
 
             return w;
@@ -1991,6 +1988,39 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/buddy-strings/description/
+        #region 859. 亲密字符串
+        public static bool BuddyStrings(string A, string B)
+        {
+            if(A.Length != B.Length)
+                return false;
+
+            if(A.Equals(B))
+            {
+                HashSet<char> set = new HashSet<char>();
+
+                for(int i = 0; i < A.Length; i++)
+                    if(!set.Add(A[i]))
+                        return true;
+
+                return false;
+            }
+
+            int c = 0;
+            int xor = 0;
+
+            for(int i = 0; i < A.Length; i++)
+            {
+                char a = A[i], b = B[i];
+                xor ^= (a ^ b);
+                if(a != b)
+                    c++;
+            }
+
+            return xor == 0 && c == 2;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/lemonade-change/description/
         #region 860. 柠檬水找零
         public static bool LemonadeChange(int[] bills)
@@ -2069,5 +2099,47 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/contest/weekly-contest-94/problems/leaf-similar-trees/
+        #region TODO: 872. 叶子相似的树
+        public static bool LeafSimilar(TreeNode root1, TreeNode root2)
+        {
+            Queue<int> queue1 = new Queue<int>();
+            GetLeaf(root1, queue1);
+            Queue<int> queue2 = new Queue<int>();
+            GetLeaf(root2, queue2);
+
+            if(queue1.Count != queue2.Count)
+                return false;
+
+
+
+
+            for(int i = 0; i < queue1.Count; i++)
+            {
+                if(queue1.Peek() != queue2.Peek())
+                    return false;
+
+                queue1.Dequeue();
+                queue2.Dequeue();
+            }
+
+            return true;
+        }
+
+        private static void GetLeaf(TreeNode tree, Queue<int> queue)
+        {
+            if(tree == null)
+                return;
+
+            if(tree.left == null && tree.right == null)
+            {
+                queue.Enqueue(tree.val);
+                return;
+            }
+            GetLeaf(tree.left, queue);
+            GetLeaf(tree.right, queue);
+        }
+
+        #endregion
     }
 }
