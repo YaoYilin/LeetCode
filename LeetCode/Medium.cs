@@ -475,8 +475,23 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/description/
+        #region 114. 二叉树展开为链表
+        private static TreeNode prev = null;
+        public static void Flatten(TreeNode root)
+        {
+            if(root == null)
+                return;
+            Flatten(root.right);
+            Flatten(root.left);
+            root.right = prev;
+            root.left = null;
+            prev = root;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/word-break/description/
-        #region 139. 单词拆分
+        #region TODO: 139. 单词拆分
         public static bool WordBreak(string s, IList<string> wordDict)
         {
             throw new Exception("TODO:WordBreak");
