@@ -78,6 +78,47 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/first-missing-positive/description/
+        #region TODO: 41. 缺失的第一个正数
+        public static int FirstMissingPositive(int[] nums)
+        {
+            if(nums.Length <= 0)
+                return 1;
+
+            int min = 0, max = 0;
+
+            foreach(var n in nums)
+            {
+                if(n > max)
+                    max = n;
+                else if(n == min + 1)
+                    min++;
+            }
+
+            return min == max ? max + 1 : min;
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/binary-tree-postorder-traversal/description/
+        #region 145. 二叉树的后序遍历
+        public static IList<int> PostorderTraversal(TreeNode root)
+        {
+            IList<int> res = new List<int>();
+            Traversal(root, res);
+            return res;
+        }
+
+        private static void Traversal(TreeNode root, IList<int> res)
+        {
+            if(root == null)
+                return;
+
+            Traversal(root.left, res);
+            Traversal(root.right, res);
+            res.Add(root.val);
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/number-of-digit-one/description/
         #region 233. 数字1的个数
         /// <summary>

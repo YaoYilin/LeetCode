@@ -108,7 +108,9 @@
 * [75. 分类颜色](https://leetcode-cn.com/problems/sort-colors/description/)
 * [86. 分隔链表](https://leetcode-cn.com/problems/partition-list/description/)
 * [92. 反转链表 II](https://leetcode-cn.com/problems/reverse-linked-list-ii/description/)
+* [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/description/)
 * [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/description/)
+* [144. 二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/description/)
 * [165. 比较版本号](https://leetcode-cn.com/problems/compare-version-numbers/description/)
 * [227. 基本计算器II](https://leetcode-cn.com/problems/basic-calculator-ii/description/)
 * [238. 除自身以外数组的乘积](https://leetcode-cn.com/problems/product-of-array-except-self/description/)
@@ -131,5 +133,6 @@
 ---
 ###  Hard
 * [4. 两个排序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/description/)
+* [145. 二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/description/)
 * [233. 数字1的个数](https://leetcode-cn.com/problems/number-of-digit-one/description/)
 

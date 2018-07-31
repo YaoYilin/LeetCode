@@ -456,6 +456,25 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/binary-tree-inorder-traversal/description/
+        #region 94. 二叉树的中序遍历
+        public static IList<int> InorderTraversal(TreeNode root)
+        {
+            IList<int> res = new List<int>();
+            Traversal2(root, res);
+            return res;
+        }
+        private static void Traversal2(TreeNode root, IList<int> res)
+        {
+            if(root == null)
+                return;
+
+            Traversal2(root.left, res);
+            res.Add(root.val);
+            Traversal2(root.right, res);
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/word-break/description/
         #region 139. 单词拆分
         public static bool WordBreak(string s, IList<string> wordDict)
@@ -501,6 +520,26 @@ namespace LeetCode
 
             }
             return null;
+        }
+        #endregion
+
+        // https://leetcode-cn.com/problems/binary-tree-preorder-traversal/description/
+        #region 144. 二叉树的前序遍历
+        public static IList<int> PreorderTraversal(TreeNode root)
+        {
+            IList<int> res = new List<int>();
+            Traversal(root, res);
+            return res;
+        }
+
+        private static void Traversal(TreeNode root, IList<int> res)
+        {
+            if(root == null)
+                return;
+
+            res.Add(root.val);
+            Traversal(root.left, res);
+            Traversal(root.right, res);
         }
         #endregion
 
