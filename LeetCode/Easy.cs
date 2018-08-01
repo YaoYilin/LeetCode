@@ -1088,6 +1088,46 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/guess-number-higher-or-lower/description/
+        #region 374. 猜数字大小
+        public static int GuessNumber(int n)
+        {
+            int l = 1, r = n;
+            while(true)
+            {
+                int m = (l & r) + ((l ^ r) >> 1);
+                int res = Guess(m);
+                if(res > 0)
+                {
+                    l = m + 1;
+                }
+                else if(res < 0)
+                {
+                    r = m - 1;
+                }
+                else
+                {
+                    return res;
+                }
+            }
+        }
+        /// <summary>
+        /// 原题没有C#版本的，下面这个函数是我自己添加的，当做API以供调用。
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        private static int Guess(int num)
+        {
+            int n = 6;
+            if(num > n)
+                return -1;
+            if(num < n)
+                return 1;
+            return 0;
+        }
+
+        #endregion
+
         //https://leetcode-cn.com/problems/ransom-note/description/
         #region 383. 赎金信
         public static bool CanConstruct(string ransomNote, string magazine)

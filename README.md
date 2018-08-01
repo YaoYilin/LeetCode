@@ -53,6 +53,7 @@
 * [345. 反转字符串中的元音字母](https://leetcode-cn.com/problems/reverse-vowels-of-a-string/description/)
 * [367. 有效的完全平方数](https://leetcode-cn.com/problems/valid-perfect-square/description/)
 * [371. 两整数之和](https://leetcode-cn.com/problems/sum-of-two-integers/description/)
+* [374. 猜数字大小](https://leetcode-cn.com/problems/guess-number-higher-or-lower/description/)
 * [383. 赎金信](https://leetcode-cn.com/problems/ransom-note/description/)
 * [387. 字符串中的第一个唯一字符](https://leetcode-cn.com/problems/first-unique-character-in-a-string/description/)
 * [389. 找不同](https://leetcode-cn.com/problems/find-the-difference/description/)
