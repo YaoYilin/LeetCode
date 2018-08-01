@@ -276,6 +276,30 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/description/
+        #region 83. 删除排序链表中的重复元素
+        public static ListNode DeleteDuplicates(ListNode head)
+        {
+            if(head == null)
+                return null;
+
+            var node = head;
+            while(node.next != null)
+            {
+                if(node.val == node.next.val)
+                {
+                    node.next = node.next.next;
+                }
+                else
+                {
+                    node = node.next;
+                }
+            }
+
+            return head;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/symmetric-tree/description/
         #region 101. 对称二叉树
         public static bool IsSymmetric(TreeNode root)
