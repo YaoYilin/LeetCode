@@ -401,6 +401,44 @@ namespace LeetCode
         //}
         #endregion
 
+        //https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/description/
+        #region 82. 删除排序链表中的重复元素 II
+        public static ListNode DeleteDuplicates(ListNode head)
+        {
+            if(head == null)
+                return null;
+
+            ListNode dummy = new ListNode(head.val - 1);
+            dummy.next = head;
+            ListNode node = head;
+            ListNode nextNode = head.next;
+            ListNode preNode = dummy;
+            while(nextNode != null)
+            {
+                if(node.val != nextNode.val)
+                {
+                    preNode = node;
+                    node = node.next;
+                    nextNode = nextNode.next;
+                }
+                else
+                {
+                    while(nextNode != null && node.val == nextNode.val)
+                    {
+                        node = node.next;
+                        nextNode = nextNode.next;
+                    }
+
+                    preNode.next = nextNode;
+                    node = nextNode;
+                    nextNode = nextNode != null ? nextNode.next : null;
+                }
+            }
+
+            return dummy.next;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/partition-list/description/
         #region 86. 分隔链表
         public static ListNode Partition(ListNode head, int x)
