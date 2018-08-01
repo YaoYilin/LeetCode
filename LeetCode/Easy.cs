@@ -50,6 +50,29 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/valid-parentheses/description/
+        #region 20. 有效的括号
+        public static bool IsValid(string s)
+        {
+            Stack<char> stack = new Stack<char>();
+
+            for(int i = 0; i < s.Length; i++)
+            {
+                char c = s[i];
+                if(c == '(')
+                    stack.Push(')');
+                else if(c == '{')
+                    stack.Push('}');
+                else if(c == '[')
+                    stack.Push(']');
+                else if(stack.Count == 0 || stack.Pop() != c)
+                    return false;
+            }
+
+            return stack.Count == 0;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/merge-two-sorted-lists/description/
         #region 21. 合并两个有序链表
         public static ListNode MergeTwoLists(ListNode l1, ListNode l2)
