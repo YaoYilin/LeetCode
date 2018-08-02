@@ -2219,5 +2219,22 @@ namespace LeetCode
         }
 
         #endregion
+
+        //https://leetcode-cn.com/problems/middle-of-the-linked-list/description/
+        #region 876. 链表的中间结点
+        public static ListNode MiddleNode(ListNode head)
+        {
+            var slower = head;
+            var faster = head;
+
+            while(faster != null && faster.next != null)
+            {
+                faster = faster.next.next;
+                slower = slower.next;
+            }
+
+            return slower;
+        }
+        #endregion
     }
 }

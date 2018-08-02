@@ -97,6 +97,7 @@
 * [860. 柠檬水找零](https://leetcode-cn.com/problems/lemonade-change/description/)
 * [868. 转置矩阵](https://leetcode-cn.com/problems/transpose-matrix/description/)
 * [872. 叶子相似的树](https://leetcode-cn.com/contest/weekly-contest-94/problems/leaf-similar-trees/)
+* [876. 链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list/description/)
 ---
 ###  Medium
 * [2. 两数相加](https://leetcode-cn.com/problems/add-two-numbers/description/)
