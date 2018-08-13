@@ -98,6 +98,7 @@
 * [868. 转置矩阵](https://leetcode-cn.com/problems/transpose-matrix/description/)
 * [872. 叶子相似的树](https://leetcode-cn.com/contest/weekly-contest-94/problems/leaf-similar-trees/)
 * [876. 链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list/description/)
+* [888. 两句话中的不常见单词](https://leetcode-cn.com/contest/weekly-contest-97/problems/uncommon-words-from-two-sentences/)
 ---
 ###  Medium
 * [2. 两数相加](https://leetcode-cn.com/problems/add-two-numbers/description/)

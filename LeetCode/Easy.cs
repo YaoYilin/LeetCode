@@ -78,9 +78,14 @@ namespace LeetCode
         public static ListNode MergeTwoLists(ListNode l1, ListNode l2)
         {
             if(l1 == null)
+            {
                 return l2;
+            }
+
             if(l2 == null)
+            {
                 return l1;
+            }
 
             if(l1.val < l2.val)
             {
@@ -92,6 +97,28 @@ namespace LeetCode
                 l2.next = MergeTwoLists(l2.next, l1);
                 return l2;
             }
+        }
+
+        public static ListNode MergeTwoLists_2(ListNode l1, ListNode l2)
+        {
+            ListNode dummy = new ListNode(0);
+            ListNode tail = dummy;
+            while(l1 != null && l2 != null)
+            {
+                if(l1.val < l2.val)
+                {
+                    tail.next = l1;
+                    l1 = l1.next;
+                }
+                else
+                {
+                    tail.next = l2;
+                    l2 = l2.next;
+                }
+                tail = tail.next;
+            }
+            tail.next = l1 != null ? l1 : l2;
+            return dummy.next;
         }
         #endregion
 
@@ -2235,6 +2262,48 @@ namespace LeetCode
 
             return slower;
         }
+        #endregion
+
+        //https://leetcode-cn.com/contest/weekly-contest-97/problems/uncommon-words-from-two-sentences/
+        #region 888. 两句话中的不常见单词
+        public static string[] UncommonFromSentences(string A, string B)
+        {
+            var a1 = A.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            var a2 = B.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            var s1 = RemoveDuplicate(a1);
+            var s2 = RemoveDuplicate(a2);
+            HashSet<string> res = new HashSet<string>();
+            RemoveDuplicate(s1, a2, res);
+            RemoveDuplicate(s2, a1, res);
+            return res.ToArray();
+        }
+
+        private static HashSet<string> RemoveDuplicate(string[] arr)
+        {
+            HashSet<string> res = new HashSet<string>();
+            HashSet<string> duplicate = new HashSet<string>();
+            foreach(var item in arr)
+            {
+                if(!duplicate.Contains(item))
+                {
+                    if(!res.Add(item))
+                    {
+                        res.Remove(item);
+                        duplicate.Add(item);
+                    }
+                }
+            }
+            return res;
+        }
+
+        private static void RemoveDuplicate(HashSet<string> set, string[] arr, HashSet<string> res)
+        {
+            HashSet<string> s = new HashSet<string>(arr);
+            foreach(var item in set)
+                if(!s.Contains(item))
+                    res.Add(item);
+        }
+
         #endregion
     }
 }
