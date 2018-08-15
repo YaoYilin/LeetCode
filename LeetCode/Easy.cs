@@ -2002,6 +2002,35 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/shortest-distance-to-a-character/description/
+        #region 821. 字符的最短距离
+        public static int[] ShortestToChar(string S, char C)
+        {
+            int[] arr = new int[S.Length];
+            for(int i = 0; i < S.Length; i++)
+            {
+                int l = i, r = i;
+                while(true)
+                {
+                    if(S[l] == C)
+                    {
+                        arr[i] = i - l;
+                        break;
+                    }
+                    if(S[r] == C)
+                    {
+                        arr[i] = r - i;
+                        break;
+                    }
+                    l = --l < 0 ? 0 : l;
+                    r = ++r >= S.Length ? S.Length - 1 : r;
+                }
+            }
+
+            return arr;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/goat-latin/description/
         #region 824. 山羊拉丁文
         public static string ToGoatLatin(string S)
