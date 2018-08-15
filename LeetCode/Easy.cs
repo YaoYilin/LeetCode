@@ -2102,6 +2102,19 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/peak-index-in-a-mountain-array/description/
+        #region 852. 山脉数组的峰顶索引
+        public static int PeakIndexInMountainArray(int[] A)
+        {
+            for(int i = 1; i < A.Length; i++)
+            {
+                if(A[i] < A[i - 1])
+                    return i - 1;
+            }
+            return A.Length;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/buddy-strings/description/
         #region 859. 亲密字符串
         public static bool BuddyStrings(string A, string B)
