@@ -327,6 +327,31 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/merge-sorted-array/description/
+        #region 88. 合并两个有序数组
+        public static void Merge(int[] nums1, int m, int[] nums2, int n)
+        {
+            int end = m + n - 1;
+            m--;
+            n--;
+            while(end >= 0)
+            {
+                int a = m >= 0 ? nums1[m] : int.MinValue;
+                int b = n >= 0 ? nums2[n] : int.MinValue;
+                if(a > b)
+                {
+                    nums1[end--] = a;
+                    m--;
+                }
+                else
+                {
+                    nums1[end--] = b;
+                    n--;
+                }
+            }
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/symmetric-tree/description/
         #region 101. 对称二叉树
         public static bool IsSymmetric(TreeNode root)
