@@ -111,6 +111,7 @@
 * [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/description/)
 * [54. 螺旋矩阵](https://leetcode-cn.com/problems/spiral-matrix/description/)
 * [59. 螺旋矩阵 II](https://leetcode-cn.com/problems/spiral-matrix-ii/description/)
+* [61. 旋转链表](https://leetcode-cn.com/problems/rotate-list/description/)
 * [73. 矩阵置零](https://leetcode-cn.com/problems/set-matrix-zeroes/description/)
 * [74. 搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix/description/)
 * [75. 分类颜色](https://leetcode-cn.com/problems/sort-colors/description/)

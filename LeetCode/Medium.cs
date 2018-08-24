@@ -247,6 +247,32 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/rotate-list/description/
+        #region 61. 旋转链表
+        public static ListNode RotateRight(ListNode head, int k)
+        {
+            if(k <= 0 || head == null)
+                return head;
+
+            int l = 1;
+            var dummy = head;
+            while(dummy.next != null)
+            {
+                dummy = dummy.next;
+                l++;
+            }
+            dummy.next = head;
+
+            k %= l;
+            if(k > 0)
+                for(int i = 0; i < l - k; i++)
+                    dummy = dummy.next;
+            var newHead = dummy.next;
+            dummy.next = null;
+            return newHead;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/set-matrix-zeroes/description/
         #region 73. 矩阵置零
         public static void SetZeroes(int[,] matrix)
@@ -756,22 +782,49 @@ namespace LeetCode
         #region 287. 寻找重复数
         public static int FindDuplicate(int[] nums)
         {
-            int[] arr = new int[nums.Length];
-            for(int i = 0; i < nums.Length; i++)
+            if(nums.Length > 1)
             {
-                int t = nums[i];
-                if(arr[t] == 0)
-                    arr[t] = nums[i];
-                else
-                    arr[t] = -1;
-            }
+                int slow = nums[0];
+                int fast = nums[nums[0]];
+                while(slow != fast)
+                {
+                    slow = nums[slow];
+                    fast = nums[nums[fast]];
+                }
 
-            for(int i = 0; i < arr.Length; i++)
-            {
-                if(arr[i] == -1)
-                    return i;
+                fast = 0;
+                while(fast != slow)
+                {
+                    fast = nums[fast];
+                    slow = nums[slow];
+                }
+                return slow;
             }
-            return 0;
+            return -1;
+            //int res = 0;
+            //for(int i = 0; i < nums.Length; i++)
+            //{
+            //    res ^= nums[i];
+            //    res ^= i;
+            //}
+            //return res;
+            //--------------------------------------------------------
+            //int[] arr = new int[nums.Length];
+            //for(int i = 0; i < nums.Length; i++)
+            //{
+            //    int t = nums[i];
+            //    if(arr[t] == 0)
+            //        arr[t] = nums[i];
+            //    else
+            //        arr[t] = -1;
+            //}
+
+            //for(int i = 0; i < arr.Length; i++)
+            //{
+            //    if(arr[i] == -1)
+            //        return i;
+            //}
+            //return 0;
         }
         #endregion
 
@@ -1278,6 +1331,45 @@ namespace LeetCode
             return null;
         }
 
+        #endregion
+
+        //https://leetcode-cn.com/contest/weekly-contest-96/problems/decoded-string-at-index/
+        #region 884. 索引处的解码字符串
+        public static string DecodeAtIndex(string S, int K)
+        {
+            int i = 0;
+            while(i < S.Length)
+            {
+                char c = S[i];
+                if(c <= '9' && c >= '0')
+                {
+                    if(i >= K)
+                    {
+                        return new string(new char[] { S[K - 1] });
+                    }
+                    else
+                    {
+                        char[] arr = new char[(S.Length - i - 1) + i * (c - '0')];
+                        int j = 0;
+                        for(j = 0; j < c - '0'; j++)
+                        {
+                            for(int k = 0; k < i; k++)
+                            {
+                                arr[j * i + k] = S[k];
+                            }
+                        }
+
+                        for(j = i * (c - '0'); i < S.Length - 1; j++)
+                        {
+                            arr[j] = S[++i];
+                        }
+                        return DecodeAtIndex(new string(arr), K);
+                    }
+                }
+                i++;
+            }
+            return new string(new char[] { S[K - 1] });
+        }
         #endregion
     }
 }
