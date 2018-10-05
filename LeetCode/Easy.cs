@@ -2331,8 +2331,8 @@ namespace LeetCode
         }
         #endregion
 
-        //https://leetcode-cn.com/contest/weekly-contest-97/problems/uncommon-words-from-two-sentences/
-        #region 888. 两句话中的不常见单词
+        //https://leetcode-cn.com/problems/uncommon-words-from-two-sentences/description/
+        #region 884. 两句话中的不常见单词
         public static string[] UncommonFromSentences(string A, string B)
         {
             var a1 = A.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
@@ -2371,6 +2371,29 @@ namespace LeetCode
                     res.Add(item);
         }
 
+        #endregion
+
+        //https://leetcode-cn.com/problems/sort-array-by-parity/description/
+        #region 905. 按奇偶校验排序数组
+        public static int[] SortArrayByParity(int[] A)
+        {
+            int l = 0, r = A.Length - 1;
+            while (l < r)
+            {
+                int v = A[l];
+                if ((v & 1) == 1)
+                {
+                    A[l] = A[r];
+                    A[r] = v;
+                    r--;
+                }
+                else
+                {
+                    l++;
+                }
+            }
+            return A;
+        }
         #endregion
     }
 }
