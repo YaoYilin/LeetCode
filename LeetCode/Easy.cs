@@ -2395,5 +2395,35 @@ namespace LeetCode
             return A;
         }
         #endregion
+
+        //https://leetcode-cn.com/problems/reverse-only-letters/description/
+        #region 917. 仅仅反转字母
+        public static string ReverseOnlyLetters(string S)
+        {
+            int l = 0, r = S.Length - 1;
+            var arr = S.ToCharArray();
+            while (l < r)
+            {
+                char lc = arr[l], rc = arr[r];
+                if(!char.IsLetter(lc))
+                {
+                    l++;
+                }
+                else if(!char.IsLetter(rc))
+                {
+                    r--;
+                }
+                else
+                {
+                    arr[l] = rc;
+                    arr[r] = lc;
+                    l++;
+                    r--;
+                }
+            }
+            return new string(arr);
+        }
+
+        #endregion
     }
 }
