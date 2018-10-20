@@ -13,11 +13,11 @@ namespace LeetCode
         public static int[] TwoSum(int[] nums, int target)
         {
             int[] arr = new int[2];
-            for(int i = 0; i < nums.Length; i++)
+            for (int i = 0; i < nums.Length; i++)
             {
-                for(int j = i + 1; j < nums.Length; j++)
+                for (int j = i + 1; j < nums.Length; j++)
                 {
-                    if(nums[j] + nums[i] == target)
+                    if (nums[j] + nums[i] == target)
                     {
                         arr[0] = i;
                         arr[1] = j;
@@ -35,11 +35,11 @@ namespace LeetCode
         {
             int result = 0;
 
-            while(x != 0)
+            while (x != 0)
             {
                 int tail = x % 10;
                 int newResult = result * 10 + tail;
-                if((newResult - tail) / 10 != result)
+                if ((newResult - tail) / 10 != result)
                     return 0;
 
                 result = newResult;
@@ -56,16 +56,16 @@ namespace LeetCode
         {
             Stack<char> stack = new Stack<char>();
 
-            for(int i = 0; i < s.Length; i++)
+            for (int i = 0; i < s.Length; i++)
             {
                 char c = s[i];
-                if(c == '(')
+                if (c == '(')
                     stack.Push(')');
-                else if(c == '{')
+                else if (c == '{')
                     stack.Push('}');
-                else if(c == '[')
+                else if (c == '[')
                     stack.Push(']');
-                else if(stack.Count == 0 || stack.Pop() != c)
+                else if (stack.Count == 0 || stack.Pop() != c)
                     return false;
             }
 
@@ -77,17 +77,17 @@ namespace LeetCode
         #region 21. 合并两个有序链表
         public static ListNode MergeTwoLists(ListNode l1, ListNode l2)
         {
-            if(l1 == null)
+            if (l1 == null)
             {
                 return l2;
             }
 
-            if(l2 == null)
+            if (l2 == null)
             {
                 return l1;
             }
 
-            if(l1.val < l2.val)
+            if (l1.val < l2.val)
             {
                 l1.next = MergeTwoLists(l1.next, l2);
                 return l1;
@@ -103,9 +103,9 @@ namespace LeetCode
         {
             ListNode dummy = new ListNode(0);
             ListNode tail = dummy;
-            while(l1 != null && l2 != null)
+            while (l1 != null && l2 != null)
             {
-                if(l1.val < l2.val)
+                if (l1.val < l2.val)
                 {
                     tail.next = l1;
                     l1 = l1.next;
@@ -126,14 +126,14 @@ namespace LeetCode
         #region 26. 删除排序数组中的重复项
         public static int RemoveDuplicates(int[] nums)
         {
-            if(nums.Length < 2)
+            if (nums.Length < 2)
                 return nums.Length;
 
             int index = 0;
             int v = nums[0];
-            for(int i = 1; i < nums.Length; i++)
+            for (int i = 1; i < nums.Length; i++)
             {
-                if(nums[i] != v)
+                if (nums[i] != v)
                 {
                     index++;
                     v = nums[i];
@@ -151,9 +151,9 @@ namespace LeetCode
         {
             int len = nums.Length;
             int i = 0;
-            while(i != len)
+            while (i != len)
             {
-                if(nums[i] == val)
+                if (nums[i] == val)
                 {
                     nums[i] = nums[len - 1];
                     len--;
@@ -172,10 +172,10 @@ namespace LeetCode
         #region 35. 搜索插入位置
         public static int SearchInsert(int[] nums, int target)
         {
-            for(int i = 0; i < nums.Length; i++)
+            for (int i = 0; i < nums.Length; i++)
             {
                 int v = nums[i];
-                if(v >= target)
+                if (v >= target)
                     return i;
             }
 
@@ -187,15 +187,15 @@ namespace LeetCode
         #region 58. 最后一个单词的长度
         public static int LengthOfLastWord(string s)
         {
-            if(string.IsNullOrWhiteSpace(s))
+            if (string.IsNullOrWhiteSpace(s))
                 return 0;
 
             string str = s.TrimEnd();
             int i = str.Length - 1;
             int l = 0;
-            while(i >= 0)
+            while (i >= 0)
             {
-                if(s[i--] == ' ')
+                if (s[i--] == ' ')
                     break;
                 l++;
             }
@@ -210,14 +210,14 @@ namespace LeetCode
             int carry = 1;
             LinkedList<int> res = new LinkedList<int>();
 
-            for(int i = digits.Length - 1; i >= 0; i--)
+            for (int i = digits.Length - 1; i >= 0; i--)
             {
                 int sum = digits[i] + carry;
                 res.AddFirst(sum % 10);
                 carry = sum / 10;
             }
 
-            if(carry > 0)
+            if (carry > 0)
                 res.AddFirst(carry);
 
             return res.ToArray();
@@ -232,7 +232,7 @@ namespace LeetCode
             int j = b.Length - 1;
             char carry = '0';
             LinkedList<char> list = new LinkedList<char>();
-            while(i >= 0 || j >= 0)
+            while (i >= 0 || j >= 0)
             {
                 char res = carry;
                 char ca = i >= 0 ? a[i] : '0';
@@ -240,7 +240,7 @@ namespace LeetCode
                 res ^= ca;
                 res ^= cb;
 
-                if(ca == cb)
+                if (ca == cb)
                     carry = ca;
                 else
                     carry = res == '0' ? '1' : '0';
@@ -250,7 +250,7 @@ namespace LeetCode
                 j--;
             }
 
-            if(carry == '1')
+            if (carry == '1')
                 list.AddFirst(carry);
 
             return new string(list.ToArray());
@@ -262,11 +262,11 @@ namespace LeetCode
         public static int MySqrt(int x)
         {
             int m = 0x40000000, y = 0, b;
-            while(m != 0)
+            while (m != 0)
             {
                 b = y | m;
                 y >>= 1;
-                if(x >= b)
+                if (x >= b)
                 {
                     x = x - b;
                     y |= m;
@@ -307,13 +307,13 @@ namespace LeetCode
         #region 83. 删除排序链表中的重复元素
         public static ListNode DeleteDuplicates(ListNode head)
         {
-            if(head == null)
+            if (head == null)
                 return null;
 
             var node = head;
-            while(node.next != null)
+            while (node.next != null)
             {
-                if(node.val == node.next.val)
+                if (node.val == node.next.val)
                 {
                     node.next = node.next.next;
                 }
@@ -334,11 +334,11 @@ namespace LeetCode
             int end = m + n - 1;
             m--;
             n--;
-            while(end >= 0)
+            while (end >= 0)
             {
                 int a = m >= 0 ? nums1[m] : int.MinValue;
                 int b = n >= 0 ? nums2[n] : int.MinValue;
-                if(a > b)
+                if (a > b)
                 {
                     nums1[end--] = a;
                     m--;
@@ -356,17 +356,17 @@ namespace LeetCode
         #region 101. 对称二叉树
         public static bool IsSymmetric(TreeNode root)
         {
-            if(root != null)
+            if (root != null)
                 return IsEqual(root.left, root.right);
 
             return true;
         }
         private static bool IsEqual(TreeNode n1, TreeNode n2)
         {
-            if(n1 == null && n2 == null)
+            if (n1 == null && n2 == null)
                 return true;
 
-            if(n1 != null && n2 != null)
+            if (n1 != null && n2 != null)
                 return n1.val == n2.val && IsEqual(n1.left, n2.right) && IsEqual(n1.right, n2.left);
 
             return false;
@@ -382,7 +382,7 @@ namespace LeetCode
         }
         private static int MaxDepth(TreeNode root, int level)
         {
-            if(root == null)
+            if (root == null)
                 return level;
             int l = Math.Max(MaxDepth(root.left, level + 1), level);
             int r = Math.Max(MaxDepth(root.right, level + 1), level);
@@ -395,7 +395,7 @@ namespace LeetCode
         #region 111. 二叉树的最小深度
         public static int MinDepth(TreeNode root)
         {
-            if(root == null)
+            if (root == null)
                 return 0;
 
             int L = MinDepth(root.left), R = MinDepth(root.right);
@@ -408,7 +408,7 @@ namespace LeetCode
         public static IList<IList<int>> Generate(int numRows)
         {
             IList<IList<int>> res = new List<IList<int>>();
-            for(int i = 0; i < numRows; i++)
+            for (int i = 0; i < numRows; i++)
                 res.Add(GetRow(i)); // No. 119
 
             return res;
@@ -430,7 +430,7 @@ namespace LeetCode
         {
             int[] row = new int[rowIndex + 1];
             row[0] = 1;
-            for(int i = 1; i <= rowIndex; i++)
+            for (int i = 1; i <= rowIndex; i++)
                 row[i] = (int)((long)row[i - 1] * (rowIndex - (i - 1)) / (i));
 
             return new List<int>(row);
@@ -442,12 +442,12 @@ namespace LeetCode
         public static bool IsPalindrome(string s)
         {
             int l = 0, r = s.Length - 1;
-            while(l < r)
+            while (l < r)
             {
                 char c1 = default(char);
-                while(l < s.Length)
+                while (l < s.Length)
                 {
-                    if(char.IsLetterOrDigit(s[l]))
+                    if (char.IsLetterOrDigit(s[l]))
                     {
                         c1 = Tools.ToUpper(s[l]);
                         break;
@@ -455,16 +455,16 @@ namespace LeetCode
                     l++;
                 }
                 char c2 = default(char);
-                while(r >= 0)
+                while (r >= 0)
                 {
-                    if(char.IsLetterOrDigit(s[r]))
+                    if (char.IsLetterOrDigit(s[r]))
                     {
                         c2 = Tools.ToUpper(s[r]);
                         break;
                     }
                     r--;
                 }
-                if(c1 != c2)
+                if (c1 != c2)
                     return false;
 
                 l++;
@@ -482,11 +482,11 @@ namespace LeetCode
         [Obsolete("Use char.IsLetterOrDigit(char c) instead")]
         private static bool IsLetterOrDigit(char c)
         {
-            if(c >= '0' && c <= '9')
+            if (c >= '0' && c <= '9')
                 return true;
-            if(c >= 'A' && c <= 'Z')
+            if (c >= 'A' && c <= 'Z')
                 return true;
-            if(c >= 'a' && c <= 'z')
+            if (c >= 'a' && c <= 'z')
                 return true;
             return false;
         }
@@ -498,7 +498,7 @@ namespace LeetCode
         public static int SingleNumber(int[] nums)
         {
             int res = nums[0];
-            for(int i = 1; i < nums.Length; i++)
+            for (int i = 1; i < nums.Length; i++)
             {
                 res ^= nums[i];
             }
@@ -510,12 +510,12 @@ namespace LeetCode
         #region 160. 相交链表
         public static ListNode GetIntersectionNode(ListNode headA, ListNode headB)
         {
-            if(headA == null || headB == null)
+            if (headA == null || headB == null)
                 return null;
 
             ListNode a = headA, b = headB;
 
-            while(a != b)
+            while (a != b)
             {
                 a = a == null ? headB : a.next;
                 b = b == null ? headA : b.next;
@@ -530,23 +530,23 @@ namespace LeetCode
         {
             int[] res = new int[2];
 
-            if(numbers == null || numbers.Length < 2)
+            if (numbers == null || numbers.Length < 2)
                 return res;
 
             int l = 0, r = numbers.Length - 1;
 
-            while(l < r)
+            while (l < r)
             {
                 int lv = numbers[l];
                 int rv = numbers[r];
                 int sum = lv + rv;
-                if(sum == target)
+                if (sum == target)
                 {
                     res[0] = l + 1;
                     res[1] = r + 1;
                     break;
                 }
-                else if(sum > target)
+                else if (sum > target)
                     r--;
                 else
                     l++;
@@ -561,11 +561,11 @@ namespace LeetCode
         public static string ConvertToTitle(int n)
         {
             LinkedList<char> chars = new LinkedList<char>();
-            while(true)
+            while (true)
             {
                 chars.AddFirst((char)(--n % 26 + 'A'));
                 n /= 26;
-                if(n <= 0)
+                if (n <= 0)
                     break;
             }
             return new string(chars.ToArray());
@@ -577,14 +577,14 @@ namespace LeetCode
         public static int TitleToNumber(string s)
         {
             int res = 0;
-            for(int i = 0; i < s.Length; i++)
+            for (int i = 0; i < s.Length; i++)
                 res += (ParseExcelTitleChar(s[i]) * (int)Math.Pow(26, s.Length - i - 1));
 
             return res;
         }
         private static int ParseExcelTitleChar(char c)
         {
-            if(c >= 'A' && c <= 'Z')
+            if (c >= 'A' && c <= 'Z')
             {
                 return c - 'A' + 1;
             }
@@ -602,7 +602,7 @@ namespace LeetCode
         /// <returns></returns>
         public static int TrailingZeroes(int n)
         {
-            if(n < 5)
+            if (n < 5)
                 return 0;
             return n / 5 + TrailingZeroes(n / 5);
         }
@@ -645,7 +645,7 @@ namespace LeetCode
             //return res;
 
             uint m = 0;
-            for(int i = 0; i < 32; i++)
+            for (int i = 0; i < 32; i++)
             {
                 m <<= 1;
                 m |= n & 1;
@@ -660,7 +660,7 @@ namespace LeetCode
         public static int HammingWeight(uint n)
         {
             int c = 0;
-            while(n > 0)
+            while (n > 0)
             {
                 n &= (n - 1);
                 c++;
@@ -677,16 +677,16 @@ namespace LeetCode
         }
         private static bool IsHappy(int n, HashSet<int> set)
         {
-            if(n == 1)
+            if (n == 1)
                 return true;
 
-            if(set.Contains(n))
+            if (set.Contains(n))
                 return false;
             else
                 set.Add(n);
 
             int sum = 0;
-            while(n > 0)
+            while (n > 0)
             {
                 int r = n % 10;
                 sum += (r * r);
@@ -702,16 +702,16 @@ namespace LeetCode
         public static ListNode RemoveElements(ListNode head, int val)
         {
             ListNode dummy = head;
-            while(dummy != null)
+            while (dummy != null)
             {
                 ListNode next = dummy.next;
-                if(next != null && next.val == val)
+                if (next != null && next.val == val)
                     dummy.next = next.next;
                 else
                     dummy = dummy.next;
             }
 
-            if(head != null && head.val == val)
+            if (head != null && head.val == val)
                 head = head.next;
 
             return head;
@@ -729,12 +729,12 @@ namespace LeetCode
         {
             bool[] notPrime = new bool[n];
             int count = 0;
-            for(int i = 2; i < n; i++)
+            for (int i = 2; i < n; i++)
             {
-                if(notPrime[i] == false)
+                if (notPrime[i] == false)
                 {
                     count++;
-                    for(int j = 2; i * j < n; j++)
+                    for (int j = 2; i * j < n; j++)
                         notPrime[i * j] = true;
                 }
             }
@@ -750,19 +750,19 @@ namespace LeetCode
         {
             char[] m = new char[256];
             char[] n = new char[256];
-            for(int i = 0; i < s.Length; i++)
+            for (int i = 0; i < s.Length; i++)
             {
                 var si = s[i];
                 var ti = t[i];
 
-                if(m[si] == 0 && n[ti] == 0)
+                if (m[si] == 0 && n[ti] == 0)
                 {
                     m[si] = ti;
                     n[ti] = si;
                 }
                 else
                 {
-                    if(m[si] != ti && n[ti] != si)
+                    if (m[si] != ti && n[ti] != si)
                         return false;
                 }
             }
@@ -776,7 +776,7 @@ namespace LeetCode
         public static ListNode ReverseList(ListNode head)
         {
             ListNode list = null;
-            while(head != null)
+            while (head != null)
             {
                 var next = head.next;
                 head.next = list;
@@ -793,8 +793,8 @@ namespace LeetCode
         public static bool ContainsDuplicate(int[] nums)
         {
             HashSet<int> hash = new HashSet<int>();
-            foreach(var n in nums)
-                if(!hash.Add(n))
+            foreach (var n in nums)
+                if (!hash.Add(n))
                     return true;
             return false;
         }
@@ -805,12 +805,12 @@ namespace LeetCode
         public static bool ContainsNearbyDuplicate(int[] nums, int k)
         {
             Dictionary<int, int> map = new Dictionary<int, int>();
-            for(int i = 0; i < nums.Length; i++)
+            for (int i = 0; i < nums.Length; i++)
             {
                 int key = nums[i];
-                if(map.ContainsKey(key))
+                if (map.ContainsKey(key))
                 {
-                    if(Math.Abs(map[key] - i) <= k)
+                    if (Math.Abs(map[key] - i) <= k)
                         return true;
                     else
                         map[key] = i;
@@ -827,7 +827,7 @@ namespace LeetCode
         #region 226. 翻转二叉树
         public static TreeNode InvertTree(TreeNode root)
         {
-            if(root == null)
+            if (root == null)
                 return null;
             var tree = root.left;
             root.left = root.right;
@@ -868,23 +868,23 @@ namespace LeetCode
         public static IList<string> BinaryTreePaths(TreeNode root)
         {
             IList<string> res = new List<string>();
-            if(root != null)
+            if (root != null)
                 BinaryTreePaths(root, res, "");
             return res;
         }
 
         private static void BinaryTreePaths(TreeNode root, IList<string> res, string path)
         {
-            if(root.left == null && root.right == null)
+            if (root.left == null && root.right == null)
             {
                 res.Add(path + root.val);
                 return;
             }
 
-            if(root.left != null)
+            if (root.left != null)
                 BinaryTreePaths(root.left, res, string.Format("{0}{1}->", path, root.val));
 
-            if(root.right != null)
+            if (root.right != null)
                 BinaryTreePaths(root.right, res, string.Format("{0}{1}->", path, root.val));
         }
         #endregion
@@ -903,16 +903,16 @@ namespace LeetCode
         #region 263. 丑数
         public static bool IsUgly(int num)
         {
-            if(num <= 0)
+            if (num <= 0)
                 return false;
 
-            while(num % 2 == 0)
+            while (num % 2 == 0)
                 num /= 2;
 
-            while(num % 3 == 0)
+            while (num % 3 == 0)
                 num /= 3;
 
-            while(num % 5 == 0)
+            while (num % 5 == 0)
                 num /= 5;
 
             return num == 1;
@@ -924,7 +924,7 @@ namespace LeetCode
         public static int MissingNumber(int[] nums)
         {
             int sum = 0;
-            for(int i = 0; i < nums.Length; i++)
+            for (int i = 0; i < nums.Length; i++)
                 sum += nums[i];
 
             return (nums.Length * (nums.Length + 1)) / 2 - sum;
@@ -938,10 +938,10 @@ namespace LeetCode
         public static int FirstBadVersion(int n)
         {
             int left = 1, right = n;
-            while(left < right)
+            while (left < right)
             {
                 int middle = left + (right - left) / 2;
-                if(!IsBadVersion(middle))
+                if (!IsBadVersion(middle))
                     left = middle + 1;
                 else
                     right = middle;
@@ -959,15 +959,15 @@ namespace LeetCode
         public static void MoveZeroes(int[] nums)
         {
             int i = 0;
-            while(i < nums.Length)
+            while (i < nums.Length)
             {
-                if(nums[i] == 0)
+                if (nums[i] == 0)
                 {
                     int total = 0;
-                    for(int j = i + 1; j < nums.Length; j++)
+                    for (int j = i + 1; j < nums.Length; j++)
                     {
                         total += nums[j];
-                        if(nums[j] != 0)
+                        if (nums[j] != 0)
                         {
                             int t = nums[i];
                             nums[i] = nums[j];
@@ -975,7 +975,7 @@ namespace LeetCode
                             break;
                         }
                     }
-                    if(total == 0)
+                    if (total == 0)
                         return;
                 }
                 else
@@ -996,11 +996,11 @@ namespace LeetCode
             {
                 Nums = new int[nums.Length];
                 this.nums = nums;
-                if(nums.Length <= 0)
+                if (nums.Length <= 0)
                     return;
 
                 Nums[0] = nums[0];
-                for(int i = 1; i < nums.Length; i++)
+                for (int i = 1; i < nums.Length; i++)
                 {
                     Nums[i] = nums[i];
                     this.nums[i] += nums[i - 1];
@@ -1009,7 +1009,7 @@ namespace LeetCode
 
             public int SumRange(int i, int j)
             {
-                if(i == 0)
+                if (i == 0)
                     return nums[j];
 
                 return nums[j] - nums[i - 1];
@@ -1043,7 +1043,7 @@ namespace LeetCode
             char[] chars = new char[s.Length];
             int start = 0;
             int end = s.Length - 1;
-            while(start <= end)
+            while (start <= end)
             {
                 chars[start] = s[end];
                 chars[end] = s[start];
@@ -1062,18 +1062,18 @@ namespace LeetCode
 
             int l = 0, r = str.Length - 1;
             bool lIsVowel = false, rIsVowel = false;
-            while(l < r)
+            while (l < r)
             {
                 lIsVowel = IsVowel(str[l]);
                 rIsVowel = IsVowel(str[r]);
 
-                if(!lIsVowel)
+                if (!lIsVowel)
                     l++;
 
-                if(!rIsVowel)
+                if (!rIsVowel)
                     r--;
 
-                if(lIsVowel && rIsVowel)
+                if (lIsVowel && rIsVowel)
                 {
                     char t = str[l];
                     str[l] = str[r];
@@ -1103,7 +1103,7 @@ namespace LeetCode
             // a1 = 2*1 - 1;
             // an = 2n - 1;
             // Sn = (1+ 2n - 1）* n)/2 = n²
-            while(num > 0)
+            while (num > 0)
             {
                 num -= i;
                 i += 2;
@@ -1130,7 +1130,7 @@ namespace LeetCode
         #region 371. 两整数之和
         public static int GetSum(int a, int b)
         {
-            if(b == 0)
+            if (b == 0)
                 return a;
 
             int sum, carry;
@@ -1145,15 +1145,15 @@ namespace LeetCode
         public static int GuessNumber(int n)
         {
             int l = 1, r = n;
-            while(true)
+            while (true)
             {
                 int m = (l & r) + ((l ^ r) >> 1);
                 int res = Guess(m);
-                if(res > 0)
+                if (res > 0)
                 {
                     l = m + 1;
                 }
-                else if(res < 0)
+                else if (res < 0)
                 {
                     r = m - 1;
                 }
@@ -1171,9 +1171,9 @@ namespace LeetCode
         private static int Guess(int num)
         {
             int n = 6;
-            if(num > n)
+            if (num > n)
                 return -1;
-            if(num < n)
+            if (num < n)
                 return 1;
             return 0;
         }
@@ -1185,11 +1185,11 @@ namespace LeetCode
         public static bool CanConstruct(string ransomNote, string magazine)
         {
             int[] arr = new int['z' + 1];
-            for(int i = 0; i < magazine.Length; i++)
+            for (int i = 0; i < magazine.Length; i++)
                 arr[magazine[i]]++;
 
-            for(int i = 0; i < ransomNote.Length; i++)
-                if(arr[ransomNote[i]]-- <= 0)
+            for (int i = 0; i < ransomNote.Length; i++)
+                if (arr[ransomNote[i]]-- <= 0)
                     return false;
 
             return true;
@@ -1202,10 +1202,10 @@ namespace LeetCode
         {
             int[] asicii = new int['z' + 1];
             int[] chars = new int[s.Length];
-            for(int i = 0; i < s.Length; i++)
+            for (int i = 0; i < s.Length; i++)
             {
                 char c = s[i];
-                if(asicii[c] == 0)
+                if (asicii[c] == 0)
                 {
                     chars[i] = c;
                     asicii[c] = i + 1;
@@ -1216,8 +1216,8 @@ namespace LeetCode
                 }
             }
 
-            for(int i = 0; i < chars.Length; i++)
-                if(chars[i] > 0)
+            for (int i = 0; i < chars.Length; i++)
+                if (chars[i] > 0)
                     return i;
 
             return -1;
@@ -1229,9 +1229,9 @@ namespace LeetCode
         public static char FindTheDifference(string s, string t)
         {
             char res = default(char);
-            for(int i = 0; i < s.Length; i++)
+            for (int i = 0; i < s.Length; i++)
                 res ^= s[i];
-            for(int i = 0; i < t.Length; i++)
+            for (int i = 0; i < t.Length; i++)
                 res ^= t[i];
 
             return res;
@@ -1242,17 +1242,17 @@ namespace LeetCode
         #region 404. 左叶子之和
         public static int SumOfLeftLeaves(TreeNode root)
         {
-            if(root == null)
+            if (root == null)
                 return 0;
 
             return SumLeft(root.left) + SumRight(root.right);
         }
         private static int SumLeft(TreeNode node)
         {
-            if(node == null)
+            if (node == null)
                 return 0;
 
-            if(node.left == null && node.right == null)
+            if (node.left == null && node.right == null)
                 return node.val;
 
             return SumLeft(node.left) + SumRight(node.right);
@@ -1260,7 +1260,7 @@ namespace LeetCode
 
         private static int SumRight(TreeNode node)
         {
-            if(node == null)
+            if (node == null)
                 return 0;
 
             return SumLeft(node.left) + SumRight(node.right);
@@ -1272,12 +1272,12 @@ namespace LeetCode
         private static char[] hexs = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
         public static string ToHex(int num)
         {
-            if(num == 0)
+            if (num == 0)
                 return "0";
 
             LinkedList<char> res = new LinkedList<char>();
             long n = num & 0xFFFFFFFF;
-            while(n != 0)
+            while (n != 0)
             {
                 long low4 = n & 0xf;
                 res.AddFirst(hexs[low4]);
@@ -1293,11 +1293,11 @@ namespace LeetCode
         {
             List<string> strs = new List<string>();
 
-            for(int i = 1; i <= n; i++)
+            for (int i = 1; i <= n; i++)
             {
-                if(i % 3 == 0)
+                if (i % 3 == 0)
                 {
-                    if(i % 5 == 0)
+                    if (i % 5 == 0)
                     {
                         strs.Add("FizzBuzz");
                     }
@@ -1306,9 +1306,9 @@ namespace LeetCode
                         strs.Add("Fizz");
                     }
                 }
-                else if(i % 5 == 0)
+                else if (i % 5 == 0)
                 {
-                    if(i % 3 == 0)
+                    if (i % 3 == 0)
                     {
                         strs.Add("FizzBuzz");
                     }
@@ -1336,14 +1336,14 @@ namespace LeetCode
             int n1 = 0, n2 = 0;
 
             int i = 1;
-            while((num1.Length - i >= 0 || num2.Length - i >= 0) || carry > 0)
+            while ((num1.Length - i >= 0 || num2.Length - i >= 0) || carry > 0)
             {
-                if(num1.Length - i >= 0)
+                if (num1.Length - i >= 0)
                     n1 = num1[num1.Length - i] - '0';
                 else
                     n1 = 0;
 
-                if(num2.Length - i >= 0)
+                if (num2.Length - i >= 0)
                     n2 = num2[num2.Length - i] - '0';
                 else
                     n2 = 0;
@@ -1362,28 +1362,28 @@ namespace LeetCode
         #region 443. 压缩字符串
         public static int Compress(char[] chars)
         {
-            if(chars.Length < 2)
+            if (chars.Length < 2)
                 return chars.Length;
 
             char target = chars[0];
             int len = 1;
             int index = 0;
 
-            for(int i = 1; i <= chars.Length; i++)
+            for (int i = 1; i <= chars.Length; i++)
             {
                 char v;
-                if(i < chars.Length)
+                if (i < chars.Length)
                     v = chars[i];
                 else
                     v = (char)0;
-                if(target != v)
+                if (target != v)
                 {
                     chars[index] = target;
                     index++;
-                    if(len > 1)
+                    if (len > 1)
                     {
                         string l = len.ToString();
-                        for(int k = 0; k < l.Length; k++)
+                        for (int k = 0; k < l.Length; k++)
                         {
                             chars[index] = l[k];
                             index++;
@@ -1407,12 +1407,12 @@ namespace LeetCode
         public static IList<int> FindDisappearedNumbers(int[] nums)
         {
             int[] arr = new int[nums.Length + 1];
-            for(int i = 0; i < nums.Length; i++)
+            for (int i = 0; i < nums.Length; i++)
                 arr[nums[i]] = nums[i];
 
             List<int> res = new List<int>();
-            for(int i = 1; i < arr.Length; i++)
-                if(arr[i] == 0)
+            for (int i = 1; i < arr.Length; i++)
+                if (arr[i] == 0)
                     res.Add(i);
 
             return res;
@@ -1425,7 +1425,7 @@ namespace LeetCode
         {
             int counter = 0;
             int r = x ^ y;
-            while(r > 0)
+            while (r > 0)
             {
                 r = r & (r - 1);
                 counter++;
@@ -1443,18 +1443,18 @@ namespace LeetCode
             int maxRow = grid.GetUpperBound(0);
             int maxCol = grid.GetUpperBound(1);
             int b, r;
-            for(int row = -1; row <= maxRow; row++)
+            for (int row = -1; row <= maxRow; row++)
             {
-                for(int col = -1; col <= maxCol; col++)
+                for (int col = -1; col <= maxCol; col++)
                 {
                     int v = row < 0 || col < 0 ? 0 : grid[row, col];
 
                     b = col < 0 || row == maxRow ? 0 : grid[row + 1, col];
                     r = row < 0 || col == maxCol ? 0 : grid[row, col + 1];
 
-                    if(v != b)
+                    if (v != b)
                         res++;
-                    if(v != r)
+                    if (v != r)
                         res++;
                 }
             }
@@ -1469,7 +1469,7 @@ namespace LeetCode
         {
             int i = 1;
 
-            while(i < num)
+            while (i < num)
                 i = i | (i << 1);
 
             return ~num & i;
@@ -1482,9 +1482,9 @@ namespace LeetCode
         {
             int max = 0;
             int c = 0;
-            foreach(var n in nums)
+            foreach (var n in nums)
             {
-                if(n == 0)
+                if (n == 0)
                 {
                     max = Math.Max(c, max);
                     c = 0;
@@ -1512,9 +1512,9 @@ namespace LeetCode
             InitMap(row2, keyMap, 2);
             InitMap(row3, keyMap, 3);
             List<string> strs = new List<string>();
-            foreach(var word in words)
+            foreach (var word in words)
             {
-                if(IsInOneLine(word, keyMap))
+                if (IsInOneLine(word, keyMap))
                     strs.Add(word);
             }
 
@@ -1522,7 +1522,7 @@ namespace LeetCode
         }
         private static void InitMap(string str, int[] keyMap, int row)
         {
-            for(int i = 0; i < str.Length; i++)
+            for (int i = 0; i < str.Length; i++)
             {
                 char c = str[i];
                 keyMap[c - 'A'] = row;
@@ -1531,16 +1531,16 @@ namespace LeetCode
         }
         private static bool IsInOneLine(string str, int[] keyMap)
         {
-            if(string.IsNullOrWhiteSpace(str))
+            if (string.IsNullOrWhiteSpace(str))
                 return false;
 
-            if(str.Length == 1)
+            if (str.Length == 1)
                 return true;
 
             int basic = keyMap[str[0] - 'A'];
-            for(int i = 1; i < str.Length; i++)
+            for (int i = 1; i < str.Length; i++)
             {
-                if(keyMap[str[i] - 'A'] != basic)
+                if (keyMap[str[i] - 'A'] != basic)
                     return false;
             }
 
@@ -1552,24 +1552,24 @@ namespace LeetCode
         #region 504. 七进制数
         public static string ConvertToBase7(int num)
         {
-            if(num == 0)
+            if (num == 0)
                 return "0";
 
             Stack<char> res = new Stack<char>();
             bool addSymble = false;
-            if(num < 0)
+            if (num < 0)
             {
                 addSymble = true;
                 num = -num;
             }
 
-            while(num > 0)
+            while (num > 0)
             {
                 res.Push((char)(num % 7 + '0'));
                 num /= 7;
             }
 
-            if(addSymble)
+            if (addSymble)
                 res.Push('-');
             return new string(res.ToArray());
         }
@@ -1579,32 +1579,32 @@ namespace LeetCode
         #region 520. 检测大写字母
         public static bool DetectCapitalUse(string word)
         {
-            if(word.Length <= 1)
+            if (word.Length <= 1)
                 return true;
 
-            if(word.Length <= 2)
+            if (word.Length <= 2)
             {
-                if(IsCaptital(word[0]))
+                if (IsCaptital(word[0]))
                     return true;
 
-                if((!IsCaptital(word[0]) && !IsCaptital(word[1])))
+                if ((!IsCaptital(word[0]) && !IsCaptital(word[1])))
                     return true;
 
-                if((IsCaptital(word[0]) && IsCaptital(word[1])))
+                if ((IsCaptital(word[0]) && IsCaptital(word[1])))
                     return true;
 
                 return false;
             }
 
-            for(int i = 0; i <= word.Length - 3; i++)
+            for (int i = 0; i <= word.Length - 3; i++)
             {
-                if(IsCaptital(word[i]) && IsCaptital(word[i + 1]) && IsCaptital(word[i + 2]))
+                if (IsCaptital(word[i]) && IsCaptital(word[i + 1]) && IsCaptital(word[i + 2]))
                     continue;
 
-                if(!IsCaptital(word[i]) && !IsCaptital(word[i + 1]) && !IsCaptital(word[i + 2]))
+                if (!IsCaptital(word[i]) && !IsCaptital(word[i + 1]) && !IsCaptital(word[i + 2]))
                     continue;
 
-                if(IsCaptital(word[i]) && !IsCaptital(word[i + 1]) && !IsCaptital(word[i + 2]))
+                if (IsCaptital(word[i]) && !IsCaptital(word[i + 1]) && !IsCaptital(word[i + 2]))
                     continue;
 
                 return false;
@@ -1624,13 +1624,13 @@ namespace LeetCode
         {
             char[] str = s.ToArray();
             int l = s.Length;
-            if(l == 0)
+            if (l == 0)
                 return string.Empty;
 
-            if(k > l)
+            if (k > l)
                 Swap(str, 0, l);
             else
-                for(int i = 0; i < l;)
+                for (int i = 0; i < l;)
                 {
                     int j = Math.Min(i + k, l);
                     Swap(str, i, j);
@@ -1641,7 +1641,7 @@ namespace LeetCode
         }
         private static void Swap(char[] chars, int start, int end)
         {
-            while(start < end)
+            while (start < end)
             {
                 char c = chars[start];
                 chars[start++] = chars[--end];
@@ -1656,15 +1656,15 @@ namespace LeetCode
         {
             var chars = new char[s.Length];
             int start = 0;
-            for(int i = 0; i < s.Length; i++)
+            for (int i = 0; i < s.Length; i++)
             {
-                if(s[i].Equals(' '))
+                if (s[i].Equals(' '))
                 {
                     chars[i] = ' ';
                     ReverseLetters(s, chars, start, i - 1);
                     start = i + 1;
                 }
-                else if(i == s.Length - 1)
+                else if (i == s.Length - 1)
                 {
                     ReverseLetters(s, chars, start, s.Length - 1);
                 }
@@ -1674,7 +1674,7 @@ namespace LeetCode
         }
         private static void ReverseLetters(string s, char[] chars, int start, int end)
         {
-            while(start <= end)
+            while (start <= end)
             {
                 chars[start] = s[end];
                 chars[end] = s[start];
@@ -1690,7 +1690,7 @@ namespace LeetCode
         {
             Array.Sort(nums);
             int sum = 0;
-            for(int i = 0; i < nums.Length; i += 2)
+            for (int i = 0; i < nums.Length; i += 2)
                 sum += nums[i];
 
             return sum;
@@ -1701,13 +1701,13 @@ namespace LeetCode
         #region 617. 合并二叉树
         public static TreeNode MergeTrees(TreeNode t1, TreeNode t2)
         {
-            if(t1 == null && t2 == null)
+            if (t1 == null && t2 == null)
                 return null;
 
             int v = 0;
-            if(t1 != null)
+            if (t1 != null)
                 v += t1.val;
-            if(t2 != null)
+            if (t2 != null)
                 v += t2.val;
 
             var res = new TreeNode(v);
@@ -1726,12 +1726,12 @@ namespace LeetCode
             int left = 0;
             int right = (int)Math.Sqrt(c);
 
-            while(left <= right)
+            while (left <= right)
             {
                 int r = left * left + right * right;
-                if(r > c)
+                if (r > c)
                     right--;
-                else if(r < c)
+                else if (r < c)
                     left++;
                 else
                     return true;
@@ -1747,10 +1747,10 @@ namespace LeetCode
         {
             int[] res = new int[2];
             int sum = 0;
-            foreach(var n in nums)
+            foreach (var n in nums)
             {
                 int i = Math.Abs(n);
-                if(nums[i - 1] < 0)
+                if (nums[i - 1] < 0)
                     res[0] = i;
                 else
                     nums[i - 1] *= -1;
@@ -1766,16 +1766,16 @@ namespace LeetCode
         public static bool JudgeCircle(string moves)
         {
             int res = 0;
-            for(int i = 0; i < moves.Length; i++)
+            for (int i = 0; i < moves.Length; i++)
             {
                 char c = moves[i];
-                if(c == 'U')
+                if (c == 'U')
                     res++;
-                else if(c == 'D')
+                else if (c == 'D')
                     res--;
-                else if(c == 'L')
+                else if (c == 'L')
                     res += 2;
-                else if(c == 'R')
+                else if (c == 'R')
                     res -= 2;
             }
             return res == 0;
@@ -1796,14 +1796,14 @@ namespace LeetCode
             Array.Copy(nums, arr, nums.Length);
             bool isMabeyInvalid = false;
             int i = 1;
-            while(i < arr.Length)
+            while (i < arr.Length)
             {
-                if(arr[i - 1] > arr[i])
+                if (arr[i - 1] > arr[i])
                 {
-                    if(isMabeyInvalid)
+                    if (isMabeyInvalid)
                         return false;
 
-                    if(i < 2 || arr[i - 2] < arr[i])
+                    if (i < 2 || arr[i - 2] < arr[i])
                         arr[i - 1] = arr[i];
                     else
                         arr[i] = arr[i - 1];
@@ -1830,10 +1830,10 @@ namespace LeetCode
         public static string ToLowerCase(string str)
         {
             var arr = str.ToCharArray();
-            for(int i = 0; i < str.Length; i++)
+            for (int i = 0; i < str.Length; i++)
             {
                 char c = str[i];
-                if('A' <= c && c <= 'Z')
+                if ('A' <= c && c <= 'Z')
                     c = (char)(c | 0x20);
                 arr[i] = c;
             }
@@ -1847,19 +1847,19 @@ namespace LeetCode
         public static IList<int> SelfDividingNumbers(int left, int right)
         {
             IList<int> res = new List<int>();
-            for(int i = left; i <= right; i++)
+            for (int i = left; i <= right; i++)
             {
                 int j = i;
-                for(; j > 0; j /= 10)
+                for (; j > 0; j /= 10)
                 {
                     int a = j % 10;
-                    if(a == 0)
+                    if (a == 0)
                         break;
 
-                    if(i % a != 0)
+                    if (i % a != 0)
                         break;
                 }
-                if(j == 0)
+                if (j == 0)
                     res.Add(i);
             }
 
@@ -1872,8 +1872,8 @@ namespace LeetCode
         public static int CountPrimeSetBits(int L, int R)
         {
             int c = 0;
-            for(int i = L; i <= R; i++)
-                if(IsPrime(CountBit(i)))
+            for (int i = L; i <= R; i++)
+                if (IsPrime(CountBit(i)))
                     c++;
             return c;
         }
@@ -1888,7 +1888,7 @@ namespace LeetCode
         private static int CountBit(int num)
         {
             int res = 0;
-            while(num > 0)
+            while (num > 0)
             {
                 num &= (num - 1);
                 res++;
@@ -1901,9 +1901,9 @@ namespace LeetCode
         #region 766. 托普利茨矩阵
         public static bool IsToeplitzMatrix(int[,] matrix)
         {
-            for(int i = 1; i < matrix.GetLength(0); i++)
-                for(int j = 1; j < matrix.GetLength(1); j++)
-                    if(matrix[i, j] != matrix[i - 1, j - 1])
+            for (int i = 1; i < matrix.GetLength(0); i++)
+                for (int j = 1; j < matrix.GetLength(1); j++)
+                    if (matrix[i, j] != matrix[i - 1, j - 1])
                         return false;
 
             return true;
@@ -1915,11 +1915,11 @@ namespace LeetCode
         public static int NumJewelsInStones(string J, string S)
         {
             int[] stones = new int['z' + 1];
-            for(int i = 0; i < S.Length; i++)
+            for (int i = 0; i < S.Length; i++)
                 stones[S[i]]++;
 
             int count = 0;
-            for(int i = 0; i < J.Length; i++)
+            for (int i = 0; i < J.Length; i++)
                 count += stones[J[i]];
 
             return count;
@@ -1940,13 +1940,13 @@ namespace LeetCode
 
         private static void Permutation(string S, int index, HashSet<string> res)
         {
-            for(int i = index; i < S.Length; i++)
+            for (int i = index; i < S.Length; i++)
             {
                 char c = S[i];
-                if(char.IsLetter(c))
+                if (char.IsLetter(c))
                 {
                     var s = S.ToCharArray();
-                    if(char.IsLower(c))
+                    if (char.IsLower(c))
                     {
                         s[i] = char.ToUpper(c);
                         string _s = new string(s);
@@ -1962,7 +1962,7 @@ namespace LeetCode
         #region 796. 旋转字符串
         public static bool RotateString(string A, string B)
         {
-            if(A.Length != B.Length)
+            if (A.Length != B.Length)
                 return false;
             return (B + B).Contains(A);
         }
@@ -1973,10 +1973,10 @@ namespace LeetCode
         public static int UniqueMorseRepresentations(string[] words)
         {
             HashSet<string> morses = new HashSet<string>();
-            foreach(var word in words)
+            foreach (var word in words)
             {
                 var m = WordToMorse(word);
-                if(!morses.Contains(m))
+                if (!morses.Contains(m))
                     morses.Add(m);
             }
             return morses.Count;
@@ -1987,7 +1987,7 @@ namespace LeetCode
         private static string WordToMorse(string word)
         {
             StringBuilder sb = new StringBuilder();
-            for(int i = 0; i < word.Length; i++)
+            for (int i = 0; i < word.Length; i++)
                 sb.Append(morse[word[i] - 'a']);
 
             return sb.ToString();
@@ -2002,11 +2002,11 @@ namespace LeetCode
             Dictionary<string, int> map = new Dictionary<string, int>();
             HashSet<string> bannedSet = new HashSet<string>(banned);
 
-            foreach(var word in words)
+            foreach (var word in words)
             {
-                if(!bannedSet.Contains(word))
+                if (!bannedSet.Contains(word))
                 {
-                    if(map.ContainsKey(word))
+                    if (map.ContainsKey(word))
                         map[word]++;
                     else
                         map.Add(word, 1);
@@ -2014,9 +2014,9 @@ namespace LeetCode
             }
             int max = 0;
             string w = string.Empty;
-            foreach(var kvp in map)
+            foreach (var kvp in map)
             {
-                if(kvp.Value > max)
+                if (kvp.Value > max)
                 {
                     w = kvp.Key;
                     max = kvp.Value;
@@ -2032,17 +2032,17 @@ namespace LeetCode
         public static int[] ShortestToChar(string S, char C)
         {
             int[] arr = new int[S.Length];
-            for(int i = 0; i < S.Length; i++)
+            for (int i = 0; i < S.Length; i++)
             {
                 int l = i, r = i;
-                while(true)
+                while (true)
                 {
-                    if(S[l] == C)
+                    if (S[l] == C)
                     {
                         arr[i] = i - l;
                         break;
                     }
-                    if(S[r] == C)
+                    if (S[r] == C)
                     {
                         arr[i] = r - i;
                         break;
@@ -2062,17 +2062,17 @@ namespace LeetCode
         {
             var arr = S.Split(' ');
             StringBuilder sb = new StringBuilder();
-            for(int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 sb.Append(Transform(arr[i], i + 1));
-                if(i != arr.Length - 1)
+                if (i != arr.Length - 1)
                     sb.Append(" ");
             }
             return sb.ToString();
         }
         private static string Transform(string s, int index)
         {
-            if(s[0] == 'A' || s[0] == 'a'
+            if (s[0] == 'A' || s[0] == 'a'
                 || s[0] == 'E' || s[0] == 'e'
                 || s[0] == 'I' || s[0] == 'i'
                 || s[0] == 'O' || s[0] == 'o'
@@ -2081,7 +2081,7 @@ namespace LeetCode
                 char[] r = new char[2 + index];
                 r[0] = 'm';
                 r[1] = 'a';
-                for(int i = 2; i < r.Length; i++)
+                for (int i = 2; i < r.Length; i++)
                     r[i] = 'a';
 
                 return s + new string(r);
@@ -2089,11 +2089,11 @@ namespace LeetCode
             else
             {
                 char[] r = new char[s.Length + 2 + index];
-                for(int i = 0; i < s.Length; i++)
+                for (int i = 0; i < s.Length; i++)
                     r[i] = s[(i + 1) % s.Length];
                 r[r.Length - 1 - index] = 'a';
                 r[r.Length - 2 - index] = 'm';
-                for(int i = s.Length + 2; i < s.Length + 2 + index; i++)
+                for (int i = s.Length + 2; i < s.Length + 2 + index; i++)
                     r[i] = 'a';
                 return new string(r);
             }
@@ -2104,10 +2104,10 @@ namespace LeetCode
         #region 832. 翻转图像
         public static int[][] FlipAndInvertImage(int[][] A)
         {
-            for(int i = 0; i < A.Length; i++)
+            for (int i = 0; i < A.Length; i++)
             {
                 int l = 0, r = A[i].Length - 1;
-                while(l <= r)
+                while (l <= r)
                 {
                     int t = A[i][l];
                     A[i][l] = A[i][r] ^ 1;
@@ -2139,11 +2139,11 @@ namespace LeetCode
         {
             int i = 0;
             Stack<char> res = new Stack<char>();
-            while(i < s.Length)
+            while (i < s.Length)
             {
-                if(s[i] == '#')
+                if (s[i] == '#')
                 {
-                    if(res.Count > 0)
+                    if (res.Count > 0)
                         res.Pop();
                 }
                 else
@@ -2160,9 +2160,9 @@ namespace LeetCode
         #region 852. 山脉数组的峰顶索引
         public static int PeakIndexInMountainArray(int[] A)
         {
-            for(int i = 1; i < A.Length; i++)
+            for (int i = 1; i < A.Length; i++)
             {
-                if(A[i] < A[i - 1])
+                if (A[i] < A[i - 1])
                     return i - 1;
             }
             return A.Length;
@@ -2173,15 +2173,15 @@ namespace LeetCode
         #region 859. 亲密字符串
         public static bool BuddyStrings(string A, string B)
         {
-            if(A.Length != B.Length)
+            if (A.Length != B.Length)
                 return false;
 
-            if(A.Equals(B))
+            if (A.Equals(B))
             {
                 HashSet<char> set = new HashSet<char>();
 
-                for(int i = 0; i < A.Length; i++)
-                    if(!set.Add(A[i]))
+                for (int i = 0; i < A.Length; i++)
+                    if (!set.Add(A[i]))
                         return true;
 
                 return false;
@@ -2190,11 +2190,11 @@ namespace LeetCode
             int c = 0;
             int xor = 0;
 
-            for(int i = 0; i < A.Length; i++)
+            for (int i = 0; i < A.Length; i++)
             {
                 char a = A[i], b = B[i];
                 xor ^= (a ^ b);
-                if(a != b)
+                if (a != b)
                     c++;
             }
 
@@ -2208,39 +2208,39 @@ namespace LeetCode
         {
             int five = 0;
             int ten = 0;
-            foreach(var bill in bills)
+            foreach (var bill in bills)
             {
-                if(bill == 5)
+                if (bill == 5)
                 {
                     five++;
                 }
-                else if(bill == 10)
+                else if (bill == 10)
                 {
-                    if(five == 0)
+                    if (five == 0)
                         return false;
                     else
                         five--;
 
                     ten++;
                 }
-                else if(bill == 20)
+                else if (bill == 20)
                 {
-                    if(five == 0)
+                    if (five == 0)
                     {
                         return false;
                     }
                     else
                     {
-                        if(ten == 0)
+                        if (ten == 0)
                         {
-                            if(five < 3)
+                            if (five < 3)
                                 return false;
                             else
                                 five -= 3;
                         }
                         else
                         {
-                            if(five == 0)
+                            if (five == 0)
                             {
                                 return false;
                             }
@@ -2262,15 +2262,15 @@ namespace LeetCode
         #region 868. 转置矩阵
         public static int[][] Transpose(int[][] A)
         {
-            if(A == null || A.Length <= 0)
+            if (A == null || A.Length <= 0)
                 return null;
 
             int w = A[0].Length;
             int[][] res = new int[w][];
-            for(int i = 0; i < w; i++)
+            for (int i = 0; i < w; i++)
             {
                 res[i] = new int[A.Length];
-                for(int j = 0; j < A.Length; j++)
+                for (int j = 0; j < A.Length; j++)
                 {
                     res[i][j] = A[j][i];
                 }
@@ -2289,11 +2289,11 @@ namespace LeetCode
             List<int> leaves2 = new List<int>();
             GetLeaf(root2, leaves2);
 
-            if(leaves1.Count != leaves2.Count)
+            if (leaves1.Count != leaves2.Count)
                 return false;
 
-            for(int i = 0; i < leaves1.Count; i++)
-                if(leaves1[i] != leaves2[i])
+            for (int i = 0; i < leaves1.Count; i++)
+                if (leaves1[i] != leaves2[i])
                     return false;
 
             return true;
@@ -2301,14 +2301,14 @@ namespace LeetCode
 
         private static void GetLeaf(TreeNode tree, List<int> list)
         {
-            if(tree.left == null && tree.right == null)
+            if (tree.left == null && tree.right == null)
             {
                 list.Add(tree.val);
                 return;
             }
-            if(tree.left != null)
+            if (tree.left != null)
                 GetLeaf(tree.left, list);
-            if(tree.right != null)
+            if (tree.right != null)
                 GetLeaf(tree.right, list);
         }
 
@@ -2321,7 +2321,7 @@ namespace LeetCode
             var slower = head;
             var faster = head;
 
-            while(faster != null && faster.next != null)
+            while (faster != null && faster.next != null)
             {
                 faster = faster.next.next;
                 slower = slower.next;
@@ -2349,11 +2349,11 @@ namespace LeetCode
         {
             HashSet<string> res = new HashSet<string>();
             HashSet<string> duplicate = new HashSet<string>();
-            foreach(var item in arr)
+            foreach (var item in arr)
             {
-                if(!duplicate.Contains(item))
+                if (!duplicate.Contains(item))
                 {
-                    if(!res.Add(item))
+                    if (!res.Add(item))
                     {
                         res.Remove(item);
                         duplicate.Add(item);
@@ -2366,8 +2366,8 @@ namespace LeetCode
         private static void RemoveDuplicate(HashSet<string> set, string[] arr, HashSet<string> res)
         {
             HashSet<string> s = new HashSet<string>(arr);
-            foreach(var item in set)
-                if(!s.Contains(item))
+            foreach (var item in set)
+                if (!s.Contains(item))
                     res.Add(item);
         }
 
@@ -2405,11 +2405,11 @@ namespace LeetCode
             while (l < r)
             {
                 char lc = arr[l], rc = arr[r];
-                if(!char.IsLetter(lc))
+                if (!char.IsLetter(lc))
                 {
                     l++;
                 }
-                else if(!char.IsLetter(rc))
+                else if (!char.IsLetter(rc))
                 {
                     r--;
                 }
@@ -2424,6 +2424,31 @@ namespace LeetCode
             return new string(arr);
         }
 
+        #endregion
+
+        //https://leetcode-cn.com/problems/sort-array-by-parity-ii/description/
+        #region 922. 按奇偶排序数组 II
+        public static int[] SortArrayByParityII(int[] A)
+        {
+            int[] B = new int[A.Length];
+            int m = 0, n = 1;
+            for (int i = 0; i < A.Length; i++)
+            {
+                int x = A[i];
+                if((x & 1) == 0)
+                {
+                    B[m] = x;
+                    m += 2;
+                }
+                else
+                {
+                    B[n] = x;
+                    n += 2;
+                }
+            }
+
+            return B;
+        }
         #endregion
     }
 }
