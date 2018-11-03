@@ -2450,5 +2450,60 @@ namespace LeetCode
             return B;
         }
         #endregion
+
+        //https://leetcode-cn.com/problems/unique-email-addresses/description/
+        #region 929. 独特的电子邮件地址
+        public static int NumUniqueEmails(string[] emails)
+        {
+            HashSet<string> mails = new HashSet<string>();
+
+            foreach (var mail in emails)
+            {
+                mails.Add(ParseEmail(mail));
+            }
+
+            return mails.Count;
+        }
+
+        private static string ParseEmail(string email)
+        {
+            List<char> chars = new List<char>(email.Length);
+            bool addAll = false;
+            bool skip = false;
+            for (int i = 0; i < email.Length; i++)
+            {
+                char c = email[i];
+                if(addAll)
+                {
+                    chars.Add(c);
+                    continue;
+                }
+
+                if (c == '@')
+                {
+                    addAll = true;
+                    chars.Add(c);
+                    continue;
+                }
+
+                if(skip)
+                {
+                    continue;
+                }
+
+                if (c == '+')
+                {
+                    skip = true;
+                    continue;
+                }
+
+                if(c != '.')
+                {
+                    chars.Add(c);
+                }
+            }
+            return new string(chars.ToArray());
+        }
+        #endregion
     }
 }
