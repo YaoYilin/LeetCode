@@ -137,6 +137,7 @@
 * [393. UTF-8 编码验证](https://leetcode-cn.com/problems/utf-8-validation/description/)
 * [394. 字符串解码](https://leetcode-cn.com/problems/decode-string/description/)
 * [397. 整数替换](https://leetcode-cn.com/problems/integer-replacement/description/)
+* [423. 从英文中重建数字](https://leetcode-cn.com/problems/reconstruct-original-digits-from-english/)
 * [442. 数组中重复的数据](https://leetcode-cn.com/problems/find-all-duplicates-in-an-array/description/)
 * [456. 132 Pattern](https://leetcode-cn.com/problems/132-pattern/description/)
 * [468. 验证IP地址](https://leetcode-cn.com/problems/validate-ip-address/description/)

@@ -1030,6 +1030,45 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/reconstruct-original-digits-from-english/description/
+        #region 423. 从英文中重建数字
+        public static string OriginalDigits(string s)
+        {
+            char[] letters = new char['z' + 1];
+            for (int i = 0; i < s.Length; i++)
+            {
+                letters[s[i]]++;
+            }
+
+            int[] counts = new int[10];
+            counts[0] = letters['z'];
+            counts[2] = letters['w'];
+            counts[4] = letters['u'];
+            counts[6] = letters['x'];
+            counts[8] = letters['g'];
+            counts[5] = letters['f'] - counts[4];
+            counts[7] = letters['v'] - counts[5];
+            counts[3] = letters['r'] - counts[0] - counts[4];
+            counts[1] = letters['o'] - counts[0] - counts[2] - counts[4];
+            counts[9] = letters['i'] - counts[5] - counts[6] - counts[8];
+
+            char[] chars = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            int l = counts[0] + counts[1] + counts[2] + counts[3] + counts[4] + counts[5] + counts[6] + counts[7] + counts[8] + counts[9];
+            char[] res = new char[l];
+            int k = 0;
+            for (int i = 0; i < counts.Length; i++)
+            {
+                char v = chars[i];
+                for (int j = 0; j < counts[i]; j++)
+                {
+                    res[k++] = v;
+                }
+            }
+
+            return new string(res);
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/find-all-duplicates-in-an-array/description/
         #region 442. 数组中重复的数据
         public static IList<int> FindDuplicates(int[] nums)
