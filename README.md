@@ -1,3 +1,5 @@
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)    [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
+
 ## LeetCode Algorithms
 * 这是一个关于LeetCode上算法题目的解法集合，主要是用C#语言（基本上没有用到C#的库函数，所以代码基本上可以移植到其他语言）。后续会不定期的添加。下面列表列出的均为跑通的代码，如果有更好的算法解答，欢迎添加。
 * URL:  [https://github.com/YaoYilin/LeetCode](https://github.com/YaoYilin/LeetCode)
