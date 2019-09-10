@@ -9,6 +9,7 @@
 * [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/description/)
 * [26. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/description/)
 * [27. 移除元素](https://leetcode-cn.com/problems/remove-element/description/)
+* [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)
 * [35. 搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/description/)
 * [58. 最后一个单词的长度](https://leetcode-cn.com/problems/length-of-last-word/description/)
 * [66. 加一](https://leetcode-cn.com/problems/plus-one/description/)

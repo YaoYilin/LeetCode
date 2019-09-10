@@ -168,6 +168,42 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/implement-strstr/
+        #region 28. 实现 strStr()
+        public static int StrStr(string haystack, string needle)
+        {
+            if (haystack.Length < needle.Length)
+            {
+                return -1;
+            }
+            if(string.IsNullOrEmpty(needle))
+            {
+                return 0;
+            }
+            char n = needle[0];
+            for (int i = 0; i < haystack.Length - needle.Length + 1; i++)
+            {
+                char c = haystack[i];
+                if (c == n)
+                {
+                    bool isFound = true;
+                    for (int j = 1; j < needle.Length; j++)
+                    {
+                        if(haystack[i + j] != needle[j])
+                        {
+                            isFound = false;
+                        }
+                    }
+                    if(isFound)
+                    {
+                        return i;
+                    }
+                }
+            }
+            return -1;
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/search-insert-position/description/
         #region 35. 搜索插入位置
         public static int SearchInsert(int[] nums, int target)
@@ -2435,7 +2471,7 @@ namespace LeetCode
             for (int i = 0; i < A.Length; i++)
             {
                 int x = A[i];
-                if((x & 1) == 0)
+                if ((x & 1) == 0)
                 {
                     B[m] = x;
                     m += 2;
@@ -2473,7 +2509,7 @@ namespace LeetCode
             for (int i = 0; i < email.Length; i++)
             {
                 char c = email[i];
-                if(addAll)
+                if (addAll)
                 {
                     chars.Add(c);
                     continue;
@@ -2486,7 +2522,7 @@ namespace LeetCode
                     continue;
                 }
 
-                if(skip)
+                if (skip)
                 {
                     continue;
                 }
@@ -2497,7 +2533,7 @@ namespace LeetCode
                     continue;
                 }
 
-                if(c != '.')
+                if (c != '.')
                 {
                     chars.Add(c);
                 }
