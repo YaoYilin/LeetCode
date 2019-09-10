@@ -192,6 +192,7 @@ namespace LeetCode
                         if(haystack[i + j] != needle[j])
                         {
                             isFound = false;
+                            break;
                         }
                     }
                     if(isFound)
