@@ -176,7 +176,7 @@ namespace LeetCode
             {
                 return -1;
             }
-            if(string.IsNullOrEmpty(needle))
+            if (string.IsNullOrEmpty(needle))
             {
                 return 0;
             }
@@ -189,13 +189,13 @@ namespace LeetCode
                     bool isFound = true;
                     for (int j = 1; j < needle.Length; j++)
                     {
-                        if(haystack[i + j] != needle[j])
+                        if (haystack[i + j] != needle[j])
                         {
                             isFound = false;
                             break;
                         }
                     }
-                    if(isFound)
+                    if (isFound)
                     {
                         return i;
                     }
@@ -2540,6 +2540,41 @@ namespace LeetCode
                 }
             }
             return new string(chars.ToArray());
+        }
+        #endregion
+
+        //https://leetcode-cn.com/problems/day-of-the-week/comments/
+        #region 1185. 一周中的第几天
+        /// <summary>
+        /// 蔡勒公式
+        /// https://zh.wikipedia.org/wiki/%E8%94%A1%E5%8B%92%E5%85%AC%E5%BC%8F
+        /// https://en.wikipedia.org/wiki/Zeller%27s_congruence
+        /// w：星期（计算所得的数值对应的星期：0 - 星期日；1 - 星期一；2 - 星期二；3 - 星期三；4 - 星期四；5 - 星期五；6 - 星期六）[注 1]
+        /// c：年份前两位数
+        /// y：年份后两位数
+        /// m：月（m的取值范围为3至14，即在蔡勒公式中，某年的1、2月要看作上一年的13、14月来计算，比如2003年1月1日要看作2002年的13月1日来计算）
+        /// d：日
+        /// []：称作高斯符号，代表向下取整，即，取不大于原数的最大整数。
+        /// mod：同余（这里代表括号里的答案除以7后的余数）
+        /// </summary>
+        /// <param name="day"></param>
+        /// <param name="month"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public static string DayOfTheWeek(int day, int month, int year)
+        {
+            string[] array = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+            int m = month;
+            int y = year;
+            if (month <= 2)
+            {
+                m += 12;
+                y -= 1;
+            }
+            int c = y / 100;
+            y = y % 100;
+            int w = (y + y / 4 + c / 4 - 2 * c + (26 * (m + 1) / 10) + day - 1) % 7;
+            return array[(w + 7) % 7];
         }
         #endregion
     }
