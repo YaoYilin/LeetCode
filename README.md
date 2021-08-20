@@ -19,6 +19,7 @@
 * [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/description/)
 * [83. 删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/description/)
 * [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/description/)
+* [100. 相同的树](https://leetcode-cn.com/problems/same-tree/description/)
 * [101. 对称二叉树](https://leetcode-cn.com/problems/symmetric-tree/description/)
 * [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/description/)
 * [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/description/)

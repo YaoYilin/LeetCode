@@ -389,6 +389,27 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode-cn.com/problems/same-tree/description/
+        public static bool IsSameTree(TreeNode p, TreeNode q) 
+        {
+            if (p == null && q == null)
+            {
+                return true;
+            }
+
+            if (p == null || q == null)
+            {
+                return false;
+            }
+
+            if (p.val != q.val)
+            {
+                return false;
+            }
+
+            return IsSameTree(p.left, q.left) && IsSameTree(p.right, q.right);
+        }
+        
         //https://leetcode-cn.com/problems/symmetric-tree/description/
         #region 101. 对称二叉树
         public static bool IsSymmetric(TreeNode root)
