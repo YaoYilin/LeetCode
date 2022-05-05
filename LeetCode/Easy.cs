@@ -1882,6 +1882,39 @@ namespace LeetCode
             return (((long)n + (n >> 1) + 1) & ((long)n + (n >> 1))) == 0;
         }
         #endregion
+        
+        //https://leetcode-cn.com/problems/binary-search/
+
+        #region 704. 二分查找
+        public static int Search(int[] nums, int target)
+        {
+            int s = 0;
+            int e = nums.Length - 1;
+            int i = nums.Length / 2;
+
+            while (s <= e)
+            {
+                int v = nums[i];
+                if (v == target)
+                {
+                    return i;
+                }
+                
+                if (v < target)
+                {
+                    s = i + 1;
+                }
+                else
+                {
+                    e = i - 1;
+                }
+                
+                i = (e - s) / 2 + s;
+            }
+            
+            return -1;
+        }
+        #endregion
 
         //https://leetcode-cn.com/problems/to-lower-case/description/
         #region 709. 转换成小写字母
