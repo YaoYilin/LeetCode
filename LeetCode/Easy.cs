@@ -2597,6 +2597,25 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode.cn/problems/complement-of-base-10-integer/
+        #region 1009. 十进制整数的反码
+        public static int BitwiseComplement(int n) 
+        {
+            if(n == 0)
+            {
+                return 1;
+            }
+            int l = 0;
+            int m = n;
+            while (m > 0)
+            {
+                m >>= 1;
+                l = (l << 1) | 1;
+            }
+            return l & (~n);
+        }
+        #endregion
+        
         //https://leetcode-cn.com/problems/day-of-the-week/comments/
         #region 1185. 一周中的第几天
         /// <summary>
