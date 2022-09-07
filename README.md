@@ -17,6 +17,7 @@
 * [66. 加一](https://leetcode-cn.com/problems/plus-one/description/)
 * [67. 二进制求和](https://leetcode-cn.com/problems/add-binary/description/)
 * [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/description/)
+* [70. 爬楼梯](https://leetcode.cn/problems/climbing-stairs/)
 * [83. 删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/description/)
 * [88. 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/description/)
 * [100. 相同的树](https://leetcode-cn.com/problems/same-tree/description/)

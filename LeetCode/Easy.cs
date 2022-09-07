@@ -340,6 +340,25 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode.cn/problems/climbing-stairs/
+        #region 70. 爬楼梯
+        public static int ClimbStairs(int n)
+        {
+            if(n <= 2)
+            {
+                return n;
+            }
+            int pre = 2, prePre = 1;
+            for (int i = 2; i < n; i++)
+            {
+                int current = pre + prePre;
+                prePre = pre;
+                pre = current;
+            }
+
+            return pre;
+        }
+        #endregion
         //https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/description/
         #region 83. 删除排序链表中的重复元素
         public static ListNode DeleteDuplicates(ListNode head)
