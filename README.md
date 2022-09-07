@@ -113,6 +113,7 @@
 * [929. 独特的电子邮件地址](https://leetcode-cn.com/problems/unique-email-addresses/description/)
 * [1009. 十进制整数的反码](https://leetcode.cn/problems/complement-of-base-10-integer/)
 * [1185. 一周中的第几天](https://leetcode-cn.com/problems/day-of-the-week/comments/)
+* [1592. 重新排列单词间的空格](https://leetcode.cn/problems/rearrange-spaces-between-words/)
 ---
 ###  Medium
 * [2. 两数相加](https://leetcode-cn.com/problems/add-two-numbers/description/)

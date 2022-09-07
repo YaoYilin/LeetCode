@@ -2650,5 +2650,31 @@ namespace LeetCode
             return array[(w + 7) % 7];
         }
         #endregion
+        
+        //https://leetcode.cn/problems/rearrange-spaces-between-words/
+        #region 1592. 重新排列单词间的空格
+        public static string ReorderSpaces(string text)
+        {
+            if (text.Length <= 1)
+            {
+                return text;
+            }
+            string[] array = text.Split(new[] {" "}, StringSplitOptions.RemoveEmptyEntries);
+            int total = 0;
+            foreach (string s in array)
+            {
+                total += s.Length;
+            }
+
+            int l = 0;
+            if (array.Length > 1)
+            {
+                l = (text.Length - total) / (array.Length - 1);
+            }
+            
+            string str = string.Join("".PadRight(l, ' '), array);
+            return str.PadRight(text.Length, ' ');
+        }
+        #endregion
     }
 }
