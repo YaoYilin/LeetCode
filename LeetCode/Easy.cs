@@ -2716,5 +2716,20 @@ namespace LeetCode
             return str.PadRight(text.Length, ' ');
         }
         #endregion
+        
+        //https://leetcode.cn/problems/sum-of-digits-in-base-k/
+        #region 1837. K 进制表示下的各位数字总和
+        public static int SumBase(int n, int k)
+        {
+            int v = 0;
+            while (n > 0)
+            {
+                v += n % k;
+                n /= k;
+            }
+
+            return v;
+        }
+        #endregion
     }
 }
