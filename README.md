@@ -7,6 +7,7 @@
 ###  Easy
 * [1. 两数之和](https://leetcode-cn.com/problems/two-sum/description/)
 * [7. 颠倒整数](https://leetcode-cn.com/problems/reverse-integer/description/)
+* [9. 回文数](https://leetcode.cn/problems/palindrome-number/)  
 * [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/description/)
 * [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/description/)
 * [26. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/description/)

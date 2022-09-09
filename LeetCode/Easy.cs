@@ -49,6 +49,26 @@ namespace LeetCode
             return result;
         }
         #endregion
+        
+        //https://leetcode.cn/problems/palindrome-number/
+        #region 9. 回文数
+        public static bool IsPalindrome(int x)
+        {
+            if (x < 0)
+            {
+                return false;
+            }
+
+            int cur = 0;
+            int num = x;
+            while(num != 0) 
+            {
+                cur = cur * 10 + num % 10;
+                num /= 10;
+            }
+            return cur == x;
+        }
+        #endregion
 
         //https://leetcode-cn.com/problems/valid-parentheses/description/
         #region 20. 有效的括号
@@ -359,6 +379,7 @@ namespace LeetCode
             return pre;
         }
         #endregion
+
         //https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/description/
         #region 83. 删除排序链表中的重复元素
         public static ListNode DeleteDuplicates(ListNode head)
