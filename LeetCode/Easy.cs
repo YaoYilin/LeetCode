@@ -2731,5 +2731,35 @@ namespace LeetCode
             return v;
         }
         #endregion
+
+        //https://leetcode.cn/problems/sorting-the-sentence/
+        #region 1859. 将句子排序
+        public static string SortSentence(string s) 
+        {
+            List<char> list = new List<char>();
+            string[] sentence = new string[9];
+            for (int i = 0; i < s.Length; i++)
+            {
+                char c = s[i];
+                if (c != ' ')
+                {
+                    if (!char.IsDigit(c))
+                    {
+                        list.Add(c);
+                    }
+                    else
+                    {
+                        sentence[c - '0' - 1] = new string(list.ToArray());
+                    }
+                }
+                else
+                {
+                    list.Clear();
+                }
+            }
+
+            return string.Join(" ", sentence).Trim();
+        }
+        #endregion
     }
 }

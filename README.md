@@ -117,7 +117,7 @@
 * [1185. 一周中的第几天](https://leetcode-cn.com/problems/day-of-the-week/comments/)
 * [1592. 重新排列单词间的空格](https://leetcode.cn/problems/rearrange-spaces-between-words/)
 * [1837. K 进制表示下的各位数字总和](https://leetcode.cn/problems/sum-of-digits-in-base-k/)
-
+* [1859. 将句子排序](https://leetcode.cn/problems/sorting-the-sentence/)
 ---
 ###  Medium
 * [2. 两数相加](https://leetcode-cn.com/problems/add-two-numbers/description/)
