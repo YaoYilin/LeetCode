@@ -54,6 +54,51 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode.cn/problems/letter-combinations-of-a-phone-number/
+
+        #region 17. 电话号码的字母组合
+        private static string[] PhoneNumbers = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        public static IList<string> LetterCombinations(string digits)
+        {
+            List<string> result = new List<string>();
+            List<string> letters = new List<string>();
+            for (int i = 0; i < digits.Length; i++)
+            {
+                string str = PhoneNumbers[digits[i] - '0'];
+                if (!string.IsNullOrWhiteSpace(str))
+                {
+                    letters.Add(str);
+                }
+            }
+
+            if (letters.Count > 0)
+            {
+                Backtrack(0, new Stack<char>(), letters, result);
+            }
+
+            return result;
+        }
+
+        private static void Backtrack(int index, Stack<char> buffer, List<string> letters, List<string> result)
+        {
+            if (index == letters.Count)
+            {
+                result.Add(new string(buffer.Reverse().ToArray()));
+            }
+            else
+            {
+                string s = letters[index];
+                foreach (char c in s)
+                {
+                    buffer.Push(c);
+                    Backtrack(index + 1, buffer, letters, result);
+                    buffer.Pop();
+                }
+            }
+        }
+        
+        #endregion
+        
         //https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/description/
         #region 19. 删除链表的倒数第N个节点
         public static ListNode RemoveNthFromEnd(ListNode head, int n)
