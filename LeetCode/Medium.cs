@@ -257,6 +257,40 @@ namespace LeetCode
             return res;
         }
         #endregion
+        
+        //https://leetcode.cn/problems/merge-intervals/
+        #region 56. 合并区间
+        public static int[][] Merge(int[][] intervals) 
+        {
+            Array.Sort(intervals, (a, b) =>
+            {
+                return a[0] < b[0] ? -1 : 1;
+            });
+
+            List<int[]> res = new List<int[]>();
+            int i = 0;
+            while (i < intervals.Length - 1)
+            {
+                int[] current = intervals[i];
+                int[] next = intervals[i + 1];
+                if (current[1] >= next[0])
+                {
+                    next[0] = current[0];
+                    if (current[1] > next[1])
+                    {
+                        next[1] = current[1];
+                    }
+                }
+                else
+                {
+                    res.Add(current);
+                }
+                i++;
+            }
+            res.Add(intervals[intervals.Length - 1]);
+            return res.ToArray();
+        }
+        #endregion
 
         //https://leetcode-cn.com/problems/spiral-matrix-ii/description/
         #region 59. 螺旋矩阵 II

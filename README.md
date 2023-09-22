@@ -128,6 +128,7 @@
 * [48. 旋转图像](https://leetcode-cn.com/problems/rotate-image/description/)
 * [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/description/)
 * [54. 螺旋矩阵](https://leetcode-cn.com/problems/spiral-matrix/description/)
+* [56. 合并区间](https://leetcode.cn/problems/merge-intervals/)
 * [59. 螺旋矩阵 II](https://leetcode-cn.com/problems/spiral-matrix-ii/description/)
 * [61. 旋转链表](https://leetcode-cn.com/problems/rotate-list/description/)
 * [73. 矩阵置零](https://leetcode-cn.com/problems/set-matrix-zeroes/description/)
