@@ -70,6 +70,48 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode.cn/problems/longest-common-prefix/
+
+        #region 14. 最长公共前缀
+        public static string LongestCommonPrefix(string[] strs) 
+        {
+            if (strs == null || strs.Length <= 0)
+            {
+                return "";
+            }
+
+            if (strs.Length == 1)
+            {
+                return strs[0];
+            }
+            
+            List<char> res = new List<char>();
+            string str = strs[0];
+            for (int i = 0; i < str.Length; i++)
+            {
+                char c = str[i];
+                for (int j = 1; j < strs.Length; j++)
+                {
+                    if (strs[j].Length > i)
+                    {
+                        char cx = strs[j][i];
+                        if (c != cx)
+                        {
+                            return new string(res.ToArray());
+                        }
+                    }
+                    else
+                    {
+                        return new string(res.ToArray());
+                    }
+                }
+                res.Add(c);
+            }
+            
+            return new string(res.ToArray());
+        }
+        #endregion
+        
         //https://leetcode-cn.com/problems/valid-parentheses/description/
         #region 20. 有效的括号
         public static bool IsValid(string s)
