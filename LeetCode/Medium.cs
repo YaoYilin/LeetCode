@@ -128,12 +128,92 @@ namespace LeetCode
         #endregion
 
         //https://leetcode-cn.com/problems/multiply-strings/description/
-        #region TODO: 43. 字符串相乘
+        #region 43. 字符串相乘
+
+        private static char[] TrimMultiplyString(string num)
+        {
+            Stack<char> nums = new Stack<char>();
+            bool isBegin = false;
+            foreach (char c in num)
+            {
+                if (!isBegin)
+                {
+                    if (c != '0')
+                    {
+                        nums.Push(c);
+                        isBegin = true;
+                    }
+                }
+                else
+                {
+                    nums.Push(c);
+                }
+            }
+
+            return nums.ToArray();
+        }
+
+        private static void InsertToList(List<char> list, int index, char value)
+        {
+            while (list.Count <= index)
+            {
+                list.Add('0');
+            }
+
+            char v = (char) (list[index] + value);
+            char carry = (char) ((v - '0') / 10);
+            list[index] = (char)((v - '0') % 10 + '0');
+            if (carry > 0)
+            {
+                InsertToList(list, index + 1, carry);
+            }
+        }
+        
         public static string Multiply(string num1, string num2)
         {
+            char[] nums1 = TrimMultiplyString(num1);
+            char[] nums2 = TrimMultiplyString(num2);
+            List<char> result = new List<char>();
 
+            for (int i = 0; i < nums1.Length; i++)
+            {
+                int a = nums1[i] - '0';
+                for (int j = 0; j < nums2.Length; j++)
+                {
+                    int carry = 0;
+                    int b = nums2[j] - '0';
+                    int res = a * b;
+                    carry = res / 10;
+                    res %= 10;
+                    InsertToList(result, i + j, (char)res);
+                    InsertToList(result, i + j + 1, (char)carry);
+                }
+            }
 
-            return "";
+            if (result.Count <= 0)
+            {
+                return "0";
+            }
+            
+            List<char> str = new List<char>();
+            bool isBegin = false;
+            for (int i = result.Count - 1; i >= 0; i--)
+            {
+                char c = result[i];
+                if (!isBegin)
+                {
+                    if (c != '0')
+                    {
+                        isBegin = true;
+                        str.Add(c);
+                    }
+                }
+                else
+                {
+                    str.Add(c);
+                }
+            }
+            return new string(str.ToArray());
         }
         #endregion
 
