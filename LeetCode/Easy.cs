@@ -112,6 +112,38 @@ namespace LeetCode
         }
         #endregion
         
+        // https://leetcode.cn/problems/roman-to-integer/
+        #region 13. 罗马数字转整数
+        public static int RomanToInt(string s)
+        {
+            int res = 0;
+            Dictionary<char, int> map = new Dictionary<char, int>()
+            {
+                {'I', 1},
+                {'V', 5},
+                {'X', 10},
+                {'L', 50},
+                {'C', 100},
+                {'D', 500},
+                {'M', 1000},
+            };
+            int length = s.Length;
+            for (int i = 0; i < length; i++)
+            {
+                char c = s[i];
+                int value = map[c];
+                if (i < length - 1 && value < map[s[i + 1]])
+                {
+                    res -= value;
+                }
+                else
+                {
+                    res += value;
+                }
+            }
+            return res;
+        }
+        #endregion
         //https://leetcode-cn.com/problems/valid-parentheses/description/
         #region 20. 有效的括号
         public static bool IsValid(string s)
