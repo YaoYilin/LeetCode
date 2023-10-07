@@ -1891,6 +1891,20 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode.cn/problems/maximum-product-of-three-numbers/description/
+        #region 628. 三个数的最大乘积
+        public static int MaximumProduct(int[] nums) 
+        {
+            int l = nums.Length;
+            if (l <= 3)
+            {
+                return nums[0] * nums[1] * nums[2];
+            }
+            Array.Sort(nums);
+            return Math.Max(nums[l - 1] * nums[l - 2] * nums[l - 3], nums[0] * nums[1] * nums[l - 1]);
+        }
+        #endregion
+
         //https://leetcode-cn.com/problems/sum-of-square-numbers/description/
         #region 633. 平方数之和
         public static bool JudgeSquareSum(int c)
