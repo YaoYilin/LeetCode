@@ -504,6 +504,7 @@ namespace LeetCode
         #endregion
 
         //https://leetcode-cn.com/problems/same-tree/description/
+        #region 100. 相同的树
         public static bool IsSameTree(TreeNode p, TreeNode q) 
         {
             if (p == null && q == null)
@@ -523,6 +524,7 @@ namespace LeetCode
 
             return IsSameTree(p.left, q.left) && IsSameTree(p.right, q.right);
         }
+        #endregion
         
         //https://leetcode-cn.com/problems/symmetric-tree/description/
         #region 101. 对称二叉树
@@ -1927,6 +1929,46 @@ namespace LeetCode
         }
         #endregion
 
+        //https://leetcode.cn/problems/average-of-levels-in-binary-tree/
+        #region 637. 二叉树的层平均值
+        public static IList<double> AverageOfLevels(TreeNode root)
+        {
+            IList<double> res = new List<double>();
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+            queue.Enqueue(root);
+            BFSTree(queue, res);
+            return res;
+        }
+
+        private static void BFSTree(Queue<TreeNode> levelQueue, IList<double> res)
+        {
+            double value = 0;
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+            int n = levelQueue.Count;
+            if (n <= 0)
+            {
+                return;
+            }
+            while (levelQueue.Count > 0)
+            {
+                TreeNode current = levelQueue.Dequeue();
+                value += current.val;
+                if (current.left != null)
+                {
+                    queue.Enqueue(current.left);  
+                }
+
+                if (current.right != null)
+                {
+                    queue.Enqueue(current.right);
+                }
+            }
+
+            res.Add(value / n);
+            BFSTree(queue, res);
+        }
+        #endregion
+        
         //https://leetcode-cn.com/problems/set-mismatch/description/
         #region 645. 错误的集合
         public static int[] FindErrorNums(int[] nums)
@@ -1947,6 +1989,7 @@ namespace LeetCode
             return res;
         }
         #endregion
+
         //https://leetcode-cn.com/problems/judge-route-circle/description/
         #region 657. 判断路线成圈
         public static bool JudgeCircle(string moves)
