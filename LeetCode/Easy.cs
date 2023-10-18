@@ -2892,5 +2892,37 @@ namespace LeetCode
             return string.Join(" ", sentence).Trim();
         }
         #endregion
+        
+        //https://leetcode.cn/problems/number-of-senior-citizens/description/
+        #region 2678. 老人的数目
+        public static int CountSeniors(string[] details)
+        {
+            int count = 0;
+            foreach (string detail in details)
+            {
+                char c1 = detail[11];
+                if (c1 > '6' && c1 <= '9')
+                {
+                    count++;
+                }
+                else
+                {
+                    if(c1 == '6')
+                    {
+                        char c2 = detail[12];
+                        if (c2 > '0')
+                        {
+                            count++;
+                        }
+                    }
+                }
+            }
+            
+            return count;
+        }
+
+        
+
+        #endregion
     }
 }

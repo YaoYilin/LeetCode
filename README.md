@@ -122,6 +122,7 @@
 * [1592. 重新排列单词间的空格](https://leetcode.cn/problems/rearrange-spaces-between-words/) (<u> [答案跳转](https://github.com/YaoYilin/LeetCode/blob/master/LeetCode/Easy.cs#L2826) </u>)
 * [1837. K 进制表示下的各位数字总和](https://leetcode.cn/problems/sum-of-digits-in-base-k/) (<u> [答案跳转](https://github.com/YaoYilin/LeetCode/blob/master/LeetCode/Easy.cs#L2852) </u>)
 * [1859. 将句子排序](https://leetcode.cn/problems/sorting-the-sentence/) (<u> [答案跳转](https://github.com/YaoYilin/LeetCode/blob/master/LeetCode/Easy.cs#L2867) </u>)
+* [2678. 老人的数目](https://leetcode.cn/problems/number-of-senior-citizens/description/) (<u> [答案跳转](https://github.com/YaoYilin/LeetCode/blob/master/LeetCode/Easy.cs#L2897) </u>)
 ---
 ###  Medium
 * [2. 两数相加](https://leetcode-cn.com/problems/add-two-numbers/description/) (<u> [答案跳转](https://github.com/YaoYilin/LeetCode/blob/master/LeetCode/Medium.cs#L12) </u>)
